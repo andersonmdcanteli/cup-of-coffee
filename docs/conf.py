@@ -77,24 +77,23 @@ html_logo = "_static/logo.png"
 
 
 html_theme_options = {
-    "google_analytics_id": "UA-XXXXXXX",
     "icon_links": [
         {
             "name": "GitHub",
-            "url": "https://github.com/<your-org>/<your-repo>",
+            "url": "https://github.com/<your-org>/https://github.com/andersonmdcanteli/cup-of-coffee",
             "icon": "fab fa-github-square",
             "type": "fontawesome",
         },
         {
-            "name": "GitLab",
-            "url": "https://gitlab.com/<your-org>/<your-repo>",
-            "icon": "fab fa-gitlab",
+            "name": "website",
+            "url": "https://andersonmdcanteli.github.io/",
+            "icon": "fas fa-coffee",
             "type": "fontawesome",
         },
         {
-            "name": "Twitter",
-            "url": "https://twitter.com/<your-handle>",
-            "icon": "fab fa-twitter-square",
+            "name": "Contact",
+            "url": "https://drive.google.com/file/d/15lgqKeKLskShRvSqjIhUd4QspgSpaFYM/view?usp=sharing",
+            "icon": "fas fa-id-badge",
             # The default for `type` is `fontawesome` so it is not actually required in any of the above examples as it is shown here
         },
     ],

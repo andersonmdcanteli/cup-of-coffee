@@ -1,5 +1,8 @@
 User Guide
 ==========
 
+.. |cup_coffee| unicode:: U+2615
 
-Como usar, com alguns exemplos
+.. admonition:: |cup_coffee|
+
+   Under construction.
