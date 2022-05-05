@@ -1,0 +1,348 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cup_of_coffee.functions.functions &#8212; Cup of Coffee 0.1 documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css\custom.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-XXXXXXX', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../../../index.html">
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../source/user_guide.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../source/index.html">
+  Documentation
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../source/examples/example.html">
+  Examples
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../source/contribute.html">
+  Contribute
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/<your-org>/<your-repo>" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://gitlab.com/<your-org>/<your-repo>" rel="noopener" target="_blank" title="GitLab"><span><i class="fab fa-gitlab"></i></span>
+            <label class="sr-only">GitLab</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/<your-handle>" rel="noopener" target="_blank" title="Twitter"><span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for cup_of_coffee.functions.functions</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;This module concentrates all the functions that are not in a class</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Function list:</span>
+<span class="c1">#</span>
+<span class="c1">#     - multimode(x_exp, language=None)</span>
+
+<span class="c1">#########################################</span>
+<span class="c1">################ Imports ################</span>
+<span class="c1">#########################################</span>
+
+<span class="c1">###### Standard ######</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">takewhile</span>
+
+<span class="c1">###### Third part ######</span>
+
+
+
+<span class="c1">###### Home made ######</span>
+<span class="kn">from</span> <span class="nn">cup_of_coffee.database_management</span> <span class="kn">import</span> <span class="n">management</span>
+<span class="kn">from</span> <span class="nn">cup_of_coffee.utils</span> <span class="kn">import</span> <span class="n">checkers</span>
+<span class="kn">from</span> <span class="nn">cup_of_coffee.utils</span> <span class="kn">import</span> <span class="n">general</span>
+
+
+
+<span class="c1">###########################################</span>
+<span class="c1">################ Functions ################</span>
+<span class="c1">###########################################</span>
+
+
+
+<span class="c1"># with tests, with text, with database, with docstring</span>
+<div class="viewcode-block" id="multimode"><a class="viewcode-back" href="../../../source/api/functions/functions/multimode.html#cup_of_coffee.functions.functions.multimode">[docs]</a><span class="k">def</span> <span class="nf">multimode</span><span class="p">(</span><span class="n">x_exp</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This function calculates the mode(s) for a numerical sample, returning a dictionary of key-value pairs, where the key is the mode and the value is the count of that mode. If the sample has more than one mode, all modes will be returned.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x_exp : 1D :doc:`numpy array &lt;numpy:reference/generated/numpy.array&gt;`</span>
+<span class="sd">        Array with the sample data</span>
+<span class="sd">    language : ``str``, optional</span>
+<span class="sd">        The language code. Default is ``None`` which results in ``en``.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The function ``scipy.stats.mode()`` [2]_ was not used due to its limitation of returning only the smallest one, even if the data is multimodal.</span>
+
+<span class="sd">    The function ``statistics.multimode()`` [3]_ was not used due to python version (added in python version 3.8). Consider using it in the future.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    multimode : ``dict`` of pairs, where</span>
+
+<span class="sd">        * ``keys`` are the modes</span>
+<span class="sd">        * ``values`` are the respective count</span>
+
+<span class="sd">        If the data does not have a mode (all values are unique), the ``key`` is ``None`` and the ``value`` is a message.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [1] Inspired by: https://stackoverflow.com/a/9567767/17872198</span>
+<span class="sd">    .. [2] SciPy mode: https://docs.scipy.org/doc/scipy-1.8.0/html-scipyorg/reference/generated/scipy.stats.mode.html</span>
+<span class="sd">    .. [3] Python multimode: https://docs.python.org/3/library/statistics.html#statistics.multimode</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from easy_stat.functions.functions import multimode</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; x = np.array([2, 23, 4, 2, 5])</span>
+<span class="sd">    &gt;&gt;&gt; result = multimode(x)</span>
+<span class="sd">    &gt;&gt;&gt; print(result)</span>
+<span class="sd">    {2: 2}</span>
+
+<span class="sd">    &gt;&gt;&gt; from easy_stat.functions.functions import multimode</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; x = np.array([0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 4])</span>
+<span class="sd">    &gt;&gt;&gt; result = multimode(x)</span>
+<span class="sd">    &gt;&gt;&gt; print(result)</span>
+<span class="sd">    {1: 4, 2: 4}</span>
+
+<span class="sd">    &gt;&gt;&gt; from easy_stat.functions.functions import multimode</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; x = np.array([1.1, 1.1, 2.1, 3.1, 4.1, 5.1])</span>
+<span class="sd">    &gt;&gt;&gt; result = multimode(x)</span>
+<span class="sd">    &gt;&gt;&gt; print(result)</span>
+<span class="sd">    {1.1: 2}</span>
+
+<span class="sd">    &gt;&gt;&gt; from easy_stat.functions.functions import multimode</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; x = np.array([1, 2, 3, 4, 5])</span>
+<span class="sd">    &gt;&gt;&gt; result = multimode(x)</span>
+<span class="sd">    &gt;&gt;&gt; print(result)</span>
+<span class="sd">    {None: &#39;The data has no mode.&#39;}</span>
+
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">all_languages</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_get_all_available_languages</span><span class="p">()</span>
+    <span class="n">current_default_language</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_get_current_default_language</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">language</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">language</span> <span class="o">=</span> <span class="n">current_default_language</span>
+    <span class="k">elif</span> <span class="n">language</span> <span class="ow">in</span> <span class="n">all_languages</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Error: language not valid&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">all_formated_languages</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;  ---&gt;  </span><span class="si">{</span><span class="n">lang</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">lang</span> <span class="ow">in</span> <span class="n">all_languages</span><span class="p">]</span>
+            <span class="n">fk_id_function</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_query_func_id</span><span class="p">(</span><span class="s2">&quot;LanguageManagment&quot;</span><span class="p">)</span>
+
+            <span class="n">messages</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_get_messages</span><span class="p">(</span><span class="n">fk_id_function</span><span class="p">,</span> <span class="n">current_default_language</span><span class="p">)</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> &#39;</span><span class="si">{</span><span class="n">language</span><span class="si">}</span><span class="s2">&#39; </span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">,</span>
+                <span class="n">all_formated_languages</span>
+            <span class="p">]</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">general</span><span class="o">.</span><span class="n">_flatten_list_of_list_string</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="n">general</span><span class="o">.</span><span class="n">_display_n_line_attention</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span>
+    <span class="c1"># cheking if the input is a 1D numpy array</span>
+    <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_numpy_1_D</span><span class="p">(</span><span class="n">x_exp</span><span class="p">,</span> <span class="s2">&quot;x_exp&quot;</span><span class="p">,</span> <span class="n">language</span><span class="p">)</span>
+    <span class="c1"># making a counter with the data</span>
+    <span class="n">freq</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">x_exp</span><span class="p">)</span>
+    <span class="c1"># getting the most_common frequency</span>
+    <span class="n">mostfreq</span> <span class="o">=</span> <span class="n">freq</span><span class="o">.</span><span class="n">most_common</span><span class="p">()</span>
+    <span class="c1"># making a list with the most comum with how much counts for each mode</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">takewhile</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x_f</span><span class="p">:</span> <span class="n">x_f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">mostfreq</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">mostfreq</span><span class="p">))</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
+    <span class="n">no_mode</span> <span class="o">=</span> <span class="nb">all</span><span class="p">(</span><span class="n">value</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">mode</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">no_mode</span><span class="p">:</span>
+        <span class="c1">### querring ###</span>
+        <span class="n">func_name</span> <span class="o">=</span> <span class="s2">&quot;multimode&quot;</span>
+        <span class="n">fk_id_function</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_query_func_id</span><span class="p">(</span><span class="n">func_name</span><span class="p">)</span>
+        <span class="n">messages</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_get_messages</span><span class="p">(</span><span class="n">fk_id_function</span><span class="p">,</span> <span class="n">language</span><span class="p">,</span> <span class="n">func_name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="kc">None</span><span class="p">:</span> <span class="n">messages</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">mode</span></div>
+
+
+
+
+<span class="c1"># We live in every moment but this one... Why don&#39;t we recognize the faces loving us so https://youtu.be/kAFxLXqP8UM?t=45</span>
+</pre></div>
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022, Anderson Canteli.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

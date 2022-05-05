@@ -1,15 +1,15 @@
 """This module concentrates all generic helper functions, e.g, functions that does not require language management
 
-Function list:
-
-    - _display_n_line_warn(flat_list)
-    - _display_one_line_attention(text)
-    - _display_n_line_attention(flat_list)
-    - _display_two_line_attention(text1, text2)
-    - _display_warn(aviso, texto)
-    - _flatten_list_of_list_string(list_of_lists)
-
 """
+# Function list:
+#
+#     - _display_n_line_warn(flat_list)
+#     - _display_one_line_attention(text)
+#     - _display_n_line_attention(flat_list)
+#     - _display_two_line_attention(text1, text2)
+#     - _display_warn(aviso, texto)
+#     - _flatten_list_of_list_string(list_of_lists)
+
 #########################################
 ################ Imports ################
 #########################################
@@ -28,6 +28,14 @@ from colorama import Fore, Style, Back, init
 
 
 def _display_n_line_warn(flat_list):
+    """This function prints in the console the elements passed as a parameter, the first element being printed in red
+
+    Parameters
+    ----------
+    flat_list: ``list``
+        A flat list with values to be printed.
+
+    """
     init()
     size = len(max(flat_list, key=len))
     print("\n")
@@ -44,6 +52,15 @@ def _display_n_line_warn(flat_list):
     print(Style.RESET_ALL)
 
 def _display_one_line_attention(text):
+    """
+    This function prints edited text to the console in a way that catches the user's attention
+
+    Parameters
+    ----------
+    text: ``str``
+        The text to be printed
+
+    """
     print("\n")
     print("^"*len(text))
     print(text)
@@ -51,6 +68,15 @@ def _display_one_line_attention(text):
     print("\n")
 
 def _display_n_line_attention(flat_list):
+    """This function prints in the console the elements passed as a parameter, in a way that catches the user's attention
+
+    Parameters
+    ----------
+    flat_list: ``list``
+        A flat list with values to be printed.
+
+    """
+
     size = len(max(flat_list, key=len))
     print("\n")
     print("^"*size)
@@ -60,6 +86,17 @@ def _display_n_line_attention(flat_list):
     print("\n")
 
 def _display_two_line_attention(text1, text2):
+    """
+    This function prints edited text to the console in a way that catches the user's attention, where text 1 is printed on the first line, and text2 is printed on the second line.
+
+    Parameters
+    ----------
+    text1: ``str``
+        The text to be printed on the first line
+    text2: ``str``
+        The text to be printed on the second line
+
+    """
     size = max(len(text1), len(text2))
     print("\n")
     print("^"*size)
@@ -69,6 +106,16 @@ def _display_two_line_attention(text1, text2):
     print("\n")
 
 def _display_warn(aviso, texto):
+    """This function prints in the console the ``aviso`` in red at first line and the texto in white at second line.
+
+    Parameters
+    ----------
+    aviso: ``str``
+        The text to be printed in red
+    texto: ``str``
+        The text to be printed in white
+
+    """
     init()
     size = max(len(aviso), len(texto))
     print("\n")
@@ -81,12 +128,22 @@ def _display_warn(aviso, texto):
 
 def _flatten_list_of_list_string(list_of_lists):
     """
-    Example:
+    This function flats a nested list with strings in it
+
+    Parameters
+    ----------
+    list_of_lists: list of lists
+        The list to be flattened
+
+    Example
+    -------
     a = ['The language enn is not available yet.', 'The languages available are:', ['  --->  en', '  --->  pt-br']]
     flat_list = _flatten_list_of_list_string(a)
     flat_list = list(flat_list)
 
-    source: https://stackoverflow.com/a/5286571/17872198
+    Reference
+    ---------
+    .. [1] https://stackoverflow.com/a/5286571/17872198
     """
     for x in list_of_lists:
         if hasattr(x, '__iter__') and not isinstance(x, str):

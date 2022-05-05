@@ -19,7 +19,7 @@ Command to run at the prompt:
 
 import os
 import unittest
-from cup_of_coffee.utils.helpers import LanguageManagment
+from cup_of_coffee.utils.helpers import LanguageManagement
 os.system("cls")
 
 
@@ -27,25 +27,25 @@ class Test_init(unittest.TestCase):
 
     def test_set_to_pb_bl(self):
         with self.assertRaises(ValueError, msg="Does not raised error when a invalid language is passed"):
-            teste = LanguageManagment("pb-bl")
+            teste = LanguageManagement("pb-bl")
 
     def test_set_to_pt_br(self):
-        teste = LanguageManagment("pt-br")
+        teste = LanguageManagement("pt-br")
         self.assertEqual(teste.language, "pt-br", msg="The language is not pt-br")
 
     def test_default(self):
-        teste = LanguageManagment()
+        teste = LanguageManagement()
         self.assertEqual(teste.language, "en", msg="The language is not en")
 
 class Test_set_language(unittest.TestCase):
 
     def test_set_to_pb_bl(self):
         with self.assertRaises(ValueError, msg="Does not raised error when a invalid language is passed"):
-            teste = LanguageManagment()
+            teste = LanguageManagement()
             result = teste.set_language("pb-bl")
 
     def test_set_to_pt_br(self):
-        teste = LanguageManagment()
+        teste = LanguageManagement()
         teste.set_language("pt-br")
         self.assertEqual(teste.language, "pt-br", msg="The language is not pt-br")
 
@@ -54,12 +54,12 @@ class Test_set_language(unittest.TestCase):
 class Test_get_language(unittest.TestCase):
 
     def test_default(self):
-        teste = LanguageManagment()
+        teste = LanguageManagement()
         result = teste.get_language()
         self.assertEqual(result, "en", msg="The default language is not en")
 
     def test_pt_br(self):
-        teste = LanguageManagment()
+        teste = LanguageManagement()
         teste.set_language('pt-br')
         result = teste.get_language()
         self.assertEqual(result, "pt-br", msg="The language is not pt-br")

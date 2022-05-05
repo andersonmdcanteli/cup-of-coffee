@@ -1,22 +1,21 @@
 """This module concentrates checkers-like functions, which check the type of variable.
 
-Function list:
-
-    - _check_data_in_range(value, param_name, min, max, language)
-    - _check_is_bool(value, param_name, language)
-    - _check_is_data_frame(df, param_name, language)
-    - _check_is_dict(value, param_name, language)
-    - _check_is_integer(value, param_name, language)
-    - _check_is_float_or_int(value, param_name, language)
-    - _check_is_float(value, param_name, language)
-    - _check_is_list(value, param_name, language)
-    - _check_is_numpy_1_D(value, param_name, language)
-    - _check_is_positive(value, param_name, language)
-    - _check_is_str(value, param_name, language)
-
 
 """
 
+# Function list:
+#
+#     - _check_data_in_range(value, param_name, min, max, language)
+#     - _check_is_bool(value, param_name, language)
+#     - _check_is_data_frame(df, param_name, language)
+#     - _check_is_dict(value, param_name, language)
+#     - _check_is_integer(value, param_name, language)
+#     - _check_is_float_or_int(value, param_name, language)
+#     - _check_is_float(value, param_name, language)
+#     - _check_is_list(value, param_name, language)
+#     - _check_is_numpy_1_D(value, param_name, language)
+#     - _check_is_positive(value, param_name, language)
+#     - _check_is_str(value, param_name, language)
 
 #########################################
 ################ Imports ################
@@ -39,32 +38,33 @@ from cup_of_coffee.utils import  general
 
 # with tests, with text, with database
 def _check_data_in_range(value, param_name, lower, upper, language):
-    """This function checks if a 'value' is within the range between min and max.
+    """This function checks if a ``value`` is within the range between min and max.
 
     Parameters
     ----------
-    value : number
+    value : ``int`` or ``float``
         The value to be evaluated
-    param_name : string
-        The original name of the parameter passed through the parameter 'value'.
-    lower : number
+    param_name : ``str``
+        The original name of the parameter passed through the parameter ``value``.
+    lower : ``int`` or ``float``
         The lower bound
-    upper : number
+    upper : ``int`` or ``float``
         The upper bound
-    language : string
+    language : ``str``
         The language code
 
     Notes
     -----
-    The parameter 'param_name' isn't checked if it is a string.
-    The parameter 'language' isn't checked if it is a string.
+    The parameter ``param_name`` isn't checked if it is a ``str``.
 
-    If lower is higher than upper, the function corrects these values automatically.
+    The parameter ``language`` isn't checked if it is a ``str``.
+
+    If ``lower`` is higher than ``upper``, the function corrects these values automatically.
 
     Returns
     -------
-    True if 'value' is in the range: min < value < max
-    ValueError if 'value' is not in the range: min < value < max
+    ``True`` if ``value`` is in the range: ``min < value < max``
+    ``ValueError`` if ``value`` is not in the range: ``min < value < max``
 
     """
     _check_is_float_or_int(value, "value", language)
@@ -97,29 +97,28 @@ def _check_data_in_range(value, param_name, lower, upper, language):
 
 # with tests, with text, with database
 def _check_is_bool(value, param_name, language):
-    """This function checks if a 'value' is a boolean.
+    """This function checks if a ``value`` is a boolean.
 
-    This function verifies if the parameter 'value' is the type of bool (True or false). If so, it returns True. If it is not, the function raises a ValueError.
+    This function verifies if the parameter ``value`` is the type of ``bool`` (``True`` or ``False``). If so, it returns ``True``. If it is not, the function raises a ``ValueError``.
 
     Parameters
     ----------
     value : any type
-        If 'value' is a boolean (True or False) the function returns True.
-        If 'value' is not a boolean, raises a ValueError.
-    param_name : string
-        The original name of the parameter passed through the parameter 'value'.
-    language : string
+        The value to be evaluated.
+    param_name : ``str``
+        The original name of the parameter passed through the parameter ``value``.
+    language : ``str``
         The language code
 
     Notes
     -----
-    The parameter 'param_name' isn't checked if it is a string.
-    The parameter 'language' isn't checked if it is a string.
+    The parameter ``param_name`` isn't checked if it is a ``str``.
+    The parameter ``language`` isn't checked if it is a ``str``.
 
     Returns
     -------
-    True if 'value' is a boolean
-    ValueError if 'value' is not a boolean
+    ``True`` if ``value`` is a ``bool``
+    ``ValueError`` if ``valuew`` is not a ``bool``
 
 
     """
@@ -141,28 +140,26 @@ def _check_is_bool(value, param_name, language):
 
 # with tests, with text, with database
 def _check_is_data_frame(df, param_name, language):
-    """This function checks if 'df' is a valid DataFrame
-
-    This function checks if df a DataFrame and if it is empty.
+    """This function checks if ``df`` is a valid ``DataFrame``, e.g., if it is ``DataFrame`` and if it is not empty.
 
     Parameters
     ----------
     df : any type
-        The value to check if it is a DataFrame.
-    param_name : string
-        The original name of the parameter passed through the parameter 'df'.
-    language : string
+        The value to check if it is a ``DataFrame``.
+    param_name : ``str``
+        The original name of the parameter passed through the parameter ``df``.
+    language : ``str``
         The language code
 
     Notes
     -----
-    The parameter 'param_name' isn't checked if it is a string.
-    The parameter 'language' isn't checked if it is a string.
+    The parameter ``param_name`` isn't checked if it is a ``str``.
+    The parameter ``language`` isn't checked if it is a ``str``.
 
     Returns
     -------
-    True if df is a valid DataFrame.
-    Raises ValueError is df is not a valid DataFrame.
+    ``True`` if ``df`` is a valid ``DataFrame``.
+    Raises ``ValueError`` is ``df`` is not a valid ``DataFrame``.
 
 
     """
@@ -195,28 +192,27 @@ def _check_is_data_frame(df, param_name, language):
 
 # with tests, with text, with database
 def _check_is_dict(value, param_name, language):
-    """This function checks if a 'value' is a dict
+    """This function checks if a ``value`` is a ``dict``.
 
-    This function verifies if the parameter 'value' is the type of dict (type(value)==dict). If so, it returns True. If it is not a dict, the function raises a ValueError.
 
     Parameters
     ----------
     value : any type
-        The value to check if it is a dict.
-    param_name : string
-        The original name of the parameter passed through the parameter 'value'.
-    language : string
+        The value to check if it is a ``dict``.
+    param_name : ``str``
+        The original name of the parameter passed through the parameter ``value``.
+    language : ``str``
         The language code
 
     Notes
     -----
-    The parameter 'param_name' isn't checked if it is a string.
-    The parameter 'language' isn't checked if it is a string.
+    The parameter ``param_name`` isn't checked if it is a ``str``.
+    The parameter ``language`` isn't checked if it is a ``str``.
 
     Returns
     -------
-    True if 'value' is a dict
-    ValueError if 'value' is not a dict
+    ``True`` if ``value`` is a ``dict``
+    Raises ``ValueError`` if ``value`` is not a ``dict``
 
     """
     if isinstance(value, dict) == False:
@@ -235,28 +231,26 @@ def _check_is_dict(value, param_name, language):
 
 # with tests, with text, with database
 def _check_is_integer(value, param_name, language):
-    """This function checks if a 'value' is an integer
-
-    This function verifies if the parameter 'value' is the type of integer (e.g, int, np.uint, np.integer). If so, it returns True. If it is not one of these types, the function raises a ValueError.
+    """This function checks if a ``value`` is an ``int``
 
     Parameters
     ----------
     value : any type
-        The value to check if it is an integer.
-    param_name : string
-        The original name of the parameter passed through the parameter 'value'.
-    language : string
+        The value to check if it is an ``int``.
+    param_name : ``str``
+        The original name of the parameter passed through the parameter ``value``.
+    language : ``str``
         The language code
 
     Notes
     -----
-    The parameter 'param_name' isn't checked if it is a string.
-    The parameter 'language' isn't checked if it is a string.
+    The parameter ``param_name`` isn't checked if it is a ``str``.
+    The parameter ``language`` isn't checked if it is a ``str``.
 
     Returns
     -------
-    True if 'value' is integer
-    ValueError if 'value' is not an integer
+    ``True`` if ``value`` is ``int``
+    Raises ``ValueError`` if ``value`` is not an ``int``
 
     """
     if isinstance(value, (int, np.uint, np.integer)) == False:
@@ -275,29 +269,26 @@ def _check_is_integer(value, param_name, language):
 
 # with tests, with text, with database
 def _check_is_float(value, param_name, language):
-    """This function checks if a 'value' is an float
-
-    This function verifies if the parameter 'value' is the type of float (e.g, float, np.floating). If so, it returns True. If it is not one of these types, the function raises a ValueError.
+    """This function checks if a ``value`` is an ``float``
 
     Parameters
     ----------
     value : any type
-        If 'value' is an float (e.g, float, np.floating) the function returns True.
-        If 'value' is not an float, raises a ValueError.
-    param_name : string
-        The original name of the parameter passed through the parameter 'value'.
-    language : string
+        The value to check if it is a ``float``.
+    param_name : ``str``
+        The original name of the parameter passed through the parameter ``value``.
+    language : ``str``
         The language code
 
     Notes
     -----
-    The parameter 'param_name' isn't checked if it is a string.
-    The parameter 'language' isn't checked if it is a string.
+    The parameter ``param_name`` isn't checked if it is a ``str``.
+    The parameter ``language`` isn't checked if it is a ``str``.
 
     Returns
     -------
-    True if 'value' is float
-    ValueError if 'value' is not a float
+    ``True`` if ``value`` is ``float``
+    Raises ``ValueError`` if ``value`` is not a ``float``
 
 
     """
@@ -319,28 +310,26 @@ def _check_is_float(value, param_name, language):
 
 # with tests, with text, with database
 def _check_is_float_or_int(value, param_name, language):
-    """This function checks if a 'value' is an float or integer.
-
-    This function verifies if the parameter 'value' is the type of integer (e.g, int, np.uint, np.integer) or float (e.g, float, np.floating). If so, it returns True. If it is not one of these types, the function raises a ValueError.
+    """This function checks if a ``value`` is an ``float`` or ``int``.
 
     Parameters
     ----------
     value : any type
-        The value to check if it is a float or integer.
-    param_name : string
-        The original name of the parameter passed through the parameter 'value'.
-    language : string
+        The value to check if it is a ``float`` or ``int``.
+    param_name : ``str``
+        The original name of the parameter passed through the parameter ``value``.
+    language : ``str``
         The language code
 
     Notes
     -----
-    The parameter 'param_name' isn't checked if it is a string.
-    The parameter 'language' isn't checked if it is a string.
+    The parameter ``param_name`` isn't checked if it is a ``str``.
+    The parameter ``language`` isn't checked if it is a ``str``.
 
     Returns
     -------
-    True if 'value' is float or int.
-    ValueError if 'value' is not a float or int.
+    ``True`` if ``value`` is ``float`` or ``int``.
+    Raises ``ValueError`` if ``value`` is not a ``float`` or ``int``.
 
     """
 
@@ -362,28 +351,26 @@ def _check_is_float_or_int(value, param_name, language):
 
 # with tests, with text, with database
 def _check_is_list(value, param_name, language):
-    """This function checks if a 'value' is a list
-
-    This function verifies if the parameter 'value' is the type of list (type(value)==list). If so, it returns True. If it is not a list, the function raises a ValueError.
+    """This function checks if a ``value`` is a ``list``.
 
     Parameters
     ----------
     value : any type
-        The value to check if it is a list.
-    param_name : string
-        The original name of the parameter passed through the parameter 'value'.
-    language : string
+        The value to check if it is a ``list``.
+    param_name : ``str``
+        The original name of the parameter passed through the parameter ``value``.
+    language : ``str``
         The language code
 
     Notes
     -----
-    The parameter 'param_name' isn't checked if it is a string.
-    The parameter 'language' isn't checked if it is a string.
+    The parameter ``param_name`` isn't checked if it is a ``str``.
+    The parameter ``language`` isn't checked if it is a ``str``.
 
     Returns
     -------
-    True if 'value' is a list
-    ValueError if 'value' is not a list
+    ``True`` if ``value`` is a ``list``
+    Raises ``ValueError`` if ``value`` is not a ``list``
 
     """
     if isinstance(value, list) == False:
@@ -402,29 +389,26 @@ def _check_is_list(value, param_name, language):
 
 # with tests, with text, with database
 def _check_is_numpy_1_D(value, param_name, language):
-    """This function checks if a 'value' is an numpy array of 1 dimension
-
-    This function checks if the value is a 1-dimensional numpy array type. If not np.ndarray, raises ValueError. If value.ndim == 1, raises ValueError and if value.size == 0, raises ValueError. If no error is raised, it returns True indicating that value is a 1-dimensional numpy array.
+    """This function checks if a ``value`` is an ``numpy array`` of 1 dimension
 
     Parameters
     ----------
     value : any
-        If 'value' is a non-empty 1-dimensional numpy array, returns True
-        Else, raises a ValueError.
-    param_name : string
-        The original name of the parameter passed through the parameter 'value'.
-    language : string
+        The value to check if it is a non-empty 1-dimensional numpy array.
+    param_name : ``str``
+        The original name of the parameter passed through the parameter ``value``.
+    language : ``str``
         The language code
 
     Notes
     -----
-    The parameter 'param_name' isn't checked if it is a string.
-    The parameter 'language' isn't checked if it is a string.
+    The parameter ``param_name`` isn't checked if it is a ``str``.
+    The parameter ``language`` isn't checked if it is a ``str``.
 
     Returns
     -------
-    True if 'value' is a non-empty 1-dimensional numpy array
-    ValueError if 'value' is not a non-empty 1-dimensional numpy array
+    ``True`` if ``value`` is a non-empty ``1-dimensional numpy array``
+    Raises ``ValueError`` if ``value`` is not a non-empty ``1-dimensional numpy array``
 
     """
     ### quering ###
@@ -461,29 +445,27 @@ def _check_is_numpy_1_D(value, param_name, language):
 
 # with tests, with text, with database
 def _check_is_positive(value, param_name, language):
-    """This function checks if "value" is a positive number.
-
-    This function verifies if the parameter 'value' has a number higher than 0. If so, it returns True. If the value is negative, Raises ValueError.
+    """This function checks if ``value`` is a positive number.
 
     Parameters
     ----------
-    value : float or int (not tested)
-        The value to be tesed
-    param_name : string
-        The original name of the parameter passed through the parameter 'value'.
-    language : string
+    value : any
+        The value to be tesed if it is a positive number
+    param_name : ``str``
+        The original name of the parameter passed through the parameter ``value``.
+    language : ``str``
         The language code
 
     Notes
     -----
-    The parameter 'param_name' isn't checked if it is a string.
-    The parameter 'value' isn't checked if it is a number.
-    The parameter 'language' isn't checked if it is a string.
+    The parameter ``param_name`` isn't checked if it is a ``str``.
+    The parameter ``value`` isn't checked if it is a ``int`` or ``float``.
+    The parameter ``language`` isn't checked if it is a ``str``.
 
     Returns
     -------
-    True if 'value' is positive
-    ValueError if 'value' is negative
+    ``True`` if ``value`` is positive
+    Raises ``ValueError`` if ``value`` is not positive
 
 
     """
@@ -503,26 +485,26 @@ def _check_is_positive(value, param_name, language):
 
 # with tests, with text, with database
 def _check_is_str(value, param_name, language):
-    """This function checks if a value is a string by checking if it is of type string and if its size is higher than zero.
+    """This function checks if a ``value`` is a ``str``.
 
     Parameters
     ----------
     value : any type
-        The value to check if it is a string.
-    param_name : string
-        The original name of the parameter passed through the parameter 'value'.
-    language : string
+        The value to check if it is a ``str``.
+    param_name : ``str``
+        The original name of the parameter passed through the parameter ``value``.
+    language : ``str``
         The language code
 
     Notes
     -----
-    The parameter 'param_name' isn't checked if it is a string.
-    The parameter 'language' isn't checked if it is a string.
+    The parameter ``param_name`` isn't checked if it is a ``str``.
+    The parameter ``language`` isn't checked if it is a ``str``.
 
     Returns
     -------
-    True if value is a valid string.
-    Raises ValueError is value is not a valid string.
+    ``True`` if value is a valid ``str``.
+    Raises ``ValueError`` is value is not a valid ``str``.
 
     """
     ### quering ###

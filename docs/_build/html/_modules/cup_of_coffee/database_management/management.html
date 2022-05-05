@@ -1,0 +1,701 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cup_of_coffee.database_management.management &#8212; Cup of Coffee 0.1 documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css\custom.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-XXXXXXX', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../../../index.html">
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../source/user_guide.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../source/index.html">
+  Documentation
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../source/examples/example.html">
+  Examples
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../source/contribute.html">
+  Contribute
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/<your-org>/<your-repo>" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://gitlab.com/<your-org>/<your-repo>" rel="noopener" target="_blank" title="GitLab"><span><i class="fab fa-gitlab"></i></span>
+            <label class="sr-only">GitLab</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/<your-handle>" rel="noopener" target="_blank" title="Twitter"><span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for cup_of_coffee.database_management.management</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;This module concentrates all the functions to perform queries in the database</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Function list:</span>
+<span class="c1">#     - _connecting_to_database(database_name=&quot;main_database.db&quot;)</span>
+<span class="c1">#     - _get_all_available_languages()</span>
+<span class="c1">#     - _get_all_languages_for_func(func_name)</span>
+<span class="c1">#     - _get_current_default_language()</span>
+<span class="c1">#     - _get_messages(fk_id_function, language, func_name=None)</span>
+<span class="c1">#     - _query_func_id(func_name)</span>
+<span class="c1">#     - set_default_language(new_language)</span>
+<span class="c1">#     - display_all_available_languages()</span>
+<span class="c1">#     - display_current_default_language()</span>
+
+
+<span class="c1">#########################################</span>
+<span class="c1">################ Imports ################</span>
+<span class="c1">#########################################</span>
+
+<span class="c1">###### Standard ######</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="kn">import</span> <span class="nn">traceback</span>
+
+<span class="c1">###### Third part ######</span>
+
+
+<span class="c1">###### Home made ######</span>
+<span class="kn">from</span> <span class="nn">cup_of_coffee.utils</span> <span class="kn">import</span> <span class="n">general</span>
+
+
+<span class="c1">###########################################</span>
+<span class="c1">################ Functions ################</span>
+<span class="c1">###########################################</span>
+
+
+<span class="c1"># with tests (OK)</span>
+<span class="k">def</span> <span class="nf">_connecting_to_database</span><span class="p">(</span><span class="n">database_name</span><span class="o">=</span><span class="s2">&quot;main_database.db&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Connects to a database stored on the &#39;../data/&#39; folder</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    database_name : string</span>
+<span class="sd">        The name of the database (default = &quot;main_database.db&quot;)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    _cursor : &lt;class &#39;sqlite3.Cursor&#39;&gt;</span>
+
+<span class="sd">    _connection : &lt;class &#39;sqlite3.Connection&#39;&gt;</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># cheking if the input is a valid database name</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">database_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;NotStringError&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">general</span><span class="o">.</span><span class="n">_display_two_line_attention</span><span class="p">(</span>
+                <span class="n">text1</span> <span class="o">=</span> <span class="s2">&quot;NotStringError&quot;</span><span class="p">,</span>
+                <span class="n">text2</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;    The file name must be a string, but we got &#39;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">database_name</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+            <span class="p">)</span>
+            <span class="k">raise</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">database_name</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;VerySmallStringError&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">general</span><span class="o">.</span><span class="n">_display_two_line_attention</span><span class="p">(</span>
+                <span class="n">text1</span> <span class="o">=</span> <span class="s2">&quot;VerySmallStringError&quot;</span><span class="p">,</span>
+                <span class="n">text2</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;The filename size is too small! It must contain at least 4 valid characters, but we got &#39;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">database_name</span><span class="p">)</span><span class="si">}</span><span class="s2">&#39;.&quot;</span>
+            <span class="p">)</span>
+            <span class="k">raise</span>
+
+
+    <span class="n">db</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">&quot;../data/&quot;</span> <span class="o">/</span> <span class="n">database_name</span>  <span class="c1"># path to the dtabse which contains all databse</span>
+    <span class="n">database</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+    <span class="c1"># checking if the database file exists, and if so, create the connection and the _cursor</span>
+    <span class="k">if</span> <span class="n">database</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="c1"># connection to the database</span>
+        <span class="n">_connection</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+        <span class="c1"># creating the _cursor</span>
+        <span class="n">_cursor</span> <span class="o">=</span> <span class="n">_connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># if not, raise an error and exit</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s2">&quot;FileNotFoundError&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+            <span class="n">general</span><span class="o">.</span><span class="n">_display_two_line_attention</span><span class="p">(</span>
+                <span class="n">text1</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;The &#39;</span><span class="si">{</span><span class="n">database_name</span><span class="si">}</span><span class="s2">&#39; does not exist. Please, check the instalation files.&quot;</span><span class="p">,</span>
+                <span class="n">text2</span> <span class="o">=</span>  <span class="s2">&quot;Most likely it will be necessary to reinstall the library or recreate the database!&quot;</span>
+                <span class="p">)</span>
+            <span class="k">raise</span>
+
+    <span class="k">return</span> <span class="n">_cursor</span><span class="p">,</span> <span class="n">_connection</span>
+
+<span class="c1"># with tests (OK)</span>
+<span class="k">def</span> <span class="nf">_get_all_available_languages</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Return all the languages available</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_cursor</span><span class="p">,</span> <span class="n">_connection</span> <span class="o">=</span> <span class="n">_connecting_to_database</span><span class="p">()</span>
+    <span class="c1">## quering</span>
+    <span class="c1"># getting all the available languages</span>
+    <span class="n">_cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT language, id_language FROM Language&quot;</span><span class="p">)</span>
+    <span class="n">all_languages</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">_cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">())</span>
+    <span class="c1"># removindo the &#39;universal&#39; language to avoid problems</span>
+    <span class="n">all_languages</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;univ&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="c1"># closing the _cursor/_connection</span>
+    <span class="n">_cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">_connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">all_languages</span>
+
+<span class="c1"># with tests (OK)</span>
+<span class="k">def</span> <span class="nf">_get_all_languages_for_func</span><span class="p">(</span><span class="n">func_name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna todos os idiomas disponíveis para a func_name</span>
+<span class="sd">    func_name deve ser uma string com o nome de uma função válida dentro da database</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">func_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;NotStringError&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">general</span><span class="o">.</span><span class="n">_display_one_line_attention</span><span class="p">(</span>
+                <span class="n">text</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;The func_name parameter must be of type string, but we got: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">func_name</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+            <span class="k">raise</span>
+    <span class="c1"># obtendo o id da função</span>
+    <span class="n">func_id</span> <span class="o">=</span> <span class="n">_query_func_id</span><span class="p">(</span><span class="n">func_name</span><span class="p">)</span>
+    <span class="c1"># conectando com a database</span>
+    <span class="n">_cursor</span><span class="p">,</span> <span class="n">_connection</span> <span class="o">=</span> <span class="n">_connecting_to_database</span><span class="p">()</span>
+    <span class="c1"># fazendo a query</span>
+    <span class="n">_cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        SELECT DISTINCT</span>
+<span class="s2">            Language.language,</span>
+<span class="s2">            Message.fk_id_language</span>
+<span class="s2">        FROM</span>
+<span class="s2">            (Message_Slices</span>
+<span class="s2">        LEFT JOIN</span>
+<span class="s2">            Message</span>
+<span class="s2">        ON</span>
+<span class="s2">            Message.id_message = Message_Slices.fk_id_message)</span>
+<span class="s2">        LEFT JOIN</span>
+<span class="s2">            Language</span>
+<span class="s2">        ON</span>
+<span class="s2">            Language.id_language = Message.fk_id_language</span>
+<span class="s2">        WHERE</span>
+<span class="s2">            Message.fk_id_function = ?</span>
+<span class="s2">        ;</span>
+<span class="s2">    &quot;&quot;&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">func_id</span><span class="p">,))</span>
+
+    <span class="n">all_languages_for_func</span> <span class="o">=</span> <span class="n">_cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+
+    <span class="c1"># verificando se a quary retornou algo diferente de None, o que não deve acontecer</span>
+    <span class="k">if</span> <span class="n">all_languages_for_func</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;FunctionNotFound&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">general</span><span class="o">.</span><span class="n">_display_one_line_attention</span><span class="p">(</span>
+                <span class="n">text</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;No language found for </span><span class="si">{</span><span class="n">func_name</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+            <span class="k">raise</span>
+
+    <span class="c1"># transformando em um dicionário</span>
+    <span class="n">all_languages_for_func</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">all_languages_for_func</span><span class="p">)</span>
+
+    <span class="c1"># verificando se a transformação em dict foi ok</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">all_languages_for_func</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;NotDictError&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">general</span><span class="o">.</span><span class="n">_display_two_line_attention</span><span class="p">(</span>
+                <span class="n">text1</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;The &#39;all_languages_for_func&#39; should be a dict, but is: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">all_languages_for_func</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="n">text2</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;This is a very unexpected error. Please, send details to andersonmdcanteli@gmail.com.&quot;</span>
+            <span class="p">)</span>
+            <span class="k">raise</span>
+
+    <span class="c1"># removindo the &#39;universal&#39; language to avoid problems</span>
+    <span class="n">all_languages_for_func</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;univ&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_languages_for_func</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;EmptyDictError&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">general</span><span class="o">.</span><span class="n">_display_two_line_attention</span><span class="p">(</span>
+                <span class="n">text1</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;The &#39;all_languages_for_func&#39; is empty after pop. This means that only &#39;univ&#39; language is available.&quot;</span><span class="p">,</span>
+                <span class="n">text2</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;This is a very unexpected error. Please, send details to andersonmdcanteli@gmail.com.&quot;</span>
+            <span class="p">)</span>
+            <span class="k">raise</span>
+    <span class="c1"># closing the _cursor/_connection</span>
+    <span class="n">_cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">_connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="c1"># retornando todos os idiomas disponíveis</span>
+    <span class="k">return</span> <span class="n">all_languages_for_func</span>
+
+<span class="c1"># with tests (OK)</span>
+<span class="k">def</span> <span class="nf">_get_current_default_language</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Gets the current default language</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_cursor</span><span class="p">,</span> <span class="n">_connection</span> <span class="o">=</span> <span class="n">_connecting_to_database</span><span class="p">()</span>
+    <span class="n">_cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT default_input FROM Default_Values WHERE default_parameter = &#39;language&#39;&quot;</span><span class="p">)</span>
+    <span class="n">default_language</span> <span class="o">=</span> <span class="n">_cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+    <span class="c1"># closing the _cursor/_connection</span>
+    <span class="n">_cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">_connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">default_language</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># with A test (OK)</span>
+<span class="c1"># maybe, add a detault text just for testing on the database</span>
+<span class="k">def</span> <span class="nf">_get_messages</span><span class="p">(</span><span class="n">fk_id_function</span><span class="p">,</span> <span class="n">language</span><span class="p">,</span> <span class="n">func_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function to get the messages for each function on the database</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_cursor</span><span class="p">,</span> <span class="n">_connection</span> <span class="o">=</span> <span class="n">_connecting_to_database</span><span class="p">()</span>
+
+    <span class="c1"># obtendo a id_language</span>
+    <span class="n">_cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        SELECT id_language FROM Language WHERE language = ?;</span>
+<span class="s2">    &quot;&quot;&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">language</span><span class="p">,))</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">_cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># aqui a ideia é aoi inves de retornar para o ingles, que retorne para o padrão. Mas por enquanto, fica assim mesmo.</span>
+        <span class="c1"># current_default_language = _get_current_default_language()</span>
+        <span class="c1"># print(current_default_language)</span>
+        <span class="n">general</span><span class="o">.</span><span class="n">_display_two_line_attention</span><span class="p">(</span>
+            <span class="n">text1</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;The </span><span class="si">{</span><span class="n">func_name</span><span class="si">}</span><span class="s2"> function has not been translated into the &#39;</span><span class="si">{</span><span class="n">language</span><span class="si">}</span><span class="s2">&#39; language yet.&quot;</span><span class="p">,</span>
+            <span class="n">text2</span> <span class="o">=</span> <span class="s2">&quot;The English language will be used.&quot;</span>
+        <span class="p">)</span>
+        <span class="n">fk_id_language</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># en</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fk_id_language</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+
+    <span class="c1"># fazendo a query</span>
+    <span class="n">_cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    SELECT</span>
+<span class="s2">        Message.position,</span>
+<span class="s2">        Message_slices.message</span>
+<span class="s2">    FROM</span>
+<span class="s2">        Message_slices</span>
+<span class="s2">    LEFT JOIN</span>
+<span class="s2">        Message</span>
+<span class="s2">    ON</span>
+<span class="s2">        Message.id_message = Message_Slices.fk_id_message</span>
+<span class="s2">    WHERE</span>
+<span class="s2">        Message.fk_id_function = ? AND Message.fk_id_language = ?</span>
+<span class="s2">    ;</span>
+<span class="s2">    &quot;&quot;&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">fk_id_function</span><span class="p">,</span> <span class="n">fk_id_language</span><span class="p">))</span>
+
+    <span class="n">query</span> <span class="o">=</span> <span class="n">_cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+    <span class="n">messages</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">query</span><span class="p">:</span>
+        <span class="n">messages</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">y</span><span class="p">])</span>
+    <span class="c1"># print(query)</span>
+    <span class="c1"># fechando o cursor/connection</span>
+    <span class="n">_cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">_connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">messages</span>
+
+<span class="c1"># with tests (OK)</span>
+<span class="k">def</span> <span class="nf">_query_func_id</span><span class="p">(</span><span class="n">func_name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna o id_funcao de uma função.</span>
+<span class="sd">    func_name é uma string com o nome da função desejada</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># conectando na database raiz</span>
+    <span class="n">_cursor</span><span class="p">,</span> <span class="n">_connection</span> <span class="o">=</span> <span class="n">_connecting_to_database</span><span class="p">()</span>
+    <span class="c1"># fazendo a query</span>
+    <span class="n">_cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        SELECT</span>
+<span class="s2">            id_funcao</span>
+<span class="s2">        FROM</span>
+<span class="s2">            Funcao</span>
+<span class="s2">        WHERE</span>
+<span class="s2">            nome = ?</span>
+<span class="s2">    ;</span>
+<span class="s2">    &quot;&quot;&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">func_name</span><span class="p">,)</span> <span class="p">)</span>
+    <span class="n">func_id</span> <span class="o">=</span> <span class="n">_cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+    <span class="c1"># verificando se a query foi sucesso. Se não, levantar ValueError</span>
+    <span class="k">if</span> <span class="n">func_id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;FunctionNotFound&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">general</span><span class="o">.</span><span class="n">_display_one_line_attention</span><span class="p">(</span>
+                <span class="n">text</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;The function &#39;</span><span class="si">{</span><span class="n">func_name</span><span class="si">}</span><span class="s2">&#39; was not found in the database&quot;</span>
+            <span class="p">)</span>
+            <span class="k">raise</span>
+
+    <span class="c1"># Verificando se o resultado é do tipo inteiro. Se não, levantar ValueError</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">func_id</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">int</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;IdNotInteger&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">general</span><span class="o">.</span><span class="n">_display_two_line_attention</span><span class="p">(</span>
+                <span class="n">text1</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;The id of the &#39;</span><span class="si">{</span><span class="n">func_name</span><span class="si">}</span><span class="s2">&#39; was not an integer, but </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">func_id</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
+                <span class="n">text2</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;This is a very unspected error. Please, send details to andersonmdcanteli@gmail.com.&quot;</span>
+            <span class="p">)</span>
+            <span class="k">raise</span>
+    <span class="c1"># fechando cursor e connection</span>
+    <span class="n">_cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">_connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="c1"># retornando apenas o id (como um int)</span>
+    <span class="k">return</span> <span class="n">func_id</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># with just some tests (needs improvement)</span>
+<div class="viewcode-block" id="set_default_language"><a class="viewcode-back" href="../../../source/api/database_management/set_default_language.html#cup_of_coffee.database_management.management.set_default_language">[docs]</a><span class="k">def</span> <span class="nf">set_default_language</span><span class="p">(</span><span class="n">new_language</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Sets the language for the whole library</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    new_language : ``str``</span>
+<span class="sd">        The desired language code</span>
+
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    To get all available languages, use the :func:`easy_stat.database_management.management.display_all_available_languages()` function.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># getting the default language</span>
+    <span class="n">default_language</span> <span class="o">=</span> <span class="n">_get_current_default_language</span><span class="p">()</span>
+
+    <span class="c1"># getting all the available languages</span>
+    <span class="n">all_languages</span> <span class="o">=</span> <span class="n">_get_all_available_languages</span><span class="p">()</span>
+
+    <span class="c1">## quering</span>
+    <span class="n">_cursor</span><span class="p">,</span> <span class="n">_connection</span> <span class="o">=</span> <span class="n">_connecting_to_database</span><span class="p">()</span>
+    <span class="c1"># quering to get all messages for the default language</span>
+    <span class="n">_cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        SELECT</span>
+<span class="s2">            Default_Messages.position,</span>
+<span class="s2">            Default_Messages_slices.message_slice</span>
+<span class="s2">        FROM</span>
+<span class="s2">            Default_Messages_slices</span>
+<span class="s2">        LEFT JOIN Default_Messages ON Default_Messages.id_default_message = Default_Messages_Slices.fk_id_default_messages</span>
+<span class="s2">        WHERE Default_Messages.fk_id_default_values = 1 AND Default_Messages.fk_id_language = ?;</span>
+<span class="s2">    &quot;&quot;&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">all_languages</span><span class="p">[</span><span class="n">default_language</span><span class="p">],))</span>
+    <span class="c1"># fetching the data</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">_cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+
+    <span class="c1"># turning the result into a list dictionary</span>
+    <span class="n">messages</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">messages</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">y</span><span class="p">])</span>
+
+
+    <span class="c1">########################################</span>
+    <span class="c1">### Making checks of the option made ###</span>
+    <span class="c1">########################################</span>
+
+    <span class="c1"># cheking if the input is a string</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">new_language</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;InvalidInputError&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">general</span><span class="o">.</span><span class="n">_display_one_line_attention</span><span class="p">(</span>
+                <span class="n">messages</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;new_language&quot;</span> <span class="o">+</span> <span class="n">messages</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">new_language</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span> <span class="o">+</span> <span class="n">messages</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="p">)</span>
+            <span class="k">raise</span>
+
+    <span class="c1"># checking if the passed value is equal to the default value</span>
+    <span class="k">if</span> <span class="n">new_language</span> <span class="o">==</span> <span class="n">default_language</span><span class="p">:</span>
+        <span class="c1"># if so, raise an error</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;SameLanguageError&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">general</span><span class="o">.</span><span class="n">_display_one_line_attention</span><span class="p">(</span><span class="n">messages</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">new_language</span> <span class="o">+</span> <span class="n">messages</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">raise</span>
+
+    <span class="c1"># checking if the chosen language is one of the available ones</span>
+    <span class="k">if</span> <span class="n">new_language</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">all_languages</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="c1"># if not, raise an error</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;LanguageMatchError&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">general</span><span class="o">.</span><span class="n">_display_one_line_attention</span><span class="p">(</span><span class="n">messages</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">new_language</span> <span class="o">+</span> <span class="n">messages</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+            <span class="c1"># apresentar todas as linguas disponiveis</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">messages</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">language</span> <span class="ow">in</span> <span class="n">all_languages</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   -&gt; &quot;</span><span class="p">,</span> <span class="n">language</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+
+    <span class="c1">## Changing the default value</span>
+    <span class="c1"># sending some info</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">messages</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+    <span class="nb">input</span><span class="p">(</span><span class="n">messages</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">messages</span><span class="p">[</span><span class="mi">7</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+    <span class="nb">input</span><span class="p">(</span><span class="n">messages</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Asking if wants to change</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">messages</span><span class="p">[</span><span class="mi">8</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">default_language</span> <span class="o">+</span> <span class="n">messages</span><span class="p">[</span><span class="mi">8</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">new_language</span> <span class="o">+</span> <span class="n">messages</span><span class="p">[</span><span class="mi">8</span><span class="p">][</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">messages</span><span class="p">[</span><span class="mi">9</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="c1"># If so, make the change</span>
+    <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="s2">&quot;Y&quot;</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># queryng</span>
+            <span class="n">_cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;UPDATE Default_Values SET default_input = ? WHERE default_parameter = &#39;language&#39;&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">new_language</span><span class="p">,))</span>
+            <span class="c1"># commiting</span>
+            <span class="n">_connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+            <span class="c1"># closing the _cursor</span>
+            <span class="n">_cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="c1"># closing the connection</span>
+            <span class="n">_connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="c1"># old language</span>
+            <span class="n">old_language</span> <span class="o">=</span> <span class="n">default_language</span>
+
+            <span class="c1"># connection to the database</span>
+            <span class="n">_cursor</span><span class="p">,</span> <span class="n">_connection</span> <span class="o">=</span> <span class="n">_connecting_to_database</span><span class="p">()</span>
+
+            <span class="c1"># making a query to get all the messages of the default language</span>
+            <span class="n">default_language</span> <span class="o">=</span> <span class="n">_get_current_default_language</span><span class="p">()</span>
+            <span class="c1"># making a query to update the messages</span>
+            <span class="n">_cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                SELECT</span>
+<span class="s2">                    Default_Messages.position,</span>
+<span class="s2">                    Default_Messages_slices.message_slice</span>
+<span class="s2">                FROM</span>
+<span class="s2">                    Default_Messages_slices</span>
+<span class="s2">                LEFT JOIN Default_Messages ON Default_Messages.id_default_message = Default_Messages_Slices.fk_id_default_messages</span>
+<span class="s2">                WHERE Default_Messages.fk_id_default_values = 1 AND Default_Messages.fk_id_language = ?;</span>
+<span class="s2">            &quot;&quot;&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">all_languages</span><span class="p">[</span><span class="n">default_language</span><span class="p">],))</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">_cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+            <span class="c1"># closing the _cursor</span>
+            <span class="n">_cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="c1"># closing the connection</span>
+            <span class="n">_connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+            <span class="c1"># turning the result into a list dictionary</span>
+            <span class="n">messages</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+                <span class="n">messages</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">y</span><span class="p">])</span>
+
+            <span class="c1"># reporting what was done</span>
+            <span class="n">general</span><span class="o">.</span><span class="n">_display_one_line_attention</span><span class="p">(</span><span class="n">messages</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">old_language</span> <span class="o">+</span> <span class="n">messages</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span>  <span class="n">default_language</span> <span class="o">+</span> <span class="n">messages</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+
+            <span class="c1"># return True</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">traceback</span><span class="o">.</span><span class="n">format_exc</span><span class="p">())</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">input</span><span class="p">(</span><span class="n">messages</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="c1"># closing the _cursor</span>
+        <span class="n">_cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="c1"># closing the connection</span>
+        <span class="n">_connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">InterruptedError</span><span class="p">(</span><span class="s2">&quot;UserAbortError&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">InterruptedError</span><span class="p">:</span>
+            <span class="n">general</span><span class="o">.</span><span class="n">_display_two_line_attention</span><span class="p">(</span>
+                <span class="n">text1</span> <span class="o">=</span> <span class="n">messages</span><span class="p">[</span><span class="mi">11</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                <span class="n">text2</span> <span class="o">=</span> <span class="n">messages</span><span class="p">[</span><span class="mi">12</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">default_language</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">messages</span><span class="p">[</span><span class="mi">12</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                <span class="p">)</span>
+
+            <span class="k">raise</span></div>
+
+<span class="c1"># with tests (OK)</span>
+<div class="viewcode-block" id="display_all_available_languages"><a class="viewcode-back" href="../../../source/api/database_management/display_all_available_languages.html#cup_of_coffee.database_management.management.display_all_available_languages">[docs]</a><span class="k">def</span> <span class="nf">display_all_available_languages</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Prints all the languages available</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_cursor</span><span class="p">,</span> <span class="n">_connection</span> <span class="o">=</span> <span class="n">_connecting_to_database</span><span class="p">()</span>
+    <span class="c1">## quering</span>
+    <span class="c1"># getting all the available languages</span>
+    <span class="n">_cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT language, id_language FROM Language&quot;</span><span class="p">)</span>
+    <span class="n">all_languages</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">_cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">())</span>
+    <span class="c1"># removindo the &#39;universal&#39; language to avoid problems</span>
+    <span class="n">all_languages</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;univ&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="c1"># closing the _cursor/_connection</span>
+    <span class="n">_cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">_connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">language</span> <span class="ow">in</span> <span class="n">all_languages</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   ---&gt;   &quot;</span><span class="p">,</span> <span class="n">language</span><span class="p">)</span></div>
+
+<span class="c1"># with tests</span>
+<div class="viewcode-block" id="display_current_default_language"><a class="viewcode-back" href="../../../source/api/database_management/display_current_default_language.html#cup_of_coffee.database_management.management.display_current_default_language">[docs]</a><span class="k">def</span> <span class="nf">display_current_default_language</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Prints the current default language</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_cursor</span><span class="p">,</span> <span class="n">_connection</span> <span class="o">=</span> <span class="n">_connecting_to_database</span><span class="p">()</span>
+    <span class="n">_cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT default_input FROM Default_Values WHERE default_parameter = &#39;language&#39;&quot;</span><span class="p">)</span>
+    <span class="n">default_language</span> <span class="o">=</span> <span class="n">_cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+    <span class="c1"># closing the _cursor/_connection</span>
+    <span class="n">_cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">_connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   ---&gt;   &quot;</span> <span class="o">+</span> <span class="n">default_language</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span></div>
+
+
+
+<span class="c1">### weee aaarrreeeeeeee, Babyyyymeeeetaaaaaaaaaaallllllllllllllllllll!  https://youtu.be/M6bC3Zxv9Os?t=1385</span>
+</pre></div>
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022, Anderson Canteli.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

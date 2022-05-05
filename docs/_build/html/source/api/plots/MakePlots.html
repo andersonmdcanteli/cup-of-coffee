@@ -1,0 +1,589 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Make Plots &#8212; Cup of Coffee 0.1 documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css\custom.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Language Management" href="../database_management/index.html" />
+    <link rel="prev" title="Multimode" href="../functions/functions/multimode.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-XXXXXXX', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../../../index.html">
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../user_guide.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../../index.html">
+  Documentation
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../examples/example.html">
+  Examples
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../contribute.html">
+  Contribute
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/<your-org>/<your-repo>" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://gitlab.com/<your-org>/<your-repo>" rel="noopener" target="_blank" title="GitLab"><span><i class="fab fa-gitlab"></i></span>
+            <label class="sr-only">GitLab</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/<your-handle>" rel="noopener" target="_blank" title="Twitter"><span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents:
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../functions/index.html">
+   Functions
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../functions/distributions/index.html">
+     Distributions
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../functions/distributions/shapiro_wilk.html">
+       Shapiro Wilk Normality Test
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../functions/functions/index.html">
+     Functions
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../functions/functions/multimode.html">
+       Multimode
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Make Plots
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../database_management/index.html">
+   Language Management
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../database_management/display_current_default_language.html">
+     display_current_default_language
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../database_management/display_all_available_languages.html">
+     display_all_available_languages
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../database_management/set_default_language.html">
+     set_default_language
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../database_management/LanguageManagement.html">
+     LanguageManagement
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../helpers/index.html">
+   Helpers
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../helpers/AlphaManagement.html">
+     AlphaManagement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../helpers/NDigitsManagement.html">
+     NDigitsManagement
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+
+<nav id="bd-toc-nav">
+    
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="make-plots">
+<h1>Make Plots<a class="headerlink" href="#make-plots" title="Permalink to this headline">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="cup_of_coffee.functions.plots.MakePlots">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cup_of_coffee.functions.plots.</span></span><span class="sig-name descname"><span class="pre">MakePlots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/cup_of_coffee/functions/plots.html#MakePlots"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cup_of_coffee.functions.plots.MakePlots" title="Permalink to this definition">#</a></dt>
+<dd><p>This class instantiates an object to make plots with pre-defined layout.</p>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cup_of_coffee.functions.plots.MakePlots.draw_density_function" title="cup_of_coffee.functions.plots.MakePlots.draw_density_function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_density_function</span></code></a>(x_exp[, bw_method, ...])</p></td>
+<td><p>This function draws the non-parametric density plot with the central tendency measurements</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cup_of_coffee.functions.plots.MakePlots.draw_dot_plot" title="cup_of_coffee.functions.plots.MakePlots.draw_dot_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_dot_plot</span></code></a>(x_exp[, legend_label, ...])</p></td>
+<td><p>This function draws a dot plot with a predefined design</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_alfa</span></code>()</p></td>
+<td><p>Gets the current <code class="docutils literal notranslate"><span class="pre">alpha</span></code> value</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_language</span></code>()</p></td>
+<td><p>Gets the current language</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_alfa</span></code>(alfa)</p></td>
+<td><p>Changes the <code class="docutils literal notranslate"><span class="pre">alpha</span></code> value</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_language</span></code>(language)</p></td>
+<td><p>Changes the current language</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="cup_of_coffee.functions.plots.MakePlots.draw_density_function">
+<span class="sig-name descname"><span class="pre">draw_density_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_exp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bw_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">which</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">export</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transparent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_design</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimal_separator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/cup_of_coffee/functions/plots.html#MakePlots.draw_density_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cup_of_coffee.functions.plots.MakePlots.draw_density_function" title="Permalink to this definition">#</a></dt>
+<dd><p>This function draws the non-parametric density plot with the central tendency measurements</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>x_exp</strong><span class="classifier">1D <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html" title="(in NumPy v1.22)"><span class="xref std std-doc">numpy array</span></a></span></dt><dd><p>The data to be fitted</p>
+</dd>
+<dt><strong>bw_method</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">str</span></code>, optional</span></dt><dd><p>The method used to calculate the estimator bandwidth. This can be <code class="docutils literal notranslate"><span class="pre">'scott'</span></code> or <code class="docutils literal notranslate"><span class="pre">'silverman'</span></code>. If <code class="docutils literal notranslate"><span class="pre">None</span></code> (default), the scott method is used. This is the <code class="docutils literal notranslate"><span class="pre">bw_method</span></code> from <code class="docutils literal notranslate"><span class="pre">scipy.stats.gaussian_kde()</span></code>, but limited to <code class="docutils literal notranslate"><span class="pre">'scott'</span></code> or <code class="docutils literal notranslate"><span class="pre">'silverman'</span></code> options. For other options, use the original method <a class="reference internal" href="#r2b837e68bf60-1" id="id1">[1]</a>.</p>
+</dd>
+<dt><strong>which</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">str</span></code>, optional</span></dt><dd><dl class="simple">
+<dt>The parameter which controls which measures of central tendency should be added to the graph. The options are:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code> (default): no measures of central tendency are included;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'mean'</span></code>: adds the mean;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'median'</span></code>: adds the median;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'mode'</span></code>: adds the mode(s);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'all'</span></code>: adds the mean, median and the mode(s);</p></li>
+</ul>
+</dd>
+</dl>
+<p>To add two measures of central tendency, combine their names separated by a comma (<code class="docutils literal notranslate"><span class="pre">','</span></code>). For example, to add the mean and median, use <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">=</span> <span class="pre">&quot;mean,median&quot;</span></code>.</p>
+</dd>
+<dt><strong>legend_label</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">str</span></code>, optional</span></dt><dd><p>The label to be displayed on the legend. Default is <code class="docutils literal notranslate"><span class="pre">None</span></code>, which results in <code class="docutils literal notranslate"><span class="pre">&quot;Non</span> <span class="pre">parametric</span> <span class="pre">density&quot;</span></code>.</p>
+</dd>
+<dt><strong>x_label</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">str</span></code>, optional</span></dt><dd><p>The label to be displayed on x label. Default is <code class="docutils literal notranslate"><span class="pre">None</span></code>, which results in <code class="docutils literal notranslate"><span class="pre">&quot;data&quot;</span></code>.</p>
+</dd>
+<dt><strong>y_label</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">str</span></code>, optional</span></dt><dd><p>The label to be displayed on y label. Default is <code class="docutils literal notranslate"><span class="pre">None</span></code>, which results in <code class="docutils literal notranslate"><span class="pre">&quot;Non-parametric</span> <span class="pre">density&quot;</span></code>.</p>
+</dd>
+<dt><strong>width</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">'auto'</span></code>, <code class="docutils literal notranslate"><span class="pre">'default'</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code> (positive), optional</span></dt><dd><p>The width of the figure. If it is <code class="docutils literal notranslate"><span class="pre">'auto'</span></code>, it tries to figure out a nice width for the plot using the data range. If it is <code class="docutils literal notranslate"><span class="pre">'default'</span></code>, it uses a pre-defined value. If it is a number, it defines the width of the chart (in inches).</p>
+</dd>
+<dt><strong>height</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">'auto'</span></code>, <code class="docutils literal notranslate"><span class="pre">'default'</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code> (positive), optional</span></dt><dd><p>The height of the figure. If it is <code class="docutils literal notranslate"><span class="pre">'auto'</span></code>, it tries to figure out a nice height for the plot using the data range. If it is <code class="docutils literal notranslate"><span class="pre">'default'</span></code>, it uses a pre-defined value. If it is a number, it defines the height of the chart (in inches).</p>
+</dd>
+<dt><strong>export</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">bool</span></code>, optional</span></dt><dd><p>Whether the graph should be exported (<code class="docutils literal notranslate"><span class="pre">True</span></code>) or not (<code class="docutils literal notranslate"><span class="pre">False</span></code>). The default value is <code class="docutils literal notranslate"><span class="pre">None</span></code>, which implies <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd>
+<dt><strong>file_name</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">str</span></code>, optional</span></dt><dd><p>The file name. Default is <code class="docutils literal notranslate"><span class="pre">None</span></code> which results in a file named <code class="docutils literal notranslate"><span class="pre">&quot;kernal_density&quot;</span></code>.</p>
+</dd>
+<dt><strong>extension</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">str</span></code>, optional</span></dt><dd><p>The file extension without a dot. Default is <code class="docutils literal notranslate"><span class="pre">None</span></code> which results in a <code class="docutils literal notranslate"><span class="pre">&quot;.png&quot;</span></code> file.</p>
+</dd>
+<dt><strong>dpi</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code>, optional</span></dt><dd><p>The figure pixel density. The default is <code class="docutils literal notranslate"><span class="pre">None</span></code>, which results in a <code class="docutils literal notranslate"><span class="pre">100</span> <span class="pre">dpis</span></code> picture. This parameter must be a number higher than zero.</p>
+</dd>
+<dt><strong>tight</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">bool</span></code>, optional</span></dt><dd><p>Whether the graph should be tight (<code class="docutils literal notranslate"><span class="pre">True</span></code>) or not (<code class="docutils literal notranslate"><span class="pre">False</span></code>). The default value is <code class="docutils literal notranslate"><span class="pre">None</span></code>, which implies <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd>
+<dt><strong>transparent</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">bool</span></code>, optional</span></dt><dd><p>Whether the background of the graph should be transparent (<code class="docutils literal notranslate"><span class="pre">True</span></code>) or not (<code class="docutils literal notranslate"><span class="pre">False</span></code>). The default value is <code class="docutils literal notranslate"><span class="pre">None</span></code>, which implies not transparent (white).</p>
+</dd>
+<dt><strong>plot_design</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">str</span></code> or <code class="docutils literal notranslate"><span class="pre">dict</span></code>, optional</span></dt><dd><p>The plot desing. If <code class="docutils literal notranslate"><span class="pre">'default'</span></code>, uses a simple desing (default). If <code class="docutils literal notranslate"><span class="pre">'colored'</span></code>, uses a colored desing. If <code class="docutils literal notranslate"><span class="pre">dict</span></code>, it must have five <code class="docutils literal notranslate"><span class="pre">keys</span></code> (<code class="docutils literal notranslate"><span class="pre">&quot;kde&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Mean&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Median&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Mode&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Area&quot;</span></code>), where each one defines the design of each element added to the chart.</p>
+<dl class="simple">
+<dt>The <code class="docutils literal notranslate"><span class="pre">values</span></code> for all <code class="docutils literal notranslate"><span class="pre">keys</span></code> must be a <code class="docutils literal notranslate"><span class="pre">list</span></code>. The lists of the keys <code class="docutils literal notranslate"><span class="pre">&quot;kde&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Mean&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Median&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&quot;Mode&quot;</span></code> must have:</dt><dd><ul class="simple">
+<li><p>the first element must be a <code class="docutils literal notranslate"><span class="pre">str</span></code> with the name of the color;</p></li>
+<li><p>the second element must be a <code class="docutils literal notranslate"><span class="pre">str</span></code> with the style of the line;</p></li>
+<li><p>the third element must be a number (<code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code>) with the thickness of the line.</p></li>
+</ul>
+</dd>
+</dl>
+<p>The <code class="docutils literal notranslate"><span class="pre">Area</span></code> list must have a single element, which is a <code class="docutils literal notranslate"><span class="pre">str</span></code> with the name of the color that fills the area between the fit and the line <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">0</span></code>.</p>
+<p>For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_design</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;kde&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span>
+    <span class="s2">&quot;Mean&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;dimgray&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span>
+    <span class="s2">&quot;Median&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;darkgray&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span>
+    <span class="s2">&quot;Mode&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span>
+    <span class="s2">&quot;Area&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;white&#39;</span><span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt><strong>legend</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">bool</span></code>, optional</span></dt><dd><p>Whether the legend should be inserted into the chart (<code class="docutils literal notranslate"><span class="pre">True</span></code>) or not (<code class="docutils literal notranslate"><span class="pre">False</span></code>). The default value is <code class="docutils literal notranslate"><span class="pre">None</span></code>, which does not insert the legend into the plot (<code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
+</dd>
+<dt><strong>decimal_separator</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">str</span></code>, optional</span></dt><dd><p>The decimal separator symbol used in the chart. It can be the dot (<code class="docutils literal notranslate"><span class="pre">None</span></code> or <code class="docutils literal notranslate"><span class="pre">'.'</span></code>) or the comma (<code class="docutils literal notranslate"><span class="pre">','</span></code>).</p>
+</dd>
+<dt><strong>local</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">str</span></code>, optional</span></dt><dd><p>The alias for the desired locale. Only used if <code class="docutils literal notranslate"><span class="pre">decimal_separator</span> <span class="pre">=</span> <span class="pre">','</span></code> to set the matplolib’s default <code class="docutils literal notranslate"><span class="pre">locale</span></code>. Its only function is to change the decimal separator symbol and should be changed only if the <code class="docutils literal notranslate"><span class="pre">&quot;pt_BR&quot;</span></code> option is not available.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>kde_x</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html" title="(in NumPy v1.22)"><span class="xref std std-doc">numpy array</span></a></span></dt><dd><p>The x values used to plot the graph</p>
+</dd>
+<dt><strong>kde_y</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html" title="(in NumPy v1.22)"><span class="xref std std-doc">numpy array</span></a></span></dt><dd><p>The y values used to plot the graph</p>
+</dd>
+<dt><strong>central_tendency</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">dict</span></code></span></dt><dd><p>A dictionary with the measures of central tendency of the data with respective value estimated by the kde function.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<div class="admonition- admonition">
+<p class="admonition-title">☕</p>
+<p>To obtain which extensions the figure can be exported, use the following script:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">suported_types</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">get_supported_filetypes</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">suported_types</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="go">        print(key, &quot;:&quot;, value)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>The mode is calculated using the multimode function.</p>
+<p>A list of color names can be found at matplotlib reference <a class="reference internal" href="#r2b837e68bf60-2" id="id2">[2]</a>.</p>
+<p>A list of linestyles can be found at reference <a class="reference internal" href="#r2b837e68bf60-3" id="id3">[3]</a>.</p>
+<p class="rubric">References</p>
+<dl class="citation">
+<dt class="label" id="r2b837e68bf60-1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.gaussian_kde.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.gaussian_kde.html</a></p>
+</dd>
+<dt class="label" id="r2b837e68bf60-2"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p><a class="reference external" href="https://matplotlib.org/stable/_images/sphx_glr_named_colors_003.png">https://matplotlib.org/stable/_images/sphx_glr_named_colors_003.png</a></p>
+</dd>
+<dt class="label" id="r2b837e68bf60-3"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p><a class="reference external" href="https://raw.githubusercontent.com/andersonmdcanteli/matplotlib-course/main/auxiliary-scripts/matplotli-all-linestyles/matplotlib_linestyles.png">https://raw.githubusercontent.com/andersonmdcanteli/matplotlib-course/main/auxiliary-scripts/matplotli-all-linestyles/matplotlib_linestyles.png</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">easy_stat.functions.plots</span> <span class="kn">import</span> <span class="n">MakePlots</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">5.1</span><span class="p">,</span> <span class="mf">4.9</span><span class="p">,</span> <span class="mf">4.7</span><span class="p">,</span> <span class="mf">4.6</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.4</span><span class="p">,</span> <span class="mf">4.6</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">4.4</span><span class="p">,</span> <span class="mf">4.9</span><span class="p">,</span> <span class="mf">5.4</span><span class="p">,</span> <span class="mf">4.8</span><span class="p">,</span> <span class="mf">4.8</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mf">5.8</span><span class="p">,</span> <span class="mf">5.7</span><span class="p">,</span> <span class="mf">5.4</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">,</span> <span class="mf">5.7</span><span class="p">,</span>
+<span class="go">                5.1, 5.4, 5.1,4.6, 5.1, 4.8, 5.0, 5.0, 5.2, 5.2, 4.7, 4.8, 5.4, 5.2, 5.5, 4.9, 5.0, 5.5, 4.9, 4.4,</span>
+<span class="go">                5.1, 5.0, 4.5, 4.4, 5.0, 5.1,4.8, 5.1, 4.6, 5.3, 5.0</span>
+<span class="go">                ])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plots</span> <span class="o">=</span> <span class="n">MakePlots</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plots</span><span class="o">.</span><span class="n">draw_density_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">export</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">plot_design</span><span class="o">=</span><span class="s1">&#39;colored&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="Graph showing the dot plot" class="align-center" src="../../../_images/kernal_density.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cup_of_coffee.functions.plots.MakePlots.draw_dot_plot">
+<span class="sig-name descname"><span class="pre">draw_dot_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_exp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">export</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transparent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_ticks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimal_separator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/cup_of_coffee/functions/plots.html#MakePlots.draw_dot_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cup_of_coffee.functions.plots.MakePlots.draw_dot_plot" title="Permalink to this definition">#</a></dt>
+<dd><p>This function draws a dot plot with a predefined design</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>x_exp</strong><span class="classifier">1D <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html" title="(in NumPy v1.22)"><span class="xref std std-doc">numpy array</span></a></span></dt><dd><p>A 1 dimension numpy array with the dataset</p>
+</dd>
+<dt><strong>legend_label</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">str</span></code>, optional</span></dt><dd><p>The label to be displayed on the legend. Default is <code class="docutils literal notranslate"><span class="pre">None</span></code>, which results in <code class="docutils literal notranslate"><span class="pre">&quot;data&quot;</span></code>.</p>
+</dd>
+<dt><strong>x_label</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">str</span></code>, optional</span></dt><dd><p>The label to be displayed on x label. Default is <code class="docutils literal notranslate"><span class="pre">None</span></code>, which results in a blank label.</p>
+</dd>
+<dt><strong>width</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">'auto'</span></code>, <code class="docutils literal notranslate"><span class="pre">'default'</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code> (positive), optional</span></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">width</span></code> of the figure. If it is <code class="docutils literal notranslate"><span class="pre">'auto'</span></code>, it tries to figure out a nice width for the plot using the data range. If it is <code class="docutils literal notranslate"><span class="pre">'default'</span></code>, it uses a pre-defined value. If it is a number, it defines the width of the chart (in inches).</p>
+</dd>
+<dt><strong>height</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">'auto'</span></code>, <code class="docutils literal notranslate"><span class="pre">'default'</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code> (positive), optional</span></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">height</span></code> of the figure. If it is <code class="docutils literal notranslate"><span class="pre">'auto'</span></code>, it tries to figure out a nice height for the plot using the data range. If it is <code class="docutils literal notranslate"><span class="pre">'default'</span></code>, it uses a pre-defined value. If it is a number, it defines the height of the chart (in inches).</p>
+</dd>
+<dt><strong>export</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">bool</span></code>, optional</span></dt><dd><p>Whether the graph should be exported (<code class="docutils literal notranslate"><span class="pre">True</span></code>) or not (<code class="docutils literal notranslate"><span class="pre">False</span></code>). The default value is <code class="docutils literal notranslate"><span class="pre">None</span></code>, which implies <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd>
+<dt><strong>file_name</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">str</span></code>, optional</span></dt><dd><p>The file name. Default is <code class="docutils literal notranslate"><span class="pre">None</span></code> which results in a file named <code class="docutils literal notranslate"><span class="pre">&quot;dot_plot&quot;</span></code>.</p>
+</dd>
+<dt><strong>extension</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">str</span></code>, optional</span></dt><dd><p>The file extension without a dot. Default is <code class="docutils literal notranslate"><span class="pre">None</span></code> which results in a <code class="docutils literal notranslate"><span class="pre">&quot;.png&quot;</span></code> file.</p>
+</dd>
+<dt><strong>dpi</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code>, optional</span></dt><dd><p>The figure pixel density. The default is <code class="docutils literal notranslate"><span class="pre">None</span></code>, which results in a <code class="docutils literal notranslate"><span class="pre">100</span> <span class="pre">dpis</span></code> picture. This parameter must be a number higher than zero.</p>
+</dd>
+<dt><strong>n_ticks</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">int</span></code>, optional</span></dt><dd><p>The number of evenly spaced ticks to be drawn on the x-axis. The default is <code class="docutils literal notranslate"><span class="pre">None</span></code>, which uses matplotlib default parameter.</p>
+</dd>
+<dt><strong>tight</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">bool</span></code>, optional</span></dt><dd><p>Whether the graph should be tight (<code class="docutils literal notranslate"><span class="pre">True</span></code>) or not (<code class="docutils literal notranslate"><span class="pre">False</span></code>). The default value is <code class="docutils literal notranslate"><span class="pre">None</span></code>, which implies <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd>
+<dt><strong>transparent</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">bool</span></code>, optional</span></dt><dd><p>Whether the background of the graph should be transparent (<code class="docutils literal notranslate"><span class="pre">True</span></code>) or not (<code class="docutils literal notranslate"><span class="pre">False</span></code>). The default value is <code class="docutils literal notranslate"><span class="pre">None</span></code>, which implies not transparent (white).</p>
+</dd>
+<dt><strong>legend</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">bool</span></code>, optional</span></dt><dd><p>Whether the legend should be inserted into the chart (<code class="docutils literal notranslate"><span class="pre">True</span></code>) or not (<code class="docutils literal notranslate"><span class="pre">False</span></code>). The default value is <code class="docutils literal notranslate"><span class="pre">None</span></code>, which does not insert the legend into the plot (<code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
+</dd>
+<dt><strong>decimal_separator</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">str</span></code>, optional</span></dt><dd><p>The decimal separator symbol used in the chart. It can be the dot (<code class="docutils literal notranslate"><span class="pre">None</span></code> or <code class="docutils literal notranslate"><span class="pre">'.'</span></code>) or the comma (<code class="docutils literal notranslate"><span class="pre">','</span></code>).</p>
+</dd>
+<dt><strong>local</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">str</span></code>, optional</span></dt><dd><p>The alias for the desired locale. Only used if <code class="docutils literal notranslate"><span class="pre">decimal_separator=','</span></code> to set the matplolib’s default locale. Its only function is to change the decimal separator symbol and should be changed only if the <code class="docutils literal notranslate"><span class="pre">&quot;pt_BR&quot;</span></code> option is not available.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>x</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html" title="(in NumPy v1.22)"><span class="xref std std-doc">numpy array</span></a></span></dt><dd><p>The x values used to plot the graph.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html" title="(in NumPy v1.22)"><span class="xref std std-doc">numpy array</span></a></span></dt><dd><p>The y values used to plot the graph.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<div class="admonition- admonition">
+<p class="admonition-title">☕</p>
+<p>To obtain which extensions the figure can be exported, use the following script:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">suported_types</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">get_supported_filetypes</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">suported_types</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="go">        print(key, &quot;:&quot;, value)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p class="rubric">References</p>
+<dl class="citation">
+<dt class="label" id="rabb5b4dc0ce3-1"><span class="brackets">1</span></dt>
+<dd><p>Inspired by <a class="reference external" href="https://stackoverflow.com/a/64943404/17872198">https://stackoverflow.com/a/64943404/17872198</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">easy_stat.functions.plots</span> <span class="kn">import</span> <span class="n">MakePlots</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">5.1</span><span class="p">,</span> <span class="mf">4.9</span><span class="p">,</span> <span class="mf">4.7</span><span class="p">,</span> <span class="mf">4.6</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.4</span><span class="p">,</span> <span class="mf">4.6</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">4.4</span><span class="p">,</span> <span class="mf">4.9</span><span class="p">,</span> <span class="mf">5.4</span><span class="p">,</span> <span class="mf">4.8</span><span class="p">,</span> <span class="mf">4.8</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mf">5.8</span><span class="p">,</span> <span class="mf">5.7</span><span class="p">,</span> <span class="mf">5.4</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">,</span> <span class="mf">5.7</span><span class="p">,</span>
+<span class="go">                5.1, 5.4, 5.1,4.6, 5.1, 4.8, 5.0, 5.0, 5.2, 5.2, 4.7, 4.8, 5.4, 5.2, 5.5, 4.9, 5.0, 5.5, 4.9, 4.4,</span>
+<span class="go">                5.1, 5.0, 4.5, 4.4, 5.0, 5.1,4.8, 5.1, 4.6, 5.3, 5.0</span>
+<span class="go">                ])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plots</span> <span class="o">=</span> <span class="n">MakePlots</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plots</span><span class="o">.</span><span class="n">draw_dot_plot</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="Graph showing the dot plot" class="align-center" src="../../../_images/dot_plot.png" />
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../functions/functions/multimode.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Multimode</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../database_management/index.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Language Management</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022, Anderson Canteli.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

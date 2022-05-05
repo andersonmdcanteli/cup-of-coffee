@@ -1,44 +1,45 @@
 """This module concentrates the help functions to run the functions behind the scenes
 
-Function list:
-
-    - LanguageManagment
-        - get_language(self)
-        - set_language(self, language)
-        - __str__(self)
-        - __repr__(self)
-
-    - AlphaManagement(LanguageManagment)
-        - get_alfa(self)
-        - set_alfa(self, alfa)
-        - __str__(self)
-        - __repr__(self)
-
-
-    - NDigitsManagement(LanguageManagment)
-        - get_n_digits(self)
-        - set_n_digits(self, n_digits)
-        - __str__(self)
-        - __repr__(self)
-
-    - _change_locale(language, decimal_separator=".", local="pt_BR")
-    - _change_locale_back_to_default(default_locale)
-    - _check_blank_space(value, param_name, language)
-    - _check_conflicting_filename(file_name, extension, language)
-    - _check_figure_extension(value, param_name, language)
-    - _check_file_exists(file_name)
-    - _check_file_name_is_str(file_name, language)
-    - _check_forbidden_character(value, param_name, language)
-    - _check_plot_design(plot_design, param_name, plot_design_default, plot_design_example, language)
-    - _check_which_density_gaussian_kernal_plot(which, language)
-    - _export_to_csv(df, file_name="my_data", sep=',', language)
-    - _export_to_xlsx(df_list, language, file_name=None, sheet_names=[None,None])
-    - _flat_list_of_lists(my_list, param_name, language)
-    - _sep_checker(sep, language)
-    - _truncate(value, language, decs=None)
-
-
 """
+
+
+# Function list:
+#
+#     - LanguageManagment
+#         - get_language(self)
+#         - set_language(self, language)
+#         - __str__(self)
+#         - __repr__(self)
+#
+#     - AlphaManagement(LanguageManagment)
+#         - get_alfa(self)
+#         - set_alfa(self, alfa)
+#         - __str__(self)
+#         - __repr__(self)
+#
+#
+#     - NDigitsManagement(LanguageManagment)
+#         - get_n_digits(self)
+#         - set_n_digits(self, n_digits)
+#         - __str__(self)
+#         - __repr__(self)
+#
+#     - _change_locale(language, decimal_separator=".", local="pt_BR")
+#     - _change_locale_back_to_default(default_locale)
+#     - _check_blank_space(value, param_name, language)
+#     - _check_conflicting_filename(file_name, extension, language)
+#     - _check_figure_extension(value, param_name, language)
+#     - _check_file_exists(file_name)
+#     - _check_file_name_is_str(file_name, language)
+#     - _check_forbidden_character(value, param_name, language)
+#     - _check_plot_design(plot_design, param_name, plot_design_default, plot_design_example, language)
+#     - _check_which_density_gaussian_kernal_plot(which, language)
+#     - _export_to_csv(df, file_name="my_data", sep=',', language)
+#     - _export_to_xlsx(df_list, language, file_name=None, sheet_names=[None,None])
+#     - _flat_list_of_lists(my_list, param_name, language)
+#     - _sep_checker(sep, language)
+#     - _truncate(value, language, decs=None)
+
 
 
 #########################################
@@ -69,29 +70,8 @@ from cup_of_coffee.utils import checkers
 
 
 # with test, with database, with docstring
-class LanguageManagment:
-    """Instanciates a class for language managment.
-
-
-    Attributes
-    ----------
-    language : string
-        The name of the language.
-
-
-    Methods
-    -------
-
-    get_language(self) :
-        Gets the language set
-
-    set_language(self, language) :
-        Changes the language
-
-
-    Notes
-    -----
-    It is not allowed for the input to have different type of string and for the string size to be higher than 5 (due to the database restrictions)
+class LanguageManagement:
+    """Instantiates a class for language management. This class is primarily for internal use.
 
     """
 
@@ -149,12 +129,12 @@ class LanguageManagment:
 
         Parameters
         ----------
-        language : string
-            The abreviation of a language (dafualt None, which means 'en')
+        language : ``str``
+            The language code
 
         Notes
         -----
-        The method does not allow the input of values that are not of type string and that have lenght higher than 5 (due to the database restrictions)
+        The ``language`` must be a ``str`` with no more then ``5`` elements.
 
         """
         all_languages = management._get_all_available_languages()
@@ -181,7 +161,7 @@ class LanguageManagment:
             self.language = language
 
     def __str__(self):
-        fk_id_function = management._query_func_id("LanguageManagment")
+        fk_id_function = management._query_func_id("LanguageManagement")
         messages = management._get_messages(fk_id_function, self.language)
         return f"{messages[5][0][0]} '{self.language}'"
 
@@ -189,29 +169,8 @@ class LanguageManagment:
         return self.language
 
 # with test, with database, with docstring
-class AlphaManagement(LanguageManagment):
+class AlphaManagement(LanguageManagement):
     """Instanciates a class for alpha managment.
-
-
-    Attributes
-    ----------
-    alfa : float
-        The significance level (dafualt None, which means 0.05)
-
-
-    Methods
-    -------
-
-    get_alfa(self) :
-        Gets the alpha value
-
-    set_alfa(self, alfa) :
-        Changes the alpha value
-
-
-    Notes
-    -----
-    The method does not allow the input of values that are not of type float and must between 0.0 and 1.0
 
     """
 
@@ -221,12 +180,12 @@ class AlphaManagement(LanguageManagment):
 
         Parameters
         ----------
-        alfa : float
-            The significance level (dafualt None, which means 0.05)
+        alfa : ``float``
+            The significance level (default is ``None``, which means ``0.05``)
 
         Notes
         -----
-        The method does not allow the input of values that are not of type float and must between 0.0 and 1.0
+        This method only allows input of type ``float`` and between ``0.0`` and ``1.0``.
 
         """
 
@@ -238,21 +197,21 @@ class AlphaManagement(LanguageManagment):
             self.alfa = alfa
 
     def get_alfa(self):
-        """Gets the current alpha value
+        """Gets the current ``alpha`` value
         """
         return self.alfa
 
     def set_alfa(self, alfa):
-        """Changes the alpha value
+        """Changes the ``alpha`` value
 
         Parameters
         ----------
-        alfa : float
-            The significance level (dafualt None, which means 0.05)
+        alfa : ``float``
+            The new significance level
 
         Notes
         -----
-        The method does not allow the input of values that are not of type float and must between 0.0 and 1.0
+        This method only allows input of type ``float`` and between ``0.0`` and ``1.0``.
 
         """
         checkers._check_is_float(alfa, "alfa", self.language)
@@ -268,25 +227,8 @@ class AlphaManagement(LanguageManagment):
         return f"{messages[1][0][0]} '{self.alfa}'"
 
 # with test, with database, with docstring
-class NDigitsManagement(LanguageManagment):
+class NDigitsManagement(LanguageManagement):
     """Instanciates a class for n_digits managment.
-
-    Attributes
-    ----------
-    n_digits : int
-        The maximum number of decimal places the data can be printed
-
-    Methods
-    -------
-    get_n_digits(self) :
-        Gets the n_digits
-
-    set_n_digits(self, n_digits) :
-        Changes the n_digits
-
-    Notes
-    -----
-    This class only accepts int values higher than 0.
 
     """
     def __init__(self, n_digits=None, **kwargs):
@@ -295,12 +237,12 @@ class NDigitsManagement(LanguageManagment):
 
         Parameters
         ----------
-        n_digits : int
-            The maximum number of decimal places that the calculated parameters can have, default = 4.
+        n_digits : ``int``
+            The maximum number of decimal places that the calculated parameters can have, ``default = 4``.
 
         Notes
         -----
-        This method only accepts int values greater than 0.
+        This method only accepts ``int`` values higher than ``0``.
 
         """
         if n_digits is None:
@@ -311,17 +253,17 @@ class NDigitsManagement(LanguageManagment):
             self.n_digits = n_digits
 
     def get_n_digits(self):
-        """Gets the n_digits parameter
+        """Gets the ``n_digits`` parameter
         """
         return self.n_digits
 
     def set_n_digits(self, n_digits):
-        """Sets the n_digits parameter
+        """Sets the ``n_digits`` parameter
 
         Parameters
         ----------
-        n_digits : int
-            The maximum number of decimal places that the calculated parameters can have, default = 4.
+        n_digits : ``int``
+            The maximum number of decimal places to be shown.
 
         """
         checkers._check_is_integer(n_digits, "n_digits", self.language)

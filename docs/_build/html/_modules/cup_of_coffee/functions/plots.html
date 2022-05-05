@@ -1,0 +1,1025 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cup_of_coffee.functions.plots &#8212; Cup of Coffee 0.1 documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css\custom.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-XXXXXXX', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../../../index.html">
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../source/user_guide.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../source/index.html">
+  Documentation
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../source/examples/example.html">
+  Examples
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../source/contribute.html">
+  Contribute
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/<your-org>/<your-repo>" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://gitlab.com/<your-org>/<your-repo>" rel="noopener" target="_blank" title="GitLab"><span><i class="fab fa-gitlab"></i></span>
+            <label class="sr-only">GitLab</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/<your-handle>" rel="noopener" target="_blank" title="Twitter"><span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for cup_of_coffee.functions.plots</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;This module concentrates</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Function list:</span>
+<span class="c1">#</span>
+<span class="c1">#     DefaultPlots:</span>
+<span class="c1">#         This class just has the default values for ploting</span>
+<span class="c1">#</span>
+<span class="c1">#     MakePlots(DefaultPlots, AlphaManagement):</span>
+<span class="c1">#         This class concentrates all plots</span>
+<span class="c1">#         - _get_default_width(self,width)</span>
+<span class="c1">#         - _get_default_height(self,height)</span>
+<span class="c1">#         - _get_default_export(self,export)</span>
+<span class="c1">#         - _get_default_extension(self,extension)</span>
+<span class="c1">#         - _get_default_dpi(self,dpi)</span>
+<span class="c1">#         - _get_default_tight(self,tight)</span>
+<span class="c1">#         - _get_default_transparent(self,transparent)</span>
+<span class="c1">#         - _get_default_legend(self,legend)</span>
+<span class="c1">#         - _get_default_x_label(self, x_label)</span>
+<span class="c1">#         - _get_default_y_label(self, y_label)</span>
+<span class="c1">#         - _get_default_decimal_separator(self, decimal_separator)</span>
+<span class="c1">#         - _get_default_local(self, local)</span>
+<span class="c1">#         - _get_default_legend_label(self, legend_label)</span>
+<span class="c1">#         - draw_dot_plot(self, x_exp, *args)</span>
+<span class="c1">#         - draw_density_function(self, x_exp, *args)</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">#########################################</span>
+<span class="c1">################ Imports ################</span>
+<span class="c1">#########################################</span>
+
+<span class="c1">###### Standard ######</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">takewhile</span>
+
+<span class="c1">###### Third part ######</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">gaussian_kde</span> <span class="k">as</span> <span class="n">parametric_gaussian</span>
+
+<span class="c1">###### Home made ######</span>
+<span class="kn">from</span> <span class="nn">cup_of_coffee.database_management</span> <span class="kn">import</span> <span class="n">management</span>
+<span class="kn">from</span> <span class="nn">cup_of_coffee.functions</span> <span class="kn">import</span> <span class="n">functions</span>
+<span class="kn">from</span> <span class="nn">cup_of_coffee.utils</span> <span class="kn">import</span> <span class="n">checkers</span>
+<span class="kn">from</span> <span class="nn">cup_of_coffee.utils</span> <span class="kn">import</span> <span class="n">helpers</span>
+<span class="kn">from</span> <span class="nn">cup_of_coffee.utils</span> <span class="kn">import</span> <span class="n">general</span>
+<span class="kn">from</span> <span class="nn">cup_of_coffee.utils.helpers</span> <span class="kn">import</span> <span class="n">AlphaManagement</span>
+
+
+
+<span class="c1">###########################################</span>
+<span class="c1">################ Functions ################</span>
+<span class="c1">###########################################</span>
+
+<span class="k">class</span> <span class="nc">DefaultPlots</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class just instantiates the default values for ploting. This may be used for database parameters.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="c1"># enviar estes valores para a database e permiter a alteração(?)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="mi">12</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="mi">6</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">export</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extension</span> <span class="o">=</span> <span class="s2">&quot;png&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dpi</span> <span class="o">=</span> <span class="mi">100</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tight</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transparent</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">legend</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decimal_separator</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">local</span> <span class="o">=</span> <span class="s2">&quot;pt_BR&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">legend_label</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x_label</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y_label</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span>
+
+
+
+
+
+<div class="viewcode-block" id="MakePlots"><a class="viewcode-back" href="../../../source/api/plots/MakePlots.html#cup_of_coffee.functions.plots.MakePlots">[docs]</a><span class="k">class</span> <span class="nc">MakePlots</span><span class="p">(</span><span class="n">DefaultPlots</span><span class="p">,</span> <span class="n">AlphaManagement</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This class instantiates an object to make plots with pre-defined layout.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_default_width</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">width</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">width</span> <span class="o">==</span> <span class="s1">&#39;default&#39;</span><span class="p">:</span>
+            <span class="n">width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_float_int</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">width</span>
+
+    <span class="k">def</span> <span class="nf">_get_default_height</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">height</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">height</span> <span class="o">==</span> <span class="s1">&#39;default&#39;</span><span class="p">:</span>
+            <span class="n">height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_float_int</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">height</span>
+
+    <span class="k">def</span> <span class="nf">_get_default_export</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">export</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">export</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">export</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_bool</span><span class="p">(</span><span class="n">export</span><span class="p">,</span> <span class="s2">&quot;export&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">export</span>
+
+    <span class="k">def</span> <span class="nf">_get_default_extension</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">extension</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">extension</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">extension</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">extension</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_str</span><span class="p">(</span><span class="n">extension</span><span class="p">,</span> <span class="s2">&quot;extension&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+            <span class="n">helpers</span><span class="o">.</span><span class="n">_check_forbidden_character</span><span class="p">(</span><span class="n">extension</span><span class="p">,</span> <span class="s2">&quot;extension&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+            <span class="n">helpers</span><span class="o">.</span><span class="n">_check_figure_extension</span><span class="p">(</span><span class="n">extension</span><span class="p">,</span> <span class="s2">&quot;extension&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">extension</span>
+
+    <span class="k">def</span> <span class="nf">_get_default_dpi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">dpi</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">dpi</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">dpi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dpi</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_float_int</span><span class="p">(</span><span class="n">dpi</span><span class="p">,</span> <span class="s2">&quot;dpi&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+            <span class="n">checkers</span><span class="o">.</span><span class="n">_chek_is_positive</span><span class="p">(</span><span class="n">dpi</span><span class="p">,</span> <span class="s2">&quot;dpi&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">dpi</span>
+
+    <span class="k">def</span> <span class="nf">_get_default_tight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">tight</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">tight</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">tight</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tight</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_bool</span><span class="p">(</span><span class="n">tight</span><span class="p">,</span> <span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">tight</span>
+
+    <span class="k">def</span> <span class="nf">_get_default_transparent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">transparent</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">transparent</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">transparent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transparent</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_bool</span><span class="p">(</span><span class="n">transparent</span><span class="p">,</span> <span class="s2">&quot;transparent&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">transparent</span>
+
+    <span class="k">def</span> <span class="nf">_get_default_legend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">legend</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">legend</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">legend</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">legend</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_bool</span><span class="p">(</span><span class="n">legend</span><span class="p">,</span> <span class="s2">&quot;legend&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">legend</span>
+
+    <span class="k">def</span> <span class="nf">_get_default_x_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_label</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">x_label</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">x_label</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_label</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_str</span><span class="p">(</span><span class="n">x_label</span><span class="p">,</span> <span class="s2">&quot;x_label&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x_label</span>
+
+    <span class="k">def</span> <span class="nf">_get_default_y_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_label</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">y_label</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">y_label</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_label</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_str</span><span class="p">(</span><span class="n">y_label</span><span class="p">,</span> <span class="s2">&quot;y_label&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">y_label</span>
+
+    <span class="k">def</span> <span class="nf">_get_default_decimal_separator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decimal_separator</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">decimal_separator</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">decimal_separator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decimal_separator</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">pass</span> <span class="c1"># o controle é feito em outra função</span>
+        <span class="k">return</span> <span class="n">decimal_separator</span>
+
+    <span class="k">def</span> <span class="nf">_get_default_local</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">local</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">local</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">local</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">local</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">pass</span> <span class="c1"># o controle é feito em outra função</span>
+        <span class="k">return</span> <span class="n">local</span>
+
+    <span class="k">def</span> <span class="nf">_get_default_legend_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">legend_label</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">legend_label</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">legend_label</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">legend_label</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_str</span><span class="p">(</span><span class="n">legend_label</span><span class="p">,</span> <span class="s2">&quot;legend_label&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">legend_label</span>
+
+    <span class="c1"># Experimental, with text, with database, NO test</span>
+<div class="viewcode-block" id="MakePlots.draw_dot_plot"><a class="viewcode-back" href="../../../source/api/plots/MakePlots.html#cup_of_coffee.functions.plots.MakePlots.draw_dot_plot">[docs]</a>    <span class="k">def</span> <span class="nf">draw_dot_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_exp</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">x_label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">export</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_ticks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">decimal_separator</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">local</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This function draws a dot plot with a predefined design</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x_exp : 1D :doc:`numpy array &lt;numpy:reference/generated/numpy.array&gt;`</span>
+<span class="sd">            A 1 dimension numpy array with the dataset</span>
+<span class="sd">        legend_label : ``str``, optional</span>
+<span class="sd">            The label to be displayed on the legend. Default is ``None``, which results in ``&quot;data&quot;``.</span>
+<span class="sd">        x_label : ``str``, optional</span>
+<span class="sd">            The label to be displayed on x label. Default is ``None``, which results in a blank label.</span>
+<span class="sd">        width : ``&#39;auto&#39;``, ``&#39;default&#39;``, ``int`` or ``float`` (positive), optional</span>
+<span class="sd">            The ``width`` of the figure. If it is ``&#39;auto&#39;``, it tries to figure out a nice width for the plot using the data range. If it is ``&#39;default&#39;``, it uses a pre-defined value. If it is a number, it defines the width of the chart (in inches).</span>
+<span class="sd">        height : ``&#39;auto&#39;``, ``&#39;default&#39;``, ``int`` or ``float`` (positive), optional</span>
+<span class="sd">            The ``height`` of the figure. If it is ``&#39;auto&#39;``, it tries to figure out a nice height for the plot using the data range. If it is ``&#39;default&#39;``, it uses a pre-defined value. If it is a number, it defines the height of the chart (in inches).</span>
+<span class="sd">        export : ``bool``, optional</span>
+<span class="sd">            Whether the graph should be exported (``True``) or not (``False``). The default value is ``None``, which implies ``False``.</span>
+<span class="sd">        file_name : ``str``, optional</span>
+<span class="sd">            The file name. Default is ``None`` which results in a file named ``&quot;dot_plot&quot;``.</span>
+<span class="sd">        extension : ``str``, optional</span>
+<span class="sd">            The file extension without a dot. Default is ``None`` which results in a ``&quot;.png&quot;`` file.</span>
+<span class="sd">        dpi : ``int`` or ``float``, optional</span>
+<span class="sd">            The figure pixel density. The default is ``None``, which results in a ``100 dpis`` picture. This parameter must be a number higher than zero.</span>
+<span class="sd">        n_ticks : ``int``, optional</span>
+<span class="sd">            The number of evenly spaced ticks to be drawn on the x-axis. The default is ``None``, which uses matplotlib default parameter.</span>
+<span class="sd">        tight : ``bool``, optional</span>
+<span class="sd">            Whether the graph should be tight (``True``) or not (``False``). The default value is ``None``, which implies ``True``.</span>
+<span class="sd">        transparent : ``bool``, optional</span>
+<span class="sd">            Whether the background of the graph should be transparent (``True``) or not (``False``). The default value is ``None``, which implies not transparent (white).</span>
+<span class="sd">        legend : ``bool``, optional</span>
+<span class="sd">            Whether the legend should be inserted into the chart (``True``) or not (``False``). The default value is ``None``, which does not insert the legend into the plot (``False``).</span>
+<span class="sd">        decimal_separator : ``str``, optional</span>
+<span class="sd">            The decimal separator symbol used in the chart. It can be the dot (``None`` or ``&#39;.&#39;``) or the comma (``&#39;,&#39;``).</span>
+<span class="sd">        local : ``str``, optional</span>
+<span class="sd">            The alias for the desired locale. Only used if ``decimal_separator=&#39;,&#39;`` to set the matplolib&#39;s default locale. Its only function is to change the decimal separator symbol and should be changed only if the ``&quot;pt_BR&quot;`` option is not available.</span>
+
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        x : :doc:`numpy array &lt;numpy:reference/generated/numpy.array&gt;`</span>
+<span class="sd">            The x values used to plot the graph.</span>
+<span class="sd">        y : :doc:`numpy array &lt;numpy:reference/generated/numpy.array&gt;`</span>
+<span class="sd">            The y values used to plot the graph.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+
+<span class="sd">        .. admonition:: \u2615</span>
+
+<span class="sd">            To obtain which extensions the figure can be exported, use the following script:</span>
+
+<span class="sd">            &gt;&gt;&gt; from matplotlib import pyplot as plt</span>
+<span class="sd">            &gt;&gt;&gt; suported_types = plt.gcf().canvas.get_supported_filetypes()</span>
+<span class="sd">            &gt;&gt;&gt; for key, value in suported_types.items():</span>
+<span class="sd">                    print(key, &quot;:&quot;, value)</span>
+<span class="sd">            &gt;&gt;&gt; plt.close()</span>
+
+
+<span class="sd">        References</span>
+<span class="sd">        ----------</span>
+<span class="sd">        .. [1] Inspired by https://stackoverflow.com/a/64943404/17872198</span>
+
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+
+<span class="sd">        &gt;&gt;&gt; from easy_stat.functions.plots import MakePlots</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; x = np.array([5.1, 4.9, 4.7, 4.6, 5.0, 5.4, 4.6, 5.0, 4.4, 4.9, 5.4, 4.8, 4.8, 4.3, 5.8, 5.7, 5.4, 5.1, 5.7,</span>
+<span class="sd">                        5.1, 5.4, 5.1,4.6, 5.1, 4.8, 5.0, 5.0, 5.2, 5.2, 4.7, 4.8, 5.4, 5.2, 5.5, 4.9, 5.0, 5.5, 4.9, 4.4,</span>
+<span class="sd">                        5.1, 5.0, 4.5, 4.4, 5.0, 5.1,4.8, 5.1, 4.6, 5.3, 5.0</span>
+<span class="sd">                        ])</span>
+<span class="sd">        &gt;&gt;&gt; plots = MakePlots()</span>
+<span class="sd">        &gt;&gt;&gt; plots.draw_dot_plot(x)</span>
+
+
+<span class="sd">        .. image:: img/dot_plot.png</span>
+<span class="sd">           :alt: Graph showing the dot plot</span>
+<span class="sd">           :align: center</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">general</span><span class="o">.</span><span class="n">_display_warn</span><span class="p">(</span>
+            <span class="n">aviso</span> <span class="o">=</span> <span class="s2">&quot;    UserWarning&quot;</span><span class="p">,</span>
+            <span class="n">texto</span> <span class="o">=</span> <span class="s2">&quot;This function is experimental&quot;</span>
+        <span class="p">)</span>
+        <span class="c1">### Checking the input parameters ###</span>
+
+        <span class="c1">## x_exp ##</span>
+        <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_numpy_1_D</span><span class="p">(</span><span class="n">x_exp</span><span class="p">,</span> <span class="s2">&quot;x_exp&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+
+        <span class="c1">## legend_label ##</span>
+        <span class="n">legend_label</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_legend_label</span><span class="p">(</span><span class="n">legend_label</span><span class="p">)</span>
+
+        <span class="c1">## width ##</span>
+        <span class="k">if</span> <span class="n">width</span> <span class="o">==</span> <span class="s1">&#39;auto&#39;</span><span class="p">:</span>
+            <span class="n">width</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_width</span><span class="p">(</span><span class="n">width</span><span class="p">)</span>
+
+        <span class="c1">## height ##</span>
+        <span class="k">if</span> <span class="n">height</span> <span class="o">==</span> <span class="s1">&#39;auto&#39;</span><span class="p">:</span>
+            <span class="n">height</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_height</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
+
+        <span class="c1">## export ##</span>
+        <span class="n">export</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_export</span><span class="p">(</span><span class="n">export</span><span class="p">)</span>
+
+        <span class="c1">## file name ##</span>
+        <span class="k">if</span> <span class="n">file_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;dot_plot&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_str</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s2">&quot;file_name&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+            <span class="n">helpers</span><span class="o">.</span><span class="n">_check_forbidden_character</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s2">&quot;file_name&quot;</span><span class="p">)</span>
+
+        <span class="c1">## extension ##</span>
+        <span class="n">extension</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_extension</span><span class="p">(</span><span class="n">extension</span><span class="p">)</span>
+
+
+        <span class="c1">### Baptism of Fire ###</span>
+        <span class="n">file_name</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">_check_conflicting_filename</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">extension</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+
+        <span class="c1">## dpi ##</span>
+        <span class="n">dpi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_dpi</span><span class="p">(</span><span class="n">dpi</span><span class="p">)</span>
+
+        <span class="c1">## n_ticks ##</span>
+        <span class="k">if</span> <span class="n">n_ticks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_integer</span><span class="p">(</span><span class="n">n_ticks</span><span class="p">,</span> <span class="s2">&quot;n_ticks&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+
+        <span class="c1">## tight ##</span>
+        <span class="n">tight</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_tight</span><span class="p">(</span><span class="n">tight</span><span class="p">)</span>
+
+        <span class="c1">## transparent ##</span>
+        <span class="n">transparent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_transparent</span><span class="p">(</span><span class="n">transparent</span><span class="p">)</span>
+
+        <span class="c1">## Legend ##</span>
+        <span class="k">if</span> <span class="n">legend</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">legend</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">legend</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_legend</span><span class="p">(</span><span class="n">legend</span><span class="p">)</span>
+
+        <span class="c1">## decimal_separator ##</span>
+        <span class="n">decimal_separator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_decimal_separator</span><span class="p">(</span><span class="n">decimal_separator</span><span class="p">)</span>
+
+        <span class="c1">## local ##</span>
+        <span class="n">local</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_local</span><span class="p">(</span><span class="n">local</span><span class="p">)</span>
+
+
+        <span class="c1">### drawing the graph ###</span>
+        <span class="c1">## counting the number of unique values within x_exp ##</span>
+        <span class="n">values</span><span class="p">,</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">x_exp</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1">## formatting the chart according to the data ##</span>
+        <span class="n">data_range</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">-</span> <span class="nb">min</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+        <span class="c1"># width #</span>
+        <span class="k">if</span> <span class="n">width</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">data_range</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+                <span class="n">width</span> <span class="o">=</span> <span class="mi">4</span>
+            <span class="k">elif</span> <span class="n">data_range</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">:</span>
+                <span class="n">width</span> <span class="o">=</span> <span class="n">data_range</span><span class="o">/</span><span class="mi">2</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">width</span> <span class="o">=</span> <span class="mi">8</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+        <span class="c1"># height #</span>
+        <span class="k">if</span> <span class="n">height</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">data_range</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">:</span>
+                <span class="n">height</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span><span class="o">/</span><span class="mi">4</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">height</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+        <span class="k">if</span> <span class="n">width</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">height</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">data_range</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">:</span>
+                <span class="n">marker_size</span> <span class="o">=</span> <span class="mi">40</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">marker_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mi">200</span> <span class="o">/</span> <span class="p">(</span><span class="n">data_range</span><span class="o">//</span><span class="mi">10</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">marker_size</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># cheking the decimal_separator #</span>
+        <span class="n">default_locale</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">_change_locale</span><span class="p">(</span><span class="n">decimal_separator</span><span class="p">,</span> <span class="n">local</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+
+        <span class="c1">## Createing the dot plot with format ##</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">))</span>
+
+        <span class="c1"># lists to export the data #</span>
+        <span class="n">axis_x</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">axis_y</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># making the data #</span>
+        <span class="k">for</span> <span class="n">value</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">counts</span><span class="p">):</span>
+            <span class="n">axis_x</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">value</span><span class="p">]</span><span class="o">*</span><span class="n">count</span><span class="p">)</span>
+            <span class="n">axis_y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">)))</span>
+
+        <span class="c1"># flating the data into one dimension array #</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">helpers</span><span class="o">.</span><span class="n">_flat_list_of_lists</span><span class="p">(</span><span class="n">axis_x</span><span class="p">,</span> <span class="s2">&quot;axis_x&quot;</span><span class="p">))</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">helpers</span><span class="o">.</span><span class="n">_flat_list_of_lists</span><span class="p">(</span><span class="n">axis_y</span><span class="p">,</span> <span class="s2">&quot;axis_y&quot;</span><span class="p">))</span>
+
+        <span class="c1"># ploting the data #</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;None&quot;</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>  <span class="n">s</span><span class="o">=</span><span class="n">marker_size</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">legend_label</span><span class="p">)</span>
+
+        <span class="c1"># removing spines #</span>
+        <span class="k">for</span> <span class="n">spine</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">]:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="n">spine</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="c1"># improving y axis #</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">counts</span><span class="p">))</span>
+
+        <span class="c1"># formatting the axes #</span>
+        <span class="k">if</span> <span class="n">n_ticks</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">values</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">values</span><span class="p">),</span> <span class="n">n_ticks</span><span class="p">)</span><span class="c1">#, dtype=int)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">ticks</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+        <span class="c1"># legend #</span>
+        <span class="k">if</span> <span class="n">legend</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+        <span class="c1"># x label #</span>
+        <span class="k">if</span> <span class="n">x_label</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">x_label</span><span class="p">)</span>
+
+
+        <span class="c1"># making the graph &quot;tight&quot; #</span>
+        <span class="k">if</span> <span class="n">tight</span><span class="p">:</span>
+            <span class="n">tight</span> <span class="o">=</span> <span class="s1">&#39;tight&#39;</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tight</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># exporting the plot #</span>
+        <span class="k">if</span> <span class="n">export</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="n">transparent</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="n">tight</span><span class="p">)</span>
+            <span class="c1">### quering ###</span>
+            <span class="n">func_name</span> <span class="o">=</span> <span class="s2">&quot;draw_dot_plot&quot;</span>
+            <span class="n">fk_id_function</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_query_func_id</span><span class="p">(</span><span class="n">func_name</span><span class="p">)</span>
+            <span class="n">messages</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_get_messages</span><span class="p">(</span><span class="n">fk_id_function</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">,</span> <span class="n">func_name</span><span class="p">)</span>
+            <span class="n">general</span><span class="o">.</span><span class="n">_display_one_line_attention</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> &#39;</span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">&#39; </span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># showing the plot #</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+        <span class="n">helpers</span><span class="o">.</span><span class="n">_change_locale_back_to_default</span><span class="p">(</span><span class="n">default_locale</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span></div>
+
+    <span class="c1"># Experimental, with text, with database, NO test</span>
+<div class="viewcode-block" id="MakePlots.draw_density_function"><a class="viewcode-back" href="../../../source/api/plots/MakePlots.html#cup_of_coffee.functions.plots.MakePlots.draw_density_function">[docs]</a>    <span class="k">def</span> <span class="nf">draw_density_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_exp</span><span class="p">,</span> <span class="n">bw_method</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">x_label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y_label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="n">export</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">plot_design</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">decimal_separator</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">local</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This function draws the non-parametric density plot with the central tendency measurements</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x_exp : 1D :doc:`numpy array &lt;numpy:reference/generated/numpy.array&gt;`</span>
+<span class="sd">            The data to be fitted</span>
+<span class="sd">        bw_method : ``str``, optional</span>
+<span class="sd">            The method used to calculate the estimator bandwidth. This can be ``&#39;scott&#39;`` or ``&#39;silverman&#39;``. If ``None`` (default), the scott method is used. This is the ``bw_method`` from ``scipy.stats.gaussian_kde()``, but limited to ``&#39;scott&#39;`` or ``&#39;silverman&#39;`` options. For other options, use the original method [1]_.</span>
+<span class="sd">        which : ``str``, optional</span>
+<span class="sd">            The parameter which controls which measures of central tendency should be added to the graph. The options are:</span>
+<span class="sd">                - ``None`` (default): no measures of central tendency are included;</span>
+<span class="sd">                - ``&#39;mean&#39;``: adds the mean;</span>
+<span class="sd">                - ``&#39;median&#39;``: adds the median;</span>
+<span class="sd">                - ``&#39;mode&#39;``: adds the mode(s);</span>
+<span class="sd">                - ``&#39;all&#39;``: adds the mean, median and the mode(s);</span>
+
+<span class="sd">            To add two measures of central tendency, combine their names separated by a comma (``&#39;,&#39;``). For example, to add the mean and median, use ``which = &quot;mean,median&quot;``.</span>
+<span class="sd">        legend_label : ``str``, optional</span>
+<span class="sd">            The label to be displayed on the legend. Default is ``None``, which results in ``&quot;Non parametric density&quot;``.</span>
+<span class="sd">        x_label : ``str``, optional</span>
+<span class="sd">            The label to be displayed on x label. Default is ``None``, which results in ``&quot;data&quot;``.</span>
+<span class="sd">        y_label : ``str``, optional</span>
+<span class="sd">            The label to be displayed on y label. Default is ``None``, which results in ``&quot;Non-parametric density&quot;``.</span>
+<span class="sd">        width : ``&#39;auto&#39;``, ``&#39;default&#39;``, ``int`` or ``float`` (positive), optional</span>
+<span class="sd">            The width of the figure. If it is ``&#39;auto&#39;``, it tries to figure out a nice width for the plot using the data range. If it is ``&#39;default&#39;``, it uses a pre-defined value. If it is a number, it defines the width of the chart (in inches).</span>
+<span class="sd">        height : ``&#39;auto&#39;``, ``&#39;default&#39;``, ``int`` or ``float`` (positive), optional</span>
+<span class="sd">            The height of the figure. If it is ``&#39;auto&#39;``, it tries to figure out a nice height for the plot using the data range. If it is ``&#39;default&#39;``, it uses a pre-defined value. If it is a number, it defines the height of the chart (in inches).</span>
+<span class="sd">        export : ``bool``, optional</span>
+<span class="sd">            Whether the graph should be exported (``True``) or not (``False``). The default value is ``None``, which implies ``False``.</span>
+<span class="sd">        file_name : ``str``, optional</span>
+<span class="sd">            The file name. Default is ``None`` which results in a file named ``&quot;kernal_density&quot;``.</span>
+<span class="sd">        extension : ``str``, optional</span>
+<span class="sd">            The file extension without a dot. Default is ``None`` which results in a ``&quot;.png&quot;`` file.</span>
+<span class="sd">        dpi : ``int`` or ``float``, optional</span>
+<span class="sd">            The figure pixel density. The default is ``None``, which results in a ``100 dpis`` picture. This parameter must be a number higher than zero.</span>
+<span class="sd">        tight : ``bool``, optional</span>
+<span class="sd">            Whether the graph should be tight (``True``) or not (``False``). The default value is ``None``, which implies ``True``.</span>
+<span class="sd">        transparent : ``bool``, optional</span>
+<span class="sd">            Whether the background of the graph should be transparent (``True``) or not (``False``). The default value is ``None``, which implies not transparent (white).</span>
+<span class="sd">        plot_design : ``str`` or ``dict``, optional</span>
+<span class="sd">            The plot desing. If ``&#39;default&#39;``, uses a simple desing (default). If ``&#39;colored&#39;``, uses a colored desing. If ``dict``, it must have five ``keys`` (``&quot;kde&quot;``, ``&quot;Mean&quot;``, ``&quot;Median&quot;``, ``&quot;Mode&quot;``, ``&quot;Area&quot;``), where each one defines the design of each element added to the chart.</span>
+
+<span class="sd">            The ``values`` for all ``keys`` must be a ``list``. The lists of the keys ``&quot;kde&quot;``, ``&quot;Mean&quot;``, ``&quot;Median&quot;``, and ``&quot;Mode&quot;`` must have:</span>
+<span class="sd">                - the first element must be a ``str`` with the name of the color;</span>
+<span class="sd">                - the second element must be a ``str`` with the style of the line;</span>
+<span class="sd">                - the third element must be a number (``int`` or ``float``) with the thickness of the line.</span>
+
+<span class="sd">            The ``Area`` list must have a single element, which is a ``str`` with the name of the color that fills the area between the fit and the line ``y = 0``.</span>
+
+<span class="sd">            For example:</span>
+
+<span class="sd">            .. code-block:: python</span>
+
+<span class="sd">                plot_design = {</span>
+<span class="sd">                    &quot;kde&quot;: [&#39;k&#39;, &#39;-&#39;, 1.5],</span>
+<span class="sd">                    &quot;Mean&quot;: [&#39;dimgray&#39;, &#39;--&#39;, 1.5],</span>
+<span class="sd">                    &quot;Median&quot;: [&#39;darkgray&#39;, &#39;--&#39;, 1.5],</span>
+<span class="sd">                    &quot;Mode&quot;: [&#39;lightgray&#39;, &#39;--&#39;, 1.5],</span>
+<span class="sd">                    &quot;Area&quot;: [&#39;white&#39;],</span>
+<span class="sd">                }</span>
+
+
+<span class="sd">        legend : ``bool``, optional</span>
+<span class="sd">            Whether the legend should be inserted into the chart (``True``) or not (``False``). The default value is ``None``, which does not insert the legend into the plot (``False``).</span>
+<span class="sd">        decimal_separator : ``str``, optional</span>
+<span class="sd">            The decimal separator symbol used in the chart. It can be the dot (``None`` or ``&#39;.&#39;``) or the comma (``&#39;,&#39;``).</span>
+<span class="sd">        local : ``str``, optional</span>
+<span class="sd">            The alias for the desired locale. Only used if ``decimal_separator = &#39;,&#39;`` to set the matplolib&#39;s default ``locale``. Its only function is to change the decimal separator symbol and should be changed only if the ``&quot;pt_BR&quot;`` option is not available.</span>
+
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        kde_x : :doc:`numpy array &lt;numpy:reference/generated/numpy.array&gt;`</span>
+<span class="sd">            The x values used to plot the graph</span>
+<span class="sd">        kde_y : :doc:`numpy array &lt;numpy:reference/generated/numpy.array&gt;`</span>
+<span class="sd">            The y values used to plot the graph</span>
+<span class="sd">        central_tendency : ``dict``</span>
+<span class="sd">            A dictionary with the measures of central tendency of the data with respective value estimated by the kde function.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+
+<span class="sd">        .. admonition:: \u2615</span>
+
+<span class="sd">            To obtain which extensions the figure can be exported, use the following script:</span>
+
+<span class="sd">            &gt;&gt;&gt; from matplotlib import pyplot as plt</span>
+<span class="sd">            &gt;&gt;&gt; suported_types = plt.gcf().canvas.get_supported_filetypes()</span>
+<span class="sd">            &gt;&gt;&gt; for key, value in suported_types.items():</span>
+<span class="sd">                    print(key, &quot;:&quot;, value)</span>
+<span class="sd">            &gt;&gt;&gt; plt.close()</span>
+
+
+<span class="sd">        The mode is calculated using the multimode function.</span>
+
+<span class="sd">        A list of color names can be found at matplotlib reference [2]_.</span>
+
+<span class="sd">        A list of linestyles can be found at reference [3]_.</span>
+
+<span class="sd">        References</span>
+<span class="sd">        ----------</span>
+<span class="sd">        .. [1] https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.gaussian_kde.html</span>
+<span class="sd">        .. [2] https://matplotlib.org/stable/_images/sphx_glr_named_colors_003.png</span>
+<span class="sd">        .. [3] https://raw.githubusercontent.com/andersonmdcanteli/matplotlib-course/main/auxiliary-scripts/matplotli-all-linestyles/matplotlib_linestyles.png</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+
+<span class="sd">        &gt;&gt;&gt; from easy_stat.functions.plots import MakePlots</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; x = np.array([5.1, 4.9, 4.7, 4.6, 5.0, 5.4, 4.6, 5.0, 4.4, 4.9, 5.4, 4.8, 4.8, 4.3, 5.8, 5.7, 5.4, 5.1, 5.7,</span>
+<span class="sd">                        5.1, 5.4, 5.1,4.6, 5.1, 4.8, 5.0, 5.0, 5.2, 5.2, 4.7, 4.8, 5.4, 5.2, 5.5, 4.9, 5.0, 5.5, 4.9, 4.4,</span>
+<span class="sd">                        5.1, 5.0, 4.5, 4.4, 5.0, 5.1,4.8, 5.1, 4.6, 5.3, 5.0</span>
+<span class="sd">                        ])</span>
+<span class="sd">        &gt;&gt;&gt; plots = MakePlots()</span>
+<span class="sd">        &gt;&gt;&gt; plots.draw_density_function(x, export=True, which=&quot;all&quot;, plot_design=&#39;colored&#39;)</span>
+
+<span class="sd">        .. image:: img/kernal_density.png</span>
+<span class="sd">           :alt: Graph showing the dot plot</span>
+<span class="sd">           :align: center</span>
+
+
+
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">general</span><span class="o">.</span><span class="n">_display_warn</span><span class="p">(</span>
+            <span class="n">aviso</span> <span class="o">=</span> <span class="s2">&quot;    UserWarning&quot;</span><span class="p">,</span>
+            <span class="n">texto</span> <span class="o">=</span> <span class="s2">&quot;This function is experimental&quot;</span>
+        <span class="p">)</span>
+        <span class="c1">### Checking the input parameters ###</span>
+
+        <span class="c1">## x_exp ##</span>
+        <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_numpy_1_D</span><span class="p">(</span><span class="n">x_exp</span><span class="p">,</span> <span class="n">param_name</span><span class="o">=</span><span class="s2">&quot;x_exp&quot;</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+
+        <span class="c1">## bw_method ##</span>
+        <span class="k">if</span> <span class="n">bw_method</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">bw_method</span> <span class="o">=</span> <span class="s2">&quot;scott&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_str</span><span class="p">(</span><span class="n">bw_method</span><span class="p">,</span> <span class="s2">&quot;bw_method&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">bw_method</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;scott&quot;</span><span class="p">,</span> <span class="s2">&quot;silverman&quot;</span><span class="p">]:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Not allowed key&quot;</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="n">general</span><span class="o">.</span><span class="n">_display_one_line_attention</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;The parameter &#39;bw_method&#39; only accepts &#39;scott&#39; or &#39;silverman&#39; as key, but we got: </span><span class="si">{</span><span class="n">bw_method</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                    <span class="p">)</span>
+                    <span class="k">raise</span>
+
+        <span class="c1">## which ##</span>
+        <span class="k">if</span> <span class="n">which</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">which</span> <span class="o">=</span> <span class="s2">&quot;None&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_str</span><span class="p">(</span><span class="n">which</span><span class="p">,</span> <span class="s2">&quot;which&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+            <span class="n">which</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">_check_which_density_gaussian_kernal_plot</span><span class="p">(</span><span class="n">which</span><span class="p">)</span>
+
+        <span class="c1">## legend_label ##</span>
+        <span class="k">if</span> <span class="n">legend_label</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">legend_label</span> <span class="o">=</span> <span class="s2">&quot;Non-parametric density&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">legend_label</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_legend_label</span><span class="p">(</span><span class="n">legend_label</span><span class="p">)</span>
+
+        <span class="c1">## x_label ##</span>
+        <span class="n">x_label</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_x_label</span><span class="p">(</span><span class="n">x_label</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">y_label</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">y_label</span> <span class="o">=</span> <span class="s2">&quot;Non-parametric density&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">y_label</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_y_label</span><span class="p">(</span><span class="n">y_label</span><span class="p">)</span>
+
+        <span class="c1">## width ##</span>
+        <span class="n">width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_width</span><span class="p">(</span><span class="n">width</span><span class="p">)</span>
+
+        <span class="c1">## height ##</span>
+        <span class="n">height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_height</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
+
+        <span class="c1">## export ##</span>
+        <span class="n">export</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_export</span><span class="p">(</span><span class="n">export</span><span class="p">)</span>
+
+        <span class="c1">## file_name ##</span>
+        <span class="k">if</span> <span class="n">file_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;kernal_density&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_str</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s2">&quot;file_name&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+            <span class="n">helpers</span><span class="o">.</span><span class="n">_check_forbidden_character</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s2">&quot;file_name&quot;</span><span class="p">)</span>
+
+        <span class="c1">## extension ##</span>
+        <span class="n">extension</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_extension</span><span class="p">(</span><span class="n">extension</span><span class="p">)</span>
+
+        <span class="c1">## Baptism of fire ##</span>
+        <span class="n">file_name</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">_check_conflicting_filename</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">extension</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+
+        <span class="c1">## dpi ##</span>
+        <span class="n">dpi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_dpi</span><span class="p">(</span><span class="n">dpi</span><span class="p">)</span>
+
+        <span class="c1">## tight ##</span>
+        <span class="n">tight</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_tight</span><span class="p">(</span><span class="n">tight</span><span class="p">)</span>
+
+        <span class="c1">## transparent ##</span>
+        <span class="n">transparent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_transparent</span><span class="p">(</span><span class="n">transparent</span><span class="p">)</span>
+
+        <span class="c1">## plot design ##</span>
+        <span class="k">if</span> <span class="n">plot_design</span> <span class="o">==</span> <span class="s1">&#39;default&#39;</span><span class="p">:</span>
+            <span class="n">plot_design</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;kde&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span>
+                <span class="s2">&quot;Mean&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;dimgray&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span>
+                <span class="s2">&quot;Median&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;darkgray&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span>
+                <span class="s2">&quot;Mode&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span>
+                <span class="s2">&quot;Area&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;white&#39;</span><span class="p">],</span>
+            <span class="p">}</span>
+        <span class="k">elif</span> <span class="n">plot_design</span> <span class="o">==</span> <span class="s2">&quot;colored&quot;</span><span class="p">:</span>
+            <span class="n">plot_design</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;kde&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span>
+                <span class="s2">&quot;Mean&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span>
+                <span class="s2">&quot;Median&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span>
+                <span class="s2">&quot;Mode&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span>
+                <span class="s2">&quot;Area&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;gainsboro&#39;</span><span class="p">],</span>
+            <span class="p">}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">plot_design_default</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;kde&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span>
+                <span class="s2">&quot;Mean&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;dimgray&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span>
+                <span class="s2">&quot;Median&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;darkgray&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span>
+                <span class="s2">&quot;Mode&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span>
+                <span class="s2">&quot;Area&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;white&#39;</span><span class="p">],</span>
+            <span class="p">}</span>
+            <span class="n">plot_design_example</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;kde&quot;</span><span class="p">:</span> <span class="s2">&quot;[&#39;color name&#39;, &#39;line style&#39;, number]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Mean&quot;</span><span class="p">:</span> <span class="s2">&quot;[&#39;color name&#39;, &#39;line style&#39;, number]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Median&quot;</span><span class="p">:</span> <span class="s2">&quot;[&#39;color name&#39;, &#39;line style&#39;, number]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Mode&quot;</span><span class="p">:</span> <span class="s2">&quot;[&#39;color name&#39;, &#39;line style&#39;, number]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Area&quot;</span><span class="p">:</span> <span class="s2">&quot;[&#39;color name&#39;]&quot;</span><span class="p">,</span>
+            <span class="p">}</span>
+            <span class="n">helpers</span><span class="o">.</span><span class="n">_check_plot_design</span><span class="p">(</span><span class="n">plot_design</span><span class="p">,</span> <span class="s2">&quot;plot_design&quot;</span><span class="p">,</span> <span class="n">plot_design_default</span><span class="p">,</span> <span class="n">plot_design_example</span><span class="p">)</span>
+
+        <span class="c1">## Legend ##</span>
+        <span class="n">legend</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_legend</span><span class="p">(</span><span class="n">legend</span><span class="p">)</span>
+
+        <span class="c1">## decimal_separator ##</span>
+        <span class="n">decimal_separator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_decimal_separator</span><span class="p">(</span><span class="n">decimal_separator</span><span class="p">)</span>
+
+        <span class="c1">## local ##</span>
+        <span class="n">local</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_local</span><span class="p">(</span><span class="n">local</span><span class="p">)</span>
+
+        <span class="c1">### Getting the measures of central tendency ###</span>
+        <span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x_exp</span><span class="p">)</span>
+        <span class="n">median</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">x_exp</span><span class="p">)</span>
+        <span class="n">modas</span> <span class="o">=</span> <span class="n">functions</span><span class="o">.</span><span class="n">multimode</span><span class="p">(</span><span class="n">x_exp</span><span class="p">)</span>
+        <span class="n">modas</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">modas</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+
+
+        <span class="c1">### estimating the kde ###</span>
+        <span class="n">kde</span> <span class="o">=</span> <span class="n">parametric_gaussian</span><span class="p">(</span><span class="n">x_exp</span><span class="p">,</span> <span class="n">bw_method</span> <span class="o">=</span> <span class="n">bw_method</span><span class="p">)</span>
+
+
+        <span class="c1">### getting generic values to use on the x axis ###</span>
+        <span class="n">kde_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">x_exp</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">x_exp</span><span class="p">),</span> <span class="mi">1000</span><span class="p">)</span>
+
+
+        <span class="c1">### calculating nonparametric density values ###</span>
+        <span class="n">kde_y</span> <span class="o">=</span> <span class="n">kde</span><span class="p">(</span><span class="n">kde_x</span><span class="p">)</span>
+
+        <span class="c1">### cheking the decimal_separator ###</span>
+        <span class="n">default_locale</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">_change_locale</span><span class="p">(</span><span class="n">decimal_separator</span><span class="p">,</span> <span class="n">local</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+
+        <span class="c1">### plotando o gráfico ##</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">width</span><span class="p">,</span><span class="n">height</span><span class="p">))</span>
+
+        <span class="c1">## adding the predicted values ##</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kde_x</span><span class="p">,</span> <span class="n">kde_y</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;kde&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+            <span class="n">ls</span> <span class="o">=</span> <span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;kde&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span>
+            <span class="n">lw</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;kde&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span>
+            <span class="n">label</span><span class="o">=</span><span class="n">legend_label</span>
+        <span class="p">)</span>
+        <span class="c1">## adding background color ##</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">kde_x</span><span class="p">,</span> <span class="n">kde_y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;Area&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+        <span class="c1">## adding measures of central tendency ##</span>
+        <span class="n">central_tendency</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">which</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;all&quot;</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">kde</span><span class="p">(</span><span class="n">mean</span><span class="p">),</span>
+                        <span class="n">color</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;Mean&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mean&quot;</span><span class="p">,</span>
+                        <span class="n">ls</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;Mean&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span>
+                        <span class="n">lw</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;Mean&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+                    <span class="p">)</span>
+            <span class="n">central_tendency</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">mean</span><span class="p">,</span> <span class="n">kde</span><span class="p">(</span><span class="n">mean</span><span class="p">)[</span><span class="mi">0</span><span class="p">]]</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">median</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">kde</span><span class="p">(</span><span class="n">median</span><span class="p">),</span>
+                        <span class="n">color</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;Median&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Median&quot;</span><span class="p">,</span>
+                        <span class="n">ls</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;Median&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span>
+                        <span class="n">lw</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;Median&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+                    <span class="p">)</span>
+            <span class="n">central_tendency</span><span class="p">[</span><span class="s2">&quot;median&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">median</span><span class="p">,</span> <span class="n">kde</span><span class="p">(</span><span class="n">median</span><span class="p">)[</span><span class="mi">0</span><span class="p">]]</span>
+            <span class="c1"># adding mode #</span>
+            <span class="k">if</span> <span class="kc">None</span> <span class="ow">in</span> <span class="n">modas</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    ---&gt; UserWarning: The data does not have a mode (all values are unique)&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">modas</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    ---&gt; UserWarning: The data has more than one mode&quot;</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;         Bimodal or multi-modal distributions tend to be oversmoothed&quot;</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">moda_aux</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">modas</span><span class="p">)):</span>
+                    <span class="n">moda_aux</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">modas</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">kde</span><span class="p">(</span><span class="n">modas</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">]])</span>
+
+                    <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">modas</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                        <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">modas</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="n">kde</span><span class="p">(</span><span class="n">modas</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span> <span class="n">color</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;Mode&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;Mode&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;Mode&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">modas</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="n">kde</span><span class="p">(</span><span class="n">modas</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span> <span class="n">color</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;Mode&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mode&quot;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;Mode&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;Median&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+                <span class="n">central_tendency</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">moda_aux</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s2">&quot;mean&quot;</span> <span class="ow">in</span> <span class="n">which</span><span class="p">:</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">kde</span><span class="p">(</span><span class="n">mean</span><span class="p">),</span>
+                        <span class="n">color</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;Mean&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mean&quot;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;Mean&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;Mean&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+                <span class="n">central_tendency</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">mean</span><span class="p">,</span> <span class="n">kde</span><span class="p">(</span><span class="n">mean</span><span class="p">)[</span><span class="mi">0</span><span class="p">]]</span>
+            <span class="k">if</span> <span class="s2">&quot;median&quot;</span> <span class="ow">in</span> <span class="n">which</span><span class="p">:</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">median</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">kde</span><span class="p">(</span><span class="n">median</span><span class="p">),</span>
+                        <span class="n">color</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;Median&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Median&quot;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;Median&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;Median&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+                <span class="n">central_tendency</span><span class="p">[</span><span class="s2">&quot;median&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">median</span><span class="p">,</span> <span class="n">kde</span><span class="p">(</span><span class="n">median</span><span class="p">)[</span><span class="mi">0</span><span class="p">]]</span>
+            <span class="k">if</span> <span class="s2">&quot;mode&quot;</span> <span class="ow">in</span> <span class="n">which</span><span class="p">:</span>
+                <span class="k">if</span> <span class="kc">None</span> <span class="ow">in</span> <span class="n">modas</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    ---&gt; UserWarning: The data does not have a mode (all values are unique)&quot;</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">modas</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    ---&gt; UserWarning: The data has more than one mode&quot;</span><span class="p">)</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;         Bimodal or multi-modal distributions tend to be oversmoothed&quot;</span><span class="p">)</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="n">moda_aux</span> <span class="o">=</span> <span class="p">[]</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">modas</span><span class="p">)):</span>
+                        <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">modas</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                            <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">modas</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="n">kde</span><span class="p">(</span><span class="n">modas</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span>
+                                    <span class="n">color</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;Mode&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;Mode&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;Mode&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">modas</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="n">kde</span><span class="p">(</span><span class="n">modas</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span>
+                                    <span class="n">color</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;Mode&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mode&quot;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;Mode&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="n">plot_design</span><span class="p">[</span><span class="s2">&quot;Mode&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+                    <span class="n">central_tendency</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">moda_aux</span>
+
+        <span class="c1"># legend #</span>
+        <span class="k">if</span> <span class="n">legend</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+        <span class="c1"># x label #</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">x_label</span><span class="p">)</span>
+
+        <span class="c1"># y label #</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">y_label</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1"># limiting to start at y = 0</span>
+
+        <span class="c1"># leaving the graph &quot;tight&quot; #</span>
+        <span class="k">if</span> <span class="n">tight</span><span class="p">:</span>
+            <span class="n">tight</span> <span class="o">=</span> <span class="s1">&#39;tight&#39;</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tight</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># exporting the plot #</span>
+        <span class="k">if</span> <span class="n">export</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="n">transparent</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="n">tight</span><span class="p">)</span>
+            <span class="c1">### quering ###</span>
+            <span class="n">func_name</span> <span class="o">=</span> <span class="s2">&quot;draw_density_function&quot;</span>
+            <span class="n">fk_id_function</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_query_func_id</span><span class="p">(</span><span class="n">func_name</span><span class="p">)</span>
+            <span class="n">messages</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_get_messages</span><span class="p">(</span><span class="n">fk_id_function</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">,</span> <span class="n">func_name</span><span class="p">)</span>
+            <span class="n">general</span><span class="o">.</span><span class="n">_display_one_line_attention</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> &#39;</span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">&#39; </span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="n">helpers</span><span class="o">.</span><span class="n">_change_locale_back_to_default</span><span class="p">(</span><span class="n">default_locale</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">kde_x</span><span class="p">,</span> <span class="n">kde_y</span><span class="p">,</span> <span class="n">central_tendency</span></div></div>
+
+
+
+
+
+
+
+<span class="c1"># We live in every moment but this one... Why don&#39;t we recognize the faces loving us so https://youtu.be/kAFxLXqP8UM?t=45</span>
+</pre></div>
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022, Anderson Canteli.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,1147 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cup_of_coffee.functions.distributions &#8212; Cup of Coffee 0.1 documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css\custom.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-XXXXXXX', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../../../index.html">
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../source/user_guide.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../source/index.html">
+  Documentation
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../source/examples/example.html">
+  Examples
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../source/contribute.html">
+  Contribute
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/<your-org>/<your-repo>" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://gitlab.com/<your-org>/<your-repo>" rel="noopener" target="_blank" title="GitLab"><span><i class="fab fa-gitlab"></i></span>
+            <label class="sr-only">GitLab</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/<your-handle>" rel="noopener" target="_blank" title="Twitter"><span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for cup_of_coffee.functions.distributions</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;This module concentrates all distributions functions</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Function list:</span>
+<span class="c1">#</span>
+<span class="c1">#     - ShapiroWilkNormalityTest(AlphaManagement, NDigitsManagement)</span>
+<span class="c1">#         - shapiro_wilk(self, x_exp, alfa=None, n_digits=None, conclusion=None, details=None)</span>
+<span class="c1">#         - shapiro_wilk_to_csv(self, file_name=None, sep=&quot;,&quot;)</span>
+<span class="c1">#         - shapiro_wilk_to_xlsx(self, file_name=None, sheet_names=None)</span>
+<span class="c1">#         - get_shapiro_wilk_tabulated_value(self, n_rep, alfa=None)</span>
+<span class="c1">#         - draw_shapiro_wilk_tabulated_values(self, show=True)</span>
+<span class="c1">#         - __str__(self)</span>
+<span class="c1">#         - __repr__(self)</span>
+
+<span class="c1">#########################################</span>
+<span class="c1">################ Imports ################</span>
+<span class="c1">#########################################</span>
+
+<span class="c1">###### Standard ######</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+
+
+<span class="c1">###### Third part ######</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">shapiro</span> <span class="k">as</span> <span class="n">shapiro_wilk_scipy</span>
+
+<span class="c1">###### Home made ######</span>
+
+<span class="kn">from</span> <span class="nn">cup_of_coffee.database_management</span> <span class="kn">import</span> <span class="n">management</span>
+<span class="kn">from</span> <span class="nn">cup_of_coffee.utils</span> <span class="kn">import</span> <span class="n">checkers</span>
+<span class="kn">from</span> <span class="nn">cup_of_coffee.utils</span> <span class="kn">import</span> <span class="n">general</span>
+<span class="kn">from</span> <span class="nn">cup_of_coffee.utils</span> <span class="kn">import</span> <span class="n">helpers</span>
+<span class="kn">from</span> <span class="nn">cup_of_coffee.utils.helpers</span> <span class="kn">import</span> <span class="n">AlphaManagement</span><span class="p">,</span> <span class="n">NDigitsManagement</span>
+
+<span class="c1">###########################################</span>
+<span class="c1">################ Functions ################</span>
+<span class="c1">###########################################</span>
+
+
+<div class="viewcode-block" id="ShapiroWilkNormalityTest"><a class="viewcode-back" href="../../../source/api/functions/distributions/shapiro_wilk.html#cup_of_coffee.functions.distributions.ShapiroWilkNormalityTest">[docs]</a><span class="k">class</span> <span class="nc">ShapiroWilkNormalityTest</span><span class="p">(</span><span class="n">AlphaManagement</span><span class="p">,</span> <span class="n">NDigitsManagement</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class instantiates an object to perform the Shapiro Wilk Normality test.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    alfa : float</span>
+<span class="sd">        The level of significance.</span>
+<span class="sd">    language : str</span>
+<span class="sd">        The language code used for the interface.</span>
+<span class="sd">    msg : str</span>
+<span class="sd">        The test result expressed in text.</span>
+<span class="sd">    n_digits : int</span>
+<span class="sd">        The number of digits that are displayed.</span>
+<span class="sd">    p_value : float</span>
+<span class="sd">        The estimated p-value for the data set.</span>
+<span class="sd">    statistic : float</span>
+<span class="sd">        The calculated value of the test statistic.</span>
+<span class="sd">    tabulated : float</span>
+<span class="sd">        The tabulated value for the pair (number of observations and level of significance).</span>
+<span class="sd">    x_exp : np.ndarray</span>
+<span class="sd">        The experimental data where the test was applied.</span>
+
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    shapiro_wilk(x_exp, alfa=None, n_digits=None, conclusion=None, details=None)</span>
+<span class="sd">        Performs the Shapiro Wilk test.</span>
+<span class="sd">    shapiro_wilk_to_csv(file_name=None, sep=&quot;,&quot;)</span>
+<span class="sd">        Exports the results to a pre-formatted csv file.</span>
+<span class="sd">    shapiro_wilk_to_xlsx(file_name=None, sheet_names=None)</span>
+<span class="sd">        Exports the results to a pre-formatted xlsx file.</span>
+<span class="sd">    get_shapiro_wilk_tabulated_value(n_rep, alfa=None)</span>
+<span class="sd">        Finds the tabulated value for a pair of alpha and number of observations</span>
+<span class="sd">    draw_shapiro_wilk_tabulated_values(show=True)</span>
+<span class="sd">        Draws a plot with the tabulated data.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+
+
+    <span class="n">shapiro_wilk_table</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;n_rep&#39;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span>
+                <span class="mi">32</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">50</span>
+                <span class="p">],</span>
+        <span class="mf">0.01</span> <span class="p">:</span> <span class="p">[</span>
+                <span class="mf">0.753</span><span class="p">,</span> <span class="mf">0.687</span><span class="p">,</span> <span class="mf">0.686</span><span class="p">,</span> <span class="mf">0.713</span><span class="p">,</span> <span class="mf">0.730</span><span class="p">,</span> <span class="mf">0.749</span><span class="p">,</span> <span class="mf">0.764</span><span class="p">,</span> <span class="mf">0.781</span><span class="p">,</span> <span class="mf">0.792</span><span class="p">,</span> <span class="mf">0.805</span><span class="p">,</span> <span class="mf">0.814</span><span class="p">,</span> <span class="mf">0.825</span><span class="p">,</span> <span class="mf">0.835</span><span class="p">,</span> <span class="mf">0.844</span><span class="p">,</span> <span class="mf">0.851</span><span class="p">,</span> <span class="mf">0.858</span><span class="p">,</span>
+                <span class="mf">0.863</span><span class="p">,</span> <span class="mf">0.868</span><span class="p">,</span> <span class="mf">0.873</span><span class="p">,</span> <span class="mf">0.878</span><span class="p">,</span> <span class="mf">0.881</span><span class="p">,</span> <span class="mf">0.884</span><span class="p">,</span> <span class="mf">0.888</span><span class="p">,</span> <span class="mf">0.891</span><span class="p">,</span> <span class="mf">0.894</span><span class="p">,</span> <span class="mf">0.896</span><span class="p">,</span> <span class="mf">0.898</span><span class="p">,</span> <span class="mf">0.900</span><span class="p">,</span> <span class="mf">0.902</span><span class="p">,</span> <span class="mf">0.904</span><span class="p">,</span> <span class="mf">0.906</span><span class="p">,</span> <span class="mf">0.908</span><span class="p">,</span>
+                <span class="mf">0.910</span><span class="p">,</span> <span class="mf">0.912</span><span class="p">,</span> <span class="mf">0.914</span><span class="p">,</span> <span class="mf">0.916</span><span class="p">,</span> <span class="mf">0.917</span><span class="p">,</span> <span class="mf">0.919</span><span class="p">,</span> <span class="mf">0.920</span><span class="p">,</span> <span class="mf">0.922</span><span class="p">,</span> <span class="mf">0.923</span><span class="p">,</span> <span class="mf">0.924</span><span class="p">,</span> <span class="mf">0.926</span><span class="p">,</span> <span class="mf">0.927</span><span class="p">,</span> <span class="mf">0.928</span><span class="p">,</span> <span class="mf">0.929</span><span class="p">,</span> <span class="mf">0.929</span><span class="p">,</span> <span class="mf">0.930</span><span class="p">,</span>
+                <span class="p">],</span>
+        <span class="mf">0.02</span> <span class="p">:</span> <span class="p">[</span>
+                <span class="mf">0.756</span><span class="p">,</span> <span class="mf">0.707</span><span class="p">,</span> <span class="mf">0.715</span><span class="p">,</span> <span class="mf">0.743</span><span class="p">,</span> <span class="mf">0.760</span><span class="p">,</span> <span class="mf">0.778</span><span class="p">,</span> <span class="mf">0.791</span><span class="p">,</span> <span class="mf">0.806</span><span class="p">,</span> <span class="mf">0.817</span><span class="p">,</span> <span class="mf">0.828</span><span class="p">,</span> <span class="mf">0.837</span><span class="p">,</span> <span class="mf">0.846</span><span class="p">,</span> <span class="mf">0.855</span><span class="p">,</span> <span class="mf">0.863</span><span class="p">,</span> <span class="mf">0.869</span><span class="p">,</span> <span class="mf">0.874</span><span class="p">,</span>
+                <span class="mf">0.879</span><span class="p">,</span> <span class="mf">0.884</span><span class="p">,</span> <span class="mf">0.888</span><span class="p">,</span> <span class="mf">0.892</span><span class="p">,</span> <span class="mf">0.895</span><span class="p">,</span> <span class="mf">0.898</span><span class="p">,</span> <span class="mf">0.901</span><span class="p">,</span> <span class="mf">0.904</span><span class="p">,</span> <span class="mf">0.906</span><span class="p">,</span> <span class="mf">0.908</span><span class="p">,</span> <span class="mf">0.910</span><span class="p">,</span> <span class="mf">0.912</span><span class="p">,</span> <span class="mf">0.914</span><span class="p">,</span> <span class="mf">0.915</span><span class="p">,</span> <span class="mf">0.917</span><span class="p">,</span> <span class="mf">0.919</span><span class="p">,</span>
+                <span class="mf">0.920</span><span class="p">,</span> <span class="mf">0.922</span><span class="p">,</span> <span class="mf">0.924</span><span class="p">,</span> <span class="mf">0.925</span><span class="p">,</span> <span class="mf">0.927</span><span class="p">,</span> <span class="mf">0.928</span><span class="p">,</span> <span class="mf">0.929</span><span class="p">,</span> <span class="mf">0.930</span><span class="p">,</span> <span class="mf">0.932</span><span class="p">,</span> <span class="mf">0.933</span><span class="p">,</span> <span class="mf">0.934</span><span class="p">,</span> <span class="mf">0.935</span><span class="p">,</span> <span class="mf">0.936</span><span class="p">,</span> <span class="mf">0.937</span><span class="p">,</span> <span class="mf">0.937</span><span class="p">,</span> <span class="mf">0.938</span>
+                <span class="p">],</span>
+        <span class="mf">0.05</span> <span class="p">:</span> <span class="p">[</span>
+                <span class="mf">0.767</span><span class="p">,</span> <span class="mf">0.748</span><span class="p">,</span> <span class="mf">0.762</span><span class="p">,</span> <span class="mf">0.788</span><span class="p">,</span> <span class="mf">0.803</span><span class="p">,</span> <span class="mf">0.818</span><span class="p">,</span> <span class="mf">0.829</span><span class="p">,</span> <span class="mf">0.842</span><span class="p">,</span> <span class="mf">0.850</span><span class="p">,</span> <span class="mf">0.859</span><span class="p">,</span> <span class="mf">0.866</span><span class="p">,</span> <span class="mf">0.874</span><span class="p">,</span> <span class="mf">0.881</span><span class="p">,</span> <span class="mf">0.887</span><span class="p">,</span> <span class="mf">0.892</span><span class="p">,</span> <span class="mf">0.897</span><span class="p">,</span>
+                <span class="mf">0.901</span><span class="p">,</span> <span class="mf">0.905</span><span class="p">,</span> <span class="mf">0.908</span><span class="p">,</span> <span class="mf">0.911</span><span class="p">,</span> <span class="mf">0.914</span><span class="p">,</span> <span class="mf">0.916</span><span class="p">,</span> <span class="mf">0.918</span><span class="p">,</span> <span class="mf">0.920</span><span class="p">,</span> <span class="mf">0.923</span><span class="p">,</span> <span class="mf">0.924</span><span class="p">,</span> <span class="mf">0.926</span><span class="p">,</span> <span class="mf">0.927</span><span class="p">,</span> <span class="mf">0.929</span><span class="p">,</span> <span class="mf">0.930</span><span class="p">,</span> <span class="mf">0.931</span><span class="p">,</span> <span class="mf">0.933</span><span class="p">,</span>
+                <span class="mf">0.934</span><span class="p">,</span> <span class="mf">0.935</span><span class="p">,</span> <span class="mf">0.936</span><span class="p">,</span> <span class="mf">0.938</span><span class="p">,</span> <span class="mf">0.939</span><span class="p">,</span> <span class="mf">0.940</span><span class="p">,</span> <span class="mf">0.941</span><span class="p">,</span> <span class="mf">0.942</span><span class="p">,</span> <span class="mf">0.943</span><span class="p">,</span> <span class="mf">0.944</span><span class="p">,</span> <span class="mf">0.945</span><span class="p">,</span> <span class="mf">0.945</span><span class="p">,</span> <span class="mf">0.946</span><span class="p">,</span> <span class="mf">0.947</span><span class="p">,</span> <span class="mf">0.947</span><span class="p">,</span> <span class="mf">0.947</span>
+                <span class="p">],</span>
+        <span class="mf">0.10</span> <span class="p">:</span> <span class="p">[</span>
+                <span class="mf">0.789</span><span class="p">,</span> <span class="mf">0.792</span><span class="p">,</span> <span class="mf">0.806</span><span class="p">,</span> <span class="mf">0.826</span><span class="p">,</span> <span class="mf">0.838</span><span class="p">,</span> <span class="mf">0.851</span><span class="p">,</span> <span class="mf">0.859</span><span class="p">,</span> <span class="mf">0.869</span><span class="p">,</span> <span class="mf">0.876</span><span class="p">,</span> <span class="mf">0.883</span><span class="p">,</span> <span class="mf">0.889</span><span class="p">,</span> <span class="mf">0.895</span><span class="p">,</span> <span class="mf">0.901</span><span class="p">,</span> <span class="mf">0.906</span><span class="p">,</span> <span class="mf">0.910</span><span class="p">,</span> <span class="mf">0.914</span><span class="p">,</span>
+                <span class="mf">0.917</span><span class="p">,</span> <span class="mf">0.920</span><span class="p">,</span> <span class="mf">0.923</span><span class="p">,</span> <span class="mf">0.926</span><span class="p">,</span> <span class="mf">0.928</span><span class="p">,</span> <span class="mf">0.930</span><span class="p">,</span> <span class="mf">0.931</span><span class="p">,</span> <span class="mf">0.933</span><span class="p">,</span> <span class="mf">0.935</span><span class="p">,</span> <span class="mf">0.936</span><span class="p">,</span> <span class="mf">0.937</span><span class="p">,</span> <span class="mf">0.939</span><span class="p">,</span> <span class="mf">0.940</span><span class="p">,</span> <span class="mf">0.941</span><span class="p">,</span> <span class="mf">0.942</span><span class="p">,</span> <span class="mf">0.943</span><span class="p">,</span>
+                <span class="mf">0.944</span><span class="p">,</span> <span class="mf">0.945</span><span class="p">,</span> <span class="mf">0.946</span><span class="p">,</span> <span class="mf">0.947</span><span class="p">,</span> <span class="mf">0.948</span><span class="p">,</span> <span class="mf">0.949</span><span class="p">,</span> <span class="mf">0.950</span><span class="p">,</span> <span class="mf">0.951</span><span class="p">,</span> <span class="mf">0.951</span><span class="p">,</span> <span class="mf">0.952</span><span class="p">,</span> <span class="mf">0.953</span><span class="p">,</span> <span class="mf">0.953</span><span class="p">,</span> <span class="mf">0.954</span><span class="p">,</span> <span class="mf">0.954</span><span class="p">,</span> <span class="mf">0.955</span><span class="p">,</span> <span class="mf">0.955</span>
+                <span class="p">],</span>
+        <span class="mf">0.50</span> <span class="p">:</span> <span class="p">[</span>
+                <span class="mf">0.959</span><span class="p">,</span> <span class="mf">0.935</span><span class="p">,</span> <span class="mf">0.927</span><span class="p">,</span> <span class="mf">0.927</span><span class="p">,</span> <span class="mf">0.928</span><span class="p">,</span> <span class="mf">0.932</span><span class="p">,</span> <span class="mf">0.935</span><span class="p">,</span> <span class="mf">0.938</span><span class="p">,</span> <span class="mf">0.940</span><span class="p">,</span> <span class="mf">0.943</span><span class="p">,</span> <span class="mf">0.945</span><span class="p">,</span> <span class="mf">0.947</span><span class="p">,</span> <span class="mf">0.950</span><span class="p">,</span> <span class="mf">0.952</span><span class="p">,</span> <span class="mf">0.954</span><span class="p">,</span> <span class="mf">0.956</span><span class="p">,</span>
+                <span class="mf">0.957</span><span class="p">,</span> <span class="mf">0.959</span><span class="p">,</span> <span class="mf">0.960</span><span class="p">,</span> <span class="mf">0.961</span><span class="p">,</span> <span class="mf">0.962</span><span class="p">,</span> <span class="mf">0.963</span><span class="p">,</span> <span class="mf">0.964</span><span class="p">,</span> <span class="mf">0.965</span><span class="p">,</span> <span class="mf">0.965</span><span class="p">,</span> <span class="mf">0.966</span><span class="p">,</span> <span class="mf">0.966</span><span class="p">,</span> <span class="mf">0.967</span><span class="p">,</span> <span class="mf">0.967</span><span class="p">,</span> <span class="mf">0.968</span><span class="p">,</span> <span class="mf">0.968</span><span class="p">,</span> <span class="mf">0.969</span><span class="p">,</span>
+                <span class="mf">0.969</span><span class="p">,</span> <span class="mf">0.970</span><span class="p">,</span> <span class="mf">0.970</span><span class="p">,</span> <span class="mf">0.971</span><span class="p">,</span> <span class="mf">0.971</span><span class="p">,</span> <span class="mf">0.972</span><span class="p">,</span> <span class="mf">0.972</span><span class="p">,</span> <span class="mf">0.972</span><span class="p">,</span> <span class="mf">0.973</span><span class="p">,</span> <span class="mf">0.973</span><span class="p">,</span> <span class="mf">0.973</span><span class="p">,</span> <span class="mf">0.974</span><span class="p">,</span> <span class="mf">0.974</span><span class="p">,</span> <span class="mf">0.974</span><span class="p">,</span> <span class="mf">0.974</span><span class="p">,</span> <span class="mf">0.974</span>
+                <span class="p">],</span>
+        <span class="mf">0.90</span> <span class="p">:</span> <span class="p">[</span>
+                <span class="mf">0.998</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.979</span><span class="p">,</span> <span class="mf">0.974</span><span class="p">,</span> <span class="mf">0.972</span><span class="p">,</span> <span class="mf">0.972</span><span class="p">,</span> <span class="mf">0.972</span><span class="p">,</span> <span class="mf">0.972</span><span class="p">,</span> <span class="mf">0.973</span><span class="p">,</span> <span class="mf">0.973</span><span class="p">,</span> <span class="mf">0.974</span><span class="p">,</span> <span class="mf">0.975</span><span class="p">,</span> <span class="mf">0.975</span><span class="p">,</span> <span class="mf">0.976</span><span class="p">,</span> <span class="mf">0.977</span><span class="p">,</span> <span class="mf">0.978</span><span class="p">,</span>
+                <span class="mf">0.978</span><span class="p">,</span> <span class="mf">0.979</span><span class="p">,</span> <span class="mf">0.980</span><span class="p">,</span> <span class="mf">0.980</span><span class="p">,</span> <span class="mf">0.981</span><span class="p">,</span> <span class="mf">0.981</span><span class="p">,</span> <span class="mf">0.981</span><span class="p">,</span> <span class="mf">0.982</span><span class="p">,</span> <span class="mf">0.982</span><span class="p">,</span> <span class="mf">0.982</span><span class="p">,</span> <span class="mf">0.982</span><span class="p">,</span> <span class="mf">0.983</span><span class="p">,</span> <span class="mf">0.983</span><span class="p">,</span> <span class="mf">0.983</span><span class="p">,</span> <span class="mf">0.983</span><span class="p">,</span> <span class="mf">0.983</span><span class="p">,</span>
+                <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span>
+                <span class="p">],</span>
+        <span class="mf">0.95</span> <span class="p">:</span> <span class="p">[</span>
+                <span class="mf">0.999</span><span class="p">,</span> <span class="mf">0.992</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.981</span><span class="p">,</span> <span class="mf">0.979</span><span class="p">,</span> <span class="mf">0.978</span><span class="p">,</span> <span class="mf">0.978</span><span class="p">,</span> <span class="mf">0.978</span><span class="p">,</span> <span class="mf">0.979</span><span class="p">,</span> <span class="mf">0.979</span><span class="p">,</span> <span class="mf">0.979</span><span class="p">,</span> <span class="mf">0.980</span><span class="p">,</span> <span class="mf">0.980</span><span class="p">,</span> <span class="mf">0.981</span><span class="p">,</span> <span class="mf">0.981</span><span class="p">,</span> <span class="mf">0.982</span><span class="p">,</span>
+                <span class="mf">0.982</span><span class="p">,</span> <span class="mf">0.983</span><span class="p">,</span> <span class="mf">0.983</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span>
+                <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.988</span>
+                <span class="p">],</span>
+        <span class="mf">0.98</span> <span class="p">:</span> <span class="p">[</span>
+                <span class="mf">1.000</span><span class="p">,</span> <span class="mf">0.996</span><span class="p">,</span> <span class="mf">0.991</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.983</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span>
+                <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span>
+                <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span>
+                <span class="p">],</span>
+        <span class="mf">0.99</span> <span class="p">:</span> <span class="p">[</span>
+                <span class="mf">1.000</span><span class="p">,</span> <span class="mf">0.997</span><span class="p">,</span> <span class="mf">0.993</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span>
+                <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.900</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span>
+                <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.991</span><span class="p">,</span> <span class="mf">0.991</span><span class="p">,</span> <span class="mf">0.991</span><span class="p">,</span> <span class="mf">0.991</span><span class="p">,</span> <span class="mf">0.991</span><span class="p">,</span> <span class="mf">0.991</span><span class="p">,</span> <span class="mf">0.991</span><span class="p">,</span> <span class="mf">0.991</span><span class="p">,</span> <span class="mf">0.991</span><span class="p">,</span> <span class="mf">0.991</span><span class="p">,</span> <span class="mf">0.991</span><span class="p">,</span> <span class="mf">0.991</span>
+                <span class="p">],</span>
+        <span class="s1">&#39;Note&#39;</span><span class="p">:</span>
+                <span class="s2">&quot;*the critical value for alpha equal to 0.99 with 30 observations probably has a typo. The correct value is probably 0.990 instead of 0.900.&quot;</span>
+    <span class="p">}</span>
+
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alfa</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_digits</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">alfa</span><span class="o">=</span><span class="n">alfa</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="n">language</span><span class="p">,</span> <span class="n">n_digits</span><span class="o">=</span><span class="n">n_digits</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">msg</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">statistic</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tabulated</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p_value</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x_exp</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+    <span class="c1"># with some tests, with text, with database, with docstring</span>
+<div class="viewcode-block" id="ShapiroWilkNormalityTest.draw_shapiro_wilk_tabulated_values"><a class="viewcode-back" href="../../../source/api/functions/distributions/shapiro_wilk.html#cup_of_coffee.functions.distributions.ShapiroWilkNormalityTest.draw_shapiro_wilk_tabulated_values">[docs]</a>    <span class="k">def</span> <span class="nf">draw_shapiro_wilk_tabulated_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Draw a plot with the Shapiro-Wilk *tabulated data*.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        show : bool (default True)</span>
+<span class="sd">            Whether or not to display the graph with the tabulated values.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ax : matplotlib.axes._subplots.AxesSubplot</span>
+<span class="sd">            The axis of the graph. This parameter is only valid if show = False.</span>
+<span class="sd">        tabulated : dict</span>
+<span class="sd">            The tabulated data used to draw the graph.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The Shapiro Wilk tabulated data can be found at BRATLEY et al [1]_.</span>
+
+<span class="sd">        References</span>
+<span class="sd">        ----------</span>
+<span class="sd">        .. [1] BRATLEY, P.; FOX, B. L.; SCHRAGE, L. E. A Guide to Simulation. 1. ed. New York: Springer, 1983 (Appendix A).</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+
+<span class="sd">        **Ploting the Shapiro Wilk tabulated values**</span>
+
+<span class="sd">        &gt;&gt;&gt; from easy_stat.functions.distributions import ShapiroWilkNormalityTest</span>
+<span class="sd">        &gt;&gt;&gt; shapiro_wilk = ShapiroWilkNormalityTest()</span>
+<span class="sd">        &gt;&gt;&gt; shapiro_wilk.draw_shapiro_wilk_tabulated_values()</span>
+
+<span class="sd">        .. image:: img/draw_shapiro_wilk_tabulated_values.png</span>
+<span class="sd">           :alt: Graph showing the tabulated values of the Shapiro Wilk test for different alpha values</span>
+<span class="sd">           :align: center</span>
+
+
+<span class="sd">        **Saving the Shapiro Wilk tabulated values**</span>
+
+<span class="sd">        &gt;&gt;&gt; from easy_stat.functions.distributions import ShapiroWilkNormalityTest</span>
+<span class="sd">        &gt;&gt;&gt; import matplotlib.pyplot as plt</span>
+<span class="sd">        &gt;&gt;&gt; shapiro_wilk = ShapiroWilkNormalityTest()</span>
+<span class="sd">        &gt;&gt;&gt; shapiro_wilk.draw_shapiro_wilk_tabulated_values(show=False)</span>
+<span class="sd">        &gt;&gt;&gt; plt.savefig(&quot;shapiro_wilk.png&quot;)</span>
+
+
+<span class="sd">        **Getting the data used to draw the graph**</span>
+
+<span class="sd">        &gt;&gt;&gt; from easy_stat.functions.distributions import ShapiroWilkNormalityTest</span>
+<span class="sd">        &gt;&gt;&gt; import matplotlib.pyplot as plt</span>
+<span class="sd">        &gt;&gt;&gt; shapiro_wilk = ShapiroWilkNormalityTest()</span>
+<span class="sd">        &gt;&gt;&gt; axes, table = shapiro_wilk.draw_shapiro_wilk_tabulated_values(show=False)</span>
+<span class="sd">        &gt;&gt;&gt; print(table.keys())</span>
+<span class="sd">        dict_keys([&#39;n_rep&#39;, 0.01, 0.02, 0.05, 0.1, 0.5, 0.9, 0.95, 0.98, 0.99, &#39;Note&#39;])</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">fk_id_function</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_query_func_id</span><span class="p">(</span><span class="s2">&quot;draw_shapiro_wilk_tabulated_values&quot;</span><span class="p">)</span>
+        <span class="n">messages</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_get_messages</span><span class="p">(</span><span class="n">fk_id_function</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+
+        <span class="c1">### Checking the show parameter ###</span>
+        <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_bool</span><span class="p">(</span><span class="n">show</span><span class="p">,</span> <span class="s2">&quot;show&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+
+        <span class="c1">### The values tabled in a dictionary ###</span>
+        <span class="n">shapiro_wilk_table</span> <span class="o">=</span> <span class="n">ShapiroWilkNormalityTest</span><span class="o">.</span><span class="n">shapiro_wilk_table</span>
+
+        <span class="c1">### Make the plot ###</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="s1">&#39;n_rep&#39;</span><span class="p">],</span> <span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="mf">0.01</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1"> = 1%&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="s1">&#39;n_rep&#39;</span><span class="p">],</span> <span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="mf">0.02</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1"> = 2%&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="s1">&#39;n_rep&#39;</span><span class="p">],</span> <span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="mf">0.05</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1"> = 5%&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="s1">&#39;n_rep&#39;</span><span class="p">],</span> <span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="mf">0.10</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1"> = 10%&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="s1">&#39;n_rep&#39;</span><span class="p">],</span> <span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="mf">0.50</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1"> = 50%&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="s1">&#39;n_rep&#39;</span><span class="p">],</span> <span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="mf">0.90</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1"> = 90%&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="s1">&#39;n_rep&#39;</span><span class="p">],</span> <span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="mf">0.95</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1"> = 95%&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="s1">&#39;n_rep&#39;</span><span class="p">],</span> <span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="mf">0.98</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1"> = 98%&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="s1">&#39;n_rep&#39;</span><span class="p">],</span> <span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="mf">0.99</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1"> = 99%&#39;</span><span class="p">)</span>
+        <span class="n">trans</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xaxis_transform</span><span class="p">()</span> <span class="c1"># x in data untis, y in axes fraction</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
+                <span class="n">messages</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">17.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.075</span> <span class="p">),</span> <span class="n">xycoords</span><span class="o">=</span><span class="n">trans</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-small&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">messages</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span><span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;xx-large&#39;</span><span class="p">)</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+
+        <span class="c1">## If show equals True, display the graph ##</span>
+        <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">ax</span><span class="p">,</span> <span class="n">shapiro_wilk_table</span></div>
+
+    <span class="c1"># with test, with text, with database, wtih docstring</span>
+<div class="viewcode-block" id="ShapiroWilkNormalityTest.get_shapiro_wilk_tabulated_value"><a class="viewcode-back" href="../../../source/api/functions/distributions/shapiro_wilk.html#cup_of_coffee.functions.distributions.ShapiroWilkNormalityTest.get_shapiro_wilk_tabulated_value">[docs]</a>    <span class="k">def</span> <span class="nf">get_shapiro_wilk_tabulated_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_rep</span><span class="p">,</span> <span class="n">alfa</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This function gets the tabulated value of the Shapiro Wilk test.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        alfa : float (default = 0.05)</span>
+<span class="sd">            The significance level.</span>
+<span class="sd">        n_rep : int</span>
+<span class="sd">            The total number of observations.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        tabulated : float or None.</span>
+<span class="sd">            The tabulated value for the requested confidence level.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The tabulated value is returned only if the number of observations is at least ``3`` (``n_rep &gt;= 3``).</span>
+
+<span class="sd">        If the number of repetitions is higher than ``50`` (``n_rep &gt; 50``),  the function returns the tabulated value for ``50`` (``n_rep = 50``) observations.</span>
+
+<span class="sd">        This function has tabulated values for the following confidence levels [1]_:</span>
+<span class="sd">            - 99% (ɑ = 0.01);</span>
+<span class="sd">            - 98% (ɑ = 0.02);</span>
+<span class="sd">            - 95% (ɑ = 0.05);</span>
+<span class="sd">            - 90% (ɑ = 0.10);</span>
+<span class="sd">            - 50% (ɑ = 0.50);</span>
+
+<span class="sd">        The function returns None for other confidence levels.</span>
+
+<span class="sd">        References</span>
+<span class="sd">        ----------</span>
+<span class="sd">        .. [1] BRATLEY, P.; FOX, B. L.; SCHRAGE, L. E. A Guide to Simulation. 1. ed. New York: Springer, 1983 (Appendix A).</span>
+
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+
+<span class="sd">        **Getting tabulated value for 5% of significance and 5 observations**</span>
+
+<span class="sd">        &gt;&gt;&gt; from easy_stat.functions.distributions import ShapiroWilkNormalityTest</span>
+<span class="sd">        &gt;&gt;&gt; shapiro_wilk = ShapiroWilkNormalityTest()</span>
+<span class="sd">        &gt;&gt;&gt; tabulated_value = shapiro_wilk.get_shapiro_wilk_tabulated_value(n_rep=5)</span>
+<span class="sd">        &gt;&gt;&gt; print(tabulated_value)</span>
+<span class="sd">        ShapiroWilkResult(tabulate=0.762, alpha=0.05)</span>
+
+
+<span class="sd">        **Getting tabulated value for 1% of significance and 10 observations**</span>
+
+<span class="sd">        &gt;&gt;&gt; from easy_stat.functions.distributions import ShapiroWilkNormalityTest</span>
+<span class="sd">        &gt;&gt;&gt; shapiro_wilk = ShapiroWilkNormalityTest()</span>
+<span class="sd">        &gt;&gt;&gt; tabulated_value = shapiro_wilk.get_shapiro_wilk_tabulated_value(n_rep=10, alfa=0.01)</span>
+<span class="sd">        &gt;&gt;&gt; print(tabulated_value)</span>
+<span class="sd">        ShapiroWilkResult(tabulate=0.781, alpha=0.01)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">fk_id_function</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_query_func_id</span><span class="p">(</span><span class="s2">&quot;get_shapiro_wilk_tabulated_value&quot;</span><span class="p">)</span>
+        <span class="n">messages</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_get_messages</span><span class="p">(</span><span class="n">fk_id_function</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+
+        <span class="c1">### The values tabled in a dictionary ###</span>
+        <span class="n">shapiro_wilk_table</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;n_rep&#39;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span>
+                    <span class="mi">32</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">50</span>
+                    <span class="p">],</span>
+            <span class="mf">0.01</span> <span class="p">:</span> <span class="p">[</span>
+                    <span class="mf">0.753</span><span class="p">,</span> <span class="mf">0.687</span><span class="p">,</span> <span class="mf">0.686</span><span class="p">,</span> <span class="mf">0.713</span><span class="p">,</span> <span class="mf">0.730</span><span class="p">,</span> <span class="mf">0.749</span><span class="p">,</span> <span class="mf">0.764</span><span class="p">,</span> <span class="mf">0.781</span><span class="p">,</span> <span class="mf">0.792</span><span class="p">,</span> <span class="mf">0.805</span><span class="p">,</span> <span class="mf">0.814</span><span class="p">,</span> <span class="mf">0.825</span><span class="p">,</span> <span class="mf">0.835</span><span class="p">,</span> <span class="mf">0.844</span><span class="p">,</span> <span class="mf">0.851</span><span class="p">,</span> <span class="mf">0.858</span><span class="p">,</span>
+                    <span class="mf">0.863</span><span class="p">,</span> <span class="mf">0.868</span><span class="p">,</span> <span class="mf">0.873</span><span class="p">,</span> <span class="mf">0.878</span><span class="p">,</span> <span class="mf">0.881</span><span class="p">,</span> <span class="mf">0.884</span><span class="p">,</span> <span class="mf">0.888</span><span class="p">,</span> <span class="mf">0.891</span><span class="p">,</span> <span class="mf">0.894</span><span class="p">,</span> <span class="mf">0.896</span><span class="p">,</span> <span class="mf">0.898</span><span class="p">,</span> <span class="mf">0.900</span><span class="p">,</span> <span class="mf">0.902</span><span class="p">,</span> <span class="mf">0.904</span><span class="p">,</span> <span class="mf">0.906</span><span class="p">,</span> <span class="mf">0.908</span><span class="p">,</span>
+                    <span class="mf">0.910</span><span class="p">,</span> <span class="mf">0.912</span><span class="p">,</span> <span class="mf">0.914</span><span class="p">,</span> <span class="mf">0.916</span><span class="p">,</span> <span class="mf">0.917</span><span class="p">,</span> <span class="mf">0.919</span><span class="p">,</span> <span class="mf">0.920</span><span class="p">,</span> <span class="mf">0.922</span><span class="p">,</span> <span class="mf">0.923</span><span class="p">,</span> <span class="mf">0.924</span><span class="p">,</span> <span class="mf">0.926</span><span class="p">,</span> <span class="mf">0.927</span><span class="p">,</span> <span class="mf">0.928</span><span class="p">,</span> <span class="mf">0.929</span><span class="p">,</span> <span class="mf">0.929</span><span class="p">,</span> <span class="mf">0.930</span><span class="p">,</span>
+                    <span class="p">],</span>
+            <span class="mf">0.02</span> <span class="p">:</span> <span class="p">[</span>
+                    <span class="mf">0.756</span><span class="p">,</span> <span class="mf">0.707</span><span class="p">,</span> <span class="mf">0.715</span><span class="p">,</span> <span class="mf">0.743</span><span class="p">,</span> <span class="mf">0.760</span><span class="p">,</span> <span class="mf">0.778</span><span class="p">,</span> <span class="mf">0.791</span><span class="p">,</span> <span class="mf">0.806</span><span class="p">,</span> <span class="mf">0.817</span><span class="p">,</span> <span class="mf">0.828</span><span class="p">,</span> <span class="mf">0.837</span><span class="p">,</span> <span class="mf">0.846</span><span class="p">,</span> <span class="mf">0.855</span><span class="p">,</span> <span class="mf">0.863</span><span class="p">,</span> <span class="mf">0.869</span><span class="p">,</span> <span class="mf">0.874</span><span class="p">,</span>
+                    <span class="mf">0.879</span><span class="p">,</span> <span class="mf">0.884</span><span class="p">,</span> <span class="mf">0.888</span><span class="p">,</span> <span class="mf">0.892</span><span class="p">,</span> <span class="mf">0.895</span><span class="p">,</span> <span class="mf">0.898</span><span class="p">,</span> <span class="mf">0.901</span><span class="p">,</span> <span class="mf">0.904</span><span class="p">,</span> <span class="mf">0.906</span><span class="p">,</span> <span class="mf">0.908</span><span class="p">,</span> <span class="mf">0.910</span><span class="p">,</span> <span class="mf">0.912</span><span class="p">,</span> <span class="mf">0.914</span><span class="p">,</span> <span class="mf">0.915</span><span class="p">,</span> <span class="mf">0.917</span><span class="p">,</span> <span class="mf">0.919</span><span class="p">,</span>
+                    <span class="mf">0.920</span><span class="p">,</span> <span class="mf">0.922</span><span class="p">,</span> <span class="mf">0.924</span><span class="p">,</span> <span class="mf">0.925</span><span class="p">,</span> <span class="mf">0.927</span><span class="p">,</span> <span class="mf">0.928</span><span class="p">,</span> <span class="mf">0.929</span><span class="p">,</span> <span class="mf">0.930</span><span class="p">,</span> <span class="mf">0.932</span><span class="p">,</span> <span class="mf">0.933</span><span class="p">,</span> <span class="mf">0.934</span><span class="p">,</span> <span class="mf">0.935</span><span class="p">,</span> <span class="mf">0.936</span><span class="p">,</span> <span class="mf">0.937</span><span class="p">,</span> <span class="mf">0.937</span><span class="p">,</span> <span class="mf">0.938</span>
+                    <span class="p">],</span>
+            <span class="mf">0.05</span> <span class="p">:</span> <span class="p">[</span>
+                    <span class="mf">0.767</span><span class="p">,</span> <span class="mf">0.748</span><span class="p">,</span> <span class="mf">0.762</span><span class="p">,</span> <span class="mf">0.788</span><span class="p">,</span> <span class="mf">0.803</span><span class="p">,</span> <span class="mf">0.818</span><span class="p">,</span> <span class="mf">0.829</span><span class="p">,</span> <span class="mf">0.842</span><span class="p">,</span> <span class="mf">0.850</span><span class="p">,</span> <span class="mf">0.859</span><span class="p">,</span> <span class="mf">0.866</span><span class="p">,</span> <span class="mf">0.874</span><span class="p">,</span> <span class="mf">0.881</span><span class="p">,</span> <span class="mf">0.887</span><span class="p">,</span> <span class="mf">0.892</span><span class="p">,</span> <span class="mf">0.897</span><span class="p">,</span>
+                    <span class="mf">0.901</span><span class="p">,</span> <span class="mf">0.905</span><span class="p">,</span> <span class="mf">0.908</span><span class="p">,</span> <span class="mf">0.911</span><span class="p">,</span> <span class="mf">0.914</span><span class="p">,</span> <span class="mf">0.916</span><span class="p">,</span> <span class="mf">0.918</span><span class="p">,</span> <span class="mf">0.920</span><span class="p">,</span> <span class="mf">0.923</span><span class="p">,</span> <span class="mf">0.924</span><span class="p">,</span> <span class="mf">0.926</span><span class="p">,</span> <span class="mf">0.927</span><span class="p">,</span> <span class="mf">0.929</span><span class="p">,</span> <span class="mf">0.930</span><span class="p">,</span> <span class="mf">0.931</span><span class="p">,</span> <span class="mf">0.933</span><span class="p">,</span>
+                    <span class="mf">0.934</span><span class="p">,</span> <span class="mf">0.935</span><span class="p">,</span> <span class="mf">0.936</span><span class="p">,</span> <span class="mf">0.938</span><span class="p">,</span> <span class="mf">0.939</span><span class="p">,</span> <span class="mf">0.940</span><span class="p">,</span> <span class="mf">0.941</span><span class="p">,</span> <span class="mf">0.942</span><span class="p">,</span> <span class="mf">0.943</span><span class="p">,</span> <span class="mf">0.944</span><span class="p">,</span> <span class="mf">0.945</span><span class="p">,</span> <span class="mf">0.945</span><span class="p">,</span> <span class="mf">0.946</span><span class="p">,</span> <span class="mf">0.947</span><span class="p">,</span> <span class="mf">0.947</span><span class="p">,</span> <span class="mf">0.947</span>
+                    <span class="p">],</span>
+            <span class="mf">0.10</span> <span class="p">:</span> <span class="p">[</span>
+                    <span class="mf">0.789</span><span class="p">,</span> <span class="mf">0.792</span><span class="p">,</span> <span class="mf">0.806</span><span class="p">,</span> <span class="mf">0.826</span><span class="p">,</span> <span class="mf">0.838</span><span class="p">,</span> <span class="mf">0.851</span><span class="p">,</span> <span class="mf">0.859</span><span class="p">,</span> <span class="mf">0.869</span><span class="p">,</span> <span class="mf">0.876</span><span class="p">,</span> <span class="mf">0.883</span><span class="p">,</span> <span class="mf">0.889</span><span class="p">,</span> <span class="mf">0.895</span><span class="p">,</span> <span class="mf">0.901</span><span class="p">,</span> <span class="mf">0.906</span><span class="p">,</span> <span class="mf">0.910</span><span class="p">,</span> <span class="mf">0.914</span><span class="p">,</span>
+                    <span class="mf">0.917</span><span class="p">,</span> <span class="mf">0.920</span><span class="p">,</span> <span class="mf">0.923</span><span class="p">,</span> <span class="mf">0.926</span><span class="p">,</span> <span class="mf">0.928</span><span class="p">,</span> <span class="mf">0.930</span><span class="p">,</span> <span class="mf">0.931</span><span class="p">,</span> <span class="mf">0.933</span><span class="p">,</span> <span class="mf">0.935</span><span class="p">,</span> <span class="mf">0.936</span><span class="p">,</span> <span class="mf">0.937</span><span class="p">,</span> <span class="mf">0.939</span><span class="p">,</span> <span class="mf">0.940</span><span class="p">,</span> <span class="mf">0.941</span><span class="p">,</span> <span class="mf">0.942</span><span class="p">,</span> <span class="mf">0.943</span><span class="p">,</span>
+                    <span class="mf">0.944</span><span class="p">,</span> <span class="mf">0.945</span><span class="p">,</span> <span class="mf">0.946</span><span class="p">,</span> <span class="mf">0.947</span><span class="p">,</span> <span class="mf">0.948</span><span class="p">,</span> <span class="mf">0.949</span><span class="p">,</span> <span class="mf">0.950</span><span class="p">,</span> <span class="mf">0.951</span><span class="p">,</span> <span class="mf">0.951</span><span class="p">,</span> <span class="mf">0.952</span><span class="p">,</span> <span class="mf">0.953</span><span class="p">,</span> <span class="mf">0.953</span><span class="p">,</span> <span class="mf">0.954</span><span class="p">,</span> <span class="mf">0.954</span><span class="p">,</span> <span class="mf">0.955</span><span class="p">,</span> <span class="mf">0.955</span>
+                    <span class="p">],</span>
+            <span class="mf">0.50</span> <span class="p">:</span> <span class="p">[</span>
+                    <span class="mf">0.959</span><span class="p">,</span> <span class="mf">0.935</span><span class="p">,</span> <span class="mf">0.927</span><span class="p">,</span> <span class="mf">0.927</span><span class="p">,</span> <span class="mf">0.928</span><span class="p">,</span> <span class="mf">0.932</span><span class="p">,</span> <span class="mf">0.935</span><span class="p">,</span> <span class="mf">0.938</span><span class="p">,</span> <span class="mf">0.940</span><span class="p">,</span> <span class="mf">0.943</span><span class="p">,</span> <span class="mf">0.945</span><span class="p">,</span> <span class="mf">0.947</span><span class="p">,</span> <span class="mf">0.950</span><span class="p">,</span> <span class="mf">0.952</span><span class="p">,</span> <span class="mf">0.954</span><span class="p">,</span> <span class="mf">0.956</span><span class="p">,</span>
+                    <span class="mf">0.957</span><span class="p">,</span> <span class="mf">0.959</span><span class="p">,</span> <span class="mf">0.960</span><span class="p">,</span> <span class="mf">0.961</span><span class="p">,</span> <span class="mf">0.962</span><span class="p">,</span> <span class="mf">0.963</span><span class="p">,</span> <span class="mf">0.964</span><span class="p">,</span> <span class="mf">0.965</span><span class="p">,</span> <span class="mf">0.965</span><span class="p">,</span> <span class="mf">0.966</span><span class="p">,</span> <span class="mf">0.966</span><span class="p">,</span> <span class="mf">0.967</span><span class="p">,</span> <span class="mf">0.967</span><span class="p">,</span> <span class="mf">0.968</span><span class="p">,</span> <span class="mf">0.968</span><span class="p">,</span> <span class="mf">0.969</span><span class="p">,</span>
+                    <span class="mf">0.969</span><span class="p">,</span> <span class="mf">0.970</span><span class="p">,</span> <span class="mf">0.970</span><span class="p">,</span> <span class="mf">0.971</span><span class="p">,</span> <span class="mf">0.971</span><span class="p">,</span> <span class="mf">0.972</span><span class="p">,</span> <span class="mf">0.972</span><span class="p">,</span> <span class="mf">0.972</span><span class="p">,</span> <span class="mf">0.973</span><span class="p">,</span> <span class="mf">0.973</span><span class="p">,</span> <span class="mf">0.973</span><span class="p">,</span> <span class="mf">0.974</span><span class="p">,</span> <span class="mf">0.974</span><span class="p">,</span> <span class="mf">0.974</span><span class="p">,</span> <span class="mf">0.974</span><span class="p">,</span> <span class="mf">0.974</span>
+                    <span class="p">],</span>
+            <span class="mf">0.90</span> <span class="p">:</span> <span class="p">[</span>
+                    <span class="mf">0.998</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.979</span><span class="p">,</span> <span class="mf">0.974</span><span class="p">,</span> <span class="mf">0.972</span><span class="p">,</span> <span class="mf">0.972</span><span class="p">,</span> <span class="mf">0.972</span><span class="p">,</span> <span class="mf">0.972</span><span class="p">,</span> <span class="mf">0.973</span><span class="p">,</span> <span class="mf">0.973</span><span class="p">,</span> <span class="mf">0.974</span><span class="p">,</span> <span class="mf">0.975</span><span class="p">,</span> <span class="mf">0.975</span><span class="p">,</span> <span class="mf">0.976</span><span class="p">,</span> <span class="mf">0.977</span><span class="p">,</span> <span class="mf">0.978</span><span class="p">,</span>
+                    <span class="mf">0.978</span><span class="p">,</span> <span class="mf">0.979</span><span class="p">,</span> <span class="mf">0.980</span><span class="p">,</span> <span class="mf">0.980</span><span class="p">,</span> <span class="mf">0.981</span><span class="p">,</span> <span class="mf">0.981</span><span class="p">,</span> <span class="mf">0.981</span><span class="p">,</span> <span class="mf">0.982</span><span class="p">,</span> <span class="mf">0.982</span><span class="p">,</span> <span class="mf">0.982</span><span class="p">,</span> <span class="mf">0.982</span><span class="p">,</span> <span class="mf">0.983</span><span class="p">,</span> <span class="mf">0.983</span><span class="p">,</span> <span class="mf">0.983</span><span class="p">,</span> <span class="mf">0.983</span><span class="p">,</span> <span class="mf">0.983</span><span class="p">,</span>
+                    <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span>
+                    <span class="p">],</span>
+            <span class="mf">0.95</span> <span class="p">:</span> <span class="p">[</span>
+                    <span class="mf">0.999</span><span class="p">,</span> <span class="mf">0.992</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.981</span><span class="p">,</span> <span class="mf">0.979</span><span class="p">,</span> <span class="mf">0.978</span><span class="p">,</span> <span class="mf">0.978</span><span class="p">,</span> <span class="mf">0.978</span><span class="p">,</span> <span class="mf">0.979</span><span class="p">,</span> <span class="mf">0.979</span><span class="p">,</span> <span class="mf">0.979</span><span class="p">,</span> <span class="mf">0.980</span><span class="p">,</span> <span class="mf">0.980</span><span class="p">,</span> <span class="mf">0.981</span><span class="p">,</span> <span class="mf">0.981</span><span class="p">,</span> <span class="mf">0.982</span><span class="p">,</span>
+                    <span class="mf">0.982</span><span class="p">,</span> <span class="mf">0.983</span><span class="p">,</span> <span class="mf">0.983</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span>
+                    <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.988</span>
+                    <span class="p">],</span>
+            <span class="mf">0.98</span> <span class="p">:</span> <span class="p">[</span>
+                    <span class="mf">1.000</span><span class="p">,</span> <span class="mf">0.996</span><span class="p">,</span> <span class="mf">0.991</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.983</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span>
+                    <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span>
+                    <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span>
+                    <span class="p">],</span>
+            <span class="mf">0.99</span> <span class="p">:</span> <span class="p">[</span>
+                    <span class="mf">1.000</span><span class="p">,</span> <span class="mf">0.997</span><span class="p">,</span> <span class="mf">0.993</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.986</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.987</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span>
+                    <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.989</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.900</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span>
+                    <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.991</span><span class="p">,</span> <span class="mf">0.991</span><span class="p">,</span> <span class="mf">0.991</span><span class="p">,</span> <span class="mf">0.991</span><span class="p">,</span> <span class="mf">0.991</span><span class="p">,</span> <span class="mf">0.991</span><span class="p">,</span> <span class="mf">0.991</span><span class="p">,</span> <span class="mf">0.991</span><span class="p">,</span> <span class="mf">0.991</span><span class="p">,</span> <span class="mf">0.991</span><span class="p">,</span> <span class="mf">0.991</span><span class="p">,</span> <span class="mf">0.991</span>
+                    <span class="p">],</span>
+            <span class="s1">&#39;Note&#39;</span><span class="p">:</span>
+                    <span class="s2">&quot;*the critical value for alpha equal to 0.99 with 30 observations probably has a typo. The correct value is probably 0.990 instead of 0.900.&quot;</span>
+        <span class="p">}</span>
+
+        <span class="c1">### checking alpha value ###</span>
+        <span class="k">if</span> <span class="n">alfa</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">alfa</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">alfa</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1">## should be float ##</span>
+            <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_float</span><span class="p">(</span><span class="n">alfa</span><span class="p">,</span> <span class="s2">&quot;alfa&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+            <span class="c1">## should be in the range (0,1) ##</span>
+            <span class="n">checkers</span><span class="o">.</span><span class="n">_check_data_in_range</span><span class="p">(</span><span class="n">alfa</span><span class="p">,</span> <span class="s2">&quot;alfa&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+
+        <span class="c1">### checking the number of observations ###</span>
+        <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_integer</span><span class="p">(</span><span class="n">n_rep</span><span class="p">,</span> <span class="s2">&quot;n_rep&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+
+        <span class="c1">### Getting the tabulated values ###</span>
+        <span class="k">if</span> <span class="n">n_rep</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">messages</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+                <span class="c1"># raise ValueError(&quot;Error: very small number of observations&quot;)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="n">message1</span> <span class="o">=</span> <span class="n">messages</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">general</span><span class="o">.</span><span class="n">_display_one_line_attention</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">message1</span><span class="si">}</span><span class="s2"> &#39;</span><span class="si">{</span><span class="n">n_rep</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">,)</span>
+                <span class="k">raise</span>
+        <span class="k">elif</span> <span class="n">n_rep</span> <span class="o">&lt;</span> <span class="mi">51</span><span class="p">:</span> <span class="c1">## if n_rep is between 3 and 50 return the tabulated value ##</span>
+            <span class="k">if</span> <span class="n">alfa</span> <span class="o">==</span> <span class="mf">0.01</span><span class="p">:</span>
+                <span class="n">tabulated</span> <span class="o">=</span> <span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="mf">0.01</span><span class="p">][</span><span class="n">n_rep</span> <span class="o">-</span> <span class="mi">3</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">alfa</span> <span class="o">==</span> <span class="mf">0.02</span><span class="p">:</span>
+                <span class="n">tabulated</span> <span class="o">=</span> <span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="mf">0.02</span><span class="p">][</span><span class="n">n_rep</span> <span class="o">-</span> <span class="mi">3</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">alfa</span> <span class="o">==</span> <span class="mf">0.05</span><span class="p">:</span>
+                <span class="n">tabulated</span> <span class="o">=</span> <span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="mf">0.05</span><span class="p">][</span><span class="n">n_rep</span> <span class="o">-</span> <span class="mi">3</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">alfa</span> <span class="o">==</span> <span class="mf">0.1</span><span class="p">:</span>
+                <span class="n">tabulated</span> <span class="o">=</span> <span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="mf">0.10</span><span class="p">][</span><span class="n">n_rep</span> <span class="o">-</span> <span class="mi">3</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">alfa</span> <span class="o">==</span> <span class="mf">0.5</span><span class="p">:</span>
+                <span class="n">tabulated</span> <span class="o">=</span> <span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="mf">0.50</span><span class="p">][</span><span class="n">n_rep</span> <span class="o">-</span> <span class="mi">3</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">tabulated</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># if you don&#39;t have a tabulated value for the chosen alpha value, return None #</span>
+        <span class="k">else</span><span class="p">:</span> <span class="c1">## if n_rep is higher than 50, return tabulated value for 50 observations ##</span>
+            <span class="k">if</span> <span class="n">alfa</span> <span class="o">==</span> <span class="mf">0.01</span><span class="p">:</span>
+                <span class="n">tabulated</span> <span class="o">=</span> <span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="mf">0.01</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">alfa</span> <span class="o">==</span> <span class="mf">0.02</span><span class="p">:</span>
+                <span class="n">tabulated</span> <span class="o">=</span> <span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="mf">0.02</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">alfa</span> <span class="o">==</span> <span class="mf">0.05</span><span class="p">:</span>
+                <span class="n">tabulated</span> <span class="o">=</span> <span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="mf">0.05</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">alfa</span> <span class="o">==</span> <span class="mf">0.1</span><span class="p">:</span>
+                <span class="n">tabulated</span> <span class="o">=</span> <span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="mf">0.10</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">alfa</span> <span class="o">==</span> <span class="mf">0.5</span><span class="p">:</span>
+                <span class="n">tabulated</span> <span class="o">=</span> <span class="n">shapiro_wilk_table</span><span class="p">[</span><span class="mf">0.50</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">tabulated</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># if you don&#39;t have a tabulated value for the chosen alpha value, return None #</span>
+
+        <span class="c1">### return the tabulated value and the graph axis ###</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="n">messages</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="p">(</span><span class="n">messages</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">messages</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="k">return</span> <span class="n">result</span><span class="p">(</span><span class="n">tabulated</span><span class="p">,</span> <span class="n">alfa</span><span class="p">)</span></div>
+    <span class="c1">#</span>
+    <span class="c1"># with some test, with text, with database, wtih docstring</span>
+<div class="viewcode-block" id="ShapiroWilkNormalityTest.shapiro_wilk"><a class="viewcode-back" href="../../../source/api/functions/distributions/shapiro_wilk.html#cup_of_coffee.functions.distributions.ShapiroWilkNormalityTest.shapiro_wilk">[docs]</a>    <span class="k">def</span> <span class="nf">shapiro_wilk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_exp</span><span class="p">,</span> <span class="n">alfa</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_digits</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">conclusion</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This function is just a wraper around scipy.stats.shapiro() [1]_ to perform the Shapiro Wilk normality test, but with some improvements.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x : numpy array</span>
+<span class="sd">            One dimension :doc:`numpy array &lt;numpy:reference/generated/numpy.array&gt;` with at least 3 sample data.</span>
+<span class="sd">        alfa : float, optional</span>
+<span class="sd">            The level of significance (*ɑ*). Default is ``None`` which results in ``0.05``.</span>
+<span class="sd">        n_digits : int, optional</span>
+<span class="sd">            The maximum number of decimal places be shown. Default is ``None`` which results in ``4`` decimal places.</span>
+<span class="sd">        conclusion : str, optional</span>
+<span class="sd">            This parameter determines how to perform the comparison test to perform the Normality test. If ``conclusion = &#39;tabulate&#39;`` (or ``None``, e.g, the default), the comparison test is made between the tabulated value (with *ɑ* significance level) and the calculated value of the test statistic. If ``&#39;p_value&#39;``, the comparison test is performed between the p-value and the adopted significance level (*ɑ*).</span>
+<span class="sd">            **Both results should lead to the same conclusion.**</span>
+<span class="sd">        details : string, optional</span>
+<span class="sd">            The ``&#39;details&#39;`` parameter determines the amount of information presented about the hypothesis test. If ``&#39;details&#39; = &#39;short&#39;`` (or ``None``, e.g, the default), a simplified version of the test result is returned. If ``&#39;details&#39; = &#39;full&#39;``, a detailed version of the hypothesis test result is returned.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        statistic : float</span>
+<span class="sd">            The test statistic.</span>
+<span class="sd">        tabulated : float or None</span>
+<span class="sd">            The tabulated value for alpha equal to ``1%``, ``2%``, ``5%``, ``10%`` or ``50%``. Other values will return ``None``.</span>
+<span class="sd">        p_value : float</span>
+<span class="sd">            The p-value for the hypothesis test.</span>
+<span class="sd">        conclusion : str</span>
+<span class="sd">            The test conclusion (e.g, normal/ not normal).</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        anderson_darling : Performs the Anderson-Darling normality test (not implemented yet)</span>
+<span class="sd">        kolmogorov_smirnov : Performs the Kolmogorov-Smirnov normality test (not implemented yet)</span>
+<span class="sd">        lilieffors : Performs the Lilieffors normality test (not implemented yet)</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The tabulated values [2]_ include samples with sizes between ``3`` and ``50``, for *ɑ* equal to ``1%``, ``2%``, ``5%``, ``10%`` or ``50%``. For data with a sample size higher than ``50``, the tabulated value returned is the value for ``50`` samples.</span>
+
+<span class="sd">        The parameter ``conclusion`` uses the hypothesis test for normality test as follows:</span>
+
+<span class="sd">        .. admonition:: \u2615</span>
+
+<span class="sd">           H0: data comes from normal distribution.</span>
+
+<span class="sd">           H1: data does not come from normal distribution.</span>
+
+<span class="sd">        By default (``conclusion=&#39;tabulate&#39;``), the conclusion is based on the comparison between the tabulated value (at *ɑ* significance level) and statistic of the test:</span>
+
+<span class="sd">        .. admonition:: \u2615</span>
+
+<span class="sd">           if tabulated &lt;= statistic:</span>
+<span class="sd">               Data is Normal</span>
+<span class="sd">           else:</span>
+<span class="sd">               Data is not Normal</span>
+
+<span class="sd">        The other option (``conclusion=&#39;p_value&#39;``) makes the conclusion comparing the p-value with *ɑ*:</span>
+
+<span class="sd">        .. admonition:: \u2615</span>
+
+<span class="sd">           if p-value &gt;= *ɑ*:</span>
+<span class="sd">               Data is Normal</span>
+<span class="sd">           else:</span>
+<span class="sd">               Data is not Normal</span>
+
+<span class="sd">        Note that, if *ɑ* is not ``1%``, ``2%``, ``5%``, ``10%`` or ``50%``, the conclusion will always be performed using the p-value.</span>
+
+<span class="sd">        The ``n_digits`` parameter does not influence any calculation, it just truncates the number of decimal places returned for the ``statistic``, ``tabulated`` and ``p_value`` parameters.</span>
+
+<span class="sd">        References</span>
+<span class="sd">        ----------</span>
+<span class="sd">        .. [1] https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.shapiro.html</span>
+<span class="sd">        .. [2] BRATLEY, P.; FOX, B. L.; SCHRAGE, L. E. A Guide to Simulation. 1. ed. New York: Springer, 1983 (Appendix A).</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+
+<span class="sd">        &gt;&gt;&gt; from easy_stat.functions.distributions import ShapiroWilkNormalityTest</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; import scipy.stats as stats</span>
+<span class="sd">        &gt;&gt;&gt; x = stats.norm.rvs(loc=5, scale=3, size=100, random_state=42)</span>
+<span class="sd">        &gt;&gt;&gt; normality_shapiro_wilk = ShapiroWilkNormalityTest()</span>
+<span class="sd">        &gt;&gt;&gt; results, conclusion = normality_shapiro_wilk.shapiro_wilk(x)</span>
+<span class="sd">        &gt;&gt;&gt; print(results)</span>
+<span class="sd">        ShapiroWilkResult(Statistic=0.9898, Tabulated=0.947, p_value=0.6551, Alpha=0.05)</span>
+<span class="sd">        &gt;&gt;&gt; print(conclusion)</span>
+<span class="sd">        Data is Normal at a 95.0% of confidence level.</span>
+
+<span class="sd">        &gt;&gt;&gt; from easy_stat.functions.distributions import ShapiroWilkNormalityTest</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; import scipy.stats as stats</span>
+<span class="sd">        &gt;&gt;&gt; x = np.array([1.90642, 2.22488, 2.10288, 1.69742, 1.52229, 3.15435, 2.61826, 1.98492, 1.42738, 1.99568])</span>
+<span class="sd">        &gt;&gt;&gt; normality_shapiro_wilk = ShapiroWilkNormalityTest()</span>
+<span class="sd">        &gt;&gt;&gt; results, conclusion = normality_shapiro_wilk.shapiro_wilk(x)</span>
+<span class="sd">        &gt;&gt;&gt; print(results)</span>
+<span class="sd">        ShapiroWilkResult(Statistic=0.9266,Tabulated=0.781, p_value=0.4161, Alpha=0.05)</span>
+<span class="sd">        &gt;&gt;&gt; print(conclusion)</span>
+<span class="sd">        Data is Normal at a 99.0% of confidence level.</span>
+
+<span class="sd">        &gt;&gt;&gt; from easy_stat.functions.distributions import ShapiroWilkNormalityTest</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; import scipy.stats as stats</span>
+<span class="sd">        &gt;&gt;&gt; x = np.array([5.1, 4.9, 4.7, 4.6, 5.0, 5.4, 4.6, 5.0, 4.4, 4.9])</span>
+<span class="sd">        &gt;&gt;&gt; normality_shapiro_wilk = ShapiroWilkNormalityTest()</span>
+<span class="sd">        &gt;&gt;&gt; results, conclusion = normality_shapiro_wilk.shapiro_wilk(x, alfa=0.10, details=&quot;full&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; print(results)</span>
+<span class="sd">        ShapiroWilkResult(Statistic=0.9698, Tabulated=0.869, p_value=0.889, Alpha=0.1)</span>
+<span class="sd">        &gt;&gt;&gt; print(conclusion)</span>
+<span class="sd">        Since the tabulated value (0.869) &lt;= statistic (0.9698), we have NO evidence to reject the hypothesis of data normality, according to the Shapiro-Wilk test at a 90.0% of confidence level.</span>
+
+<span class="sd">        &gt;&gt;&gt; from easy_stat.functions.distributions import ShapiroWilkNormalityTest</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; import scipy.stats as stats</span>
+<span class="sd">        &gt;&gt;&gt; x = np.array([5.1, 4.9, 4.7, 4.6, 5.0, 5.4, 4.6, 5.0, 4.4, 4.9])</span>
+<span class="sd">        &gt;&gt;&gt; normality_shapiro_wilk = ShapiroWilkNormalityTest()</span>
+<span class="sd">        &gt;&gt;&gt; results, conclusion = normality_shapiro_wilk.shapiro_wilk(x, conclusion=&quot;p_value&quot;, details=&quot;full&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; print(results)</span>
+<span class="sd">        ShapiroWilkResult(Statistic=0.9698, Tabulated=0.842, p_value=0.889, Alpha=0.05)</span>
+<span class="sd">        &gt;&gt;&gt; print(conclusion)</span>
+<span class="sd">        Since p-value (0.889) &gt;= alpha (0.05), we have NO evidence to reject the hypothesis of data normality, according to the Shapiro-Wilk test at a 95.0% of confidence level.</span>
+
+<span class="sd">        &gt;&gt;&gt; from easy_stat.functions.distributions import ShapiroWilkNormalityTest</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; import scipy.stats as stats</span>
+<span class="sd">        &gt;&gt;&gt; x = np.array([1,1.2,1.6,1.8, 2, 2.2, 3, 5, 7, 7.2, 8.2, 8.4, 8.6, 9])</span>
+<span class="sd">        &gt;&gt;&gt; normality_shapiro_wilk = ShapiroWilkNormalityTest()</span>
+<span class="sd">        &gt;&gt;&gt; results, conclusion = normality_shapiro_wilk.shapiro_wilk(x, details=&quot;full&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; print(results)</span>
+<span class="sd">        ShapiroWilkResult(Statistic=0.8413, Tabulated=0.874, p_value=0.0169, Alpha=0.05)</span>
+<span class="sd">        &gt;&gt;&gt; print(conclusion)</span>
+<span class="sd">        Since the tabulated value (0.874) &gt; statistic (0.8413), we HAVE evidence to reject the hypothesis of data normality, according to the Shapiro-Wilk test at a 95.0% of confidence level.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fk_id_function</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_query_func_id</span><span class="p">(</span><span class="s2">&quot;shapiro_wilk&quot;</span><span class="p">)</span>
+        <span class="n">messages</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_get_messages</span><span class="p">(</span><span class="n">fk_id_function</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">,</span> <span class="s2">&quot;shapiro_wilk&quot;</span><span class="p">)</span>
+
+        <span class="c1">### getting the default alpha value ###</span>
+        <span class="k">if</span> <span class="n">alfa</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">alfa</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">alfa</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_float</span><span class="p">(</span><span class="n">alfa</span><span class="p">,</span> <span class="s2">&quot;alfa&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+            <span class="n">checkers</span><span class="o">.</span><span class="n">_check_data_in_range</span><span class="p">(</span><span class="n">alfa</span><span class="p">,</span> <span class="s2">&quot;alfa&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">alfa</span> <span class="o">=</span> <span class="n">alfa</span>
+
+        <span class="c1">### getting the default n_digits value ###</span>
+        <span class="k">if</span> <span class="n">n_digits</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">n_digits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_digits</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_integer</span><span class="p">(</span><span class="n">n_digits</span><span class="p">,</span> <span class="s2">&quot;n_digits&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+            <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_positive</span><span class="p">(</span><span class="n">n_digits</span><span class="p">,</span> <span class="s2">&quot;n_digits&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+
+        <span class="c1">### checking input data ###</span>
+        <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_numpy_1_D</span><span class="p">(</span><span class="n">x_exp</span><span class="p">,</span> <span class="s2">&quot;x_exp&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x_exp</span> <span class="o">=</span> <span class="n">x_exp</span>
+
+        <span class="c1">### checking the conclusion parameter ###</span>
+        <span class="k">if</span> <span class="n">conclusion</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">conclusion</span> <span class="o">=</span> <span class="s2">&quot;tabulate&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_str</span><span class="p">(</span><span class="n">conclusion</span><span class="p">,</span> <span class="s2">&quot;conclusion&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">conclusion</span> <span class="o">==</span> <span class="s2">&quot;tabulate&quot;</span><span class="p">:</span>
+                <span class="n">conclusion</span> <span class="o">=</span> <span class="s2">&quot;tabulate&quot;</span>
+            <span class="k">elif</span> <span class="n">conclusion</span> <span class="o">==</span> <span class="s2">&quot;p_value&quot;</span><span class="p">:</span>
+                <span class="n">conclusion</span> <span class="o">=</span> <span class="s2">&quot;p_value&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">messages</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="n">general</span><span class="o">.</span><span class="n">_display_one_line_attention</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> &#39;</span><span class="si">{</span><span class="n">conclusion</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">,)</span>
+                    <span class="k">raise</span>
+
+        <span class="c1">### checking the details parameter ###</span>
+        <span class="k">if</span> <span class="n">details</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">details</span> <span class="o">=</span> <span class="s2">&quot;short&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_str</span><span class="p">(</span><span class="n">details</span><span class="p">,</span> <span class="s2">&quot;details&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">details</span> <span class="o">==</span> <span class="s2">&quot;short&quot;</span><span class="p">:</span>
+                <span class="n">details</span> <span class="o">=</span> <span class="s2">&quot;short&quot;</span>
+            <span class="k">elif</span> <span class="n">details</span> <span class="o">==</span> <span class="s2">&quot;full&quot;</span><span class="p">:</span>
+                <span class="n">details</span> <span class="o">=</span> <span class="s2">&quot;full&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">messages</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="n">general</span><span class="o">.</span><span class="n">_display_one_line_attention</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">details</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="k">raise</span>
+
+        <span class="c1">### getting the tabulated value ###</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_shapiro_wilk_tabulated_value</span><span class="p">(</span><span class="n">n_rep</span><span class="o">=</span><span class="n">x_exp</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">alfa</span><span class="o">=</span><span class="n">alfa</span><span class="p">)</span>
+        <span class="n">tabulated</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># interessa apenas o primero valor</span>
+
+        <span class="c1">### calculating the test statistic value ###</span>
+        <span class="n">statistic</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">shapiro_wilk_scipy</span><span class="p">(</span><span class="n">x_exp</span><span class="p">)</span>
+
+        <span class="c1">### writing the test conclusion ###</span>
+        <span class="k">if</span> <span class="n">conclusion</span> <span class="o">==</span> <span class="s2">&quot;tabulate&quot;</span><span class="p">:</span>
+            <span class="c1">## The test conclustion based on tabulated value depends on whether tabulated value exists. If not, make the conclusion with the same p-value ##</span>
+            <span class="k">if</span> <span class="n">tabulated</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="c1"># If there is no tabulated value, it first throws a warning</span>
+                <span class="n">general</span><span class="o">.</span><span class="n">_display_warn</span><span class="p">(</span>
+                    <span class="n">aviso</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;     </span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                    <span class="n">texto</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">alfa</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+
+                <span class="c1"># then make the test #</span>
+                <span class="k">if</span> <span class="n">p_value</span> <span class="o">&gt;=</span> <span class="n">alfa</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">details</span> <span class="o">==</span> <span class="s1">&#39;full&#39;</span><span class="p">:</span>
+                        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">7</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}{</span><span class="n">helpers</span><span class="o">.</span><span class="n">_truncate</span><span class="p">(</span><span class="n">p_value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">,</span> <span class="n">decs</span><span class="o">=</span><span class="n">n_digits</span><span class="p">)</span><span class="si">}{</span><span class="n">messages</span><span class="p">[</span><span class="mi">7</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}{</span><span class="n">alfa</span><span class="si">}{</span><span class="n">messages</span><span class="p">[</span><span class="mi">7</span><span class="p">][</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alfa</span><span class="p">)</span><span class="si">}{</span><span class="n">messages</span><span class="p">[</span><span class="mi">7</span><span class="p">][</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+                        <span class="c1"># general._display_one_line_attention(msg)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">8</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alfa</span><span class="p">)</span><span class="si">}{</span><span class="n">messages</span><span class="p">[</span><span class="mi">8</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+                        <span class="c1"># general._display_one_line_attention(msg)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">details</span> <span class="o">==</span> <span class="s1">&#39;full&#39;</span><span class="p">:</span>
+                        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">9</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}{</span><span class="n">helpers</span><span class="o">.</span><span class="n">_truncate</span><span class="p">(</span><span class="n">p_value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">,</span> <span class="n">decs</span><span class="o">=</span><span class="n">n_digits</span><span class="p">)</span><span class="si">}{</span><span class="n">messages</span><span class="p">[</span><span class="mi">9</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}{</span><span class="n">alfa</span><span class="si">}{</span><span class="n">messages</span><span class="p">[</span><span class="mi">9</span><span class="p">][</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alfa</span><span class="p">)</span><span class="si">}{</span><span class="n">messages</span><span class="p">[</span><span class="mi">9</span><span class="p">][</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+                        <span class="c1"># general._display_one_line_attention(msg)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alfa</span><span class="p">)</span><span class="si">}{</span><span class="n">messages</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+                        <span class="c1"># general._display_one_line_attention(msg)</span>
+            <span class="k">else</span><span class="p">:</span> <span class="c1"># if there is a tabulated value</span>
+                <span class="k">if</span> <span class="n">tabulated</span> <span class="o">&lt;=</span> <span class="n">statistic</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">details</span> <span class="o">==</span> <span class="s1">&#39;full&#39;</span><span class="p">:</span>
+                        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">11</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}{</span><span class="n">helpers</span><span class="o">.</span><span class="n">_truncate</span><span class="p">(</span><span class="n">tabulated</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">,</span> <span class="n">decs</span><span class="o">=</span><span class="n">n_digits</span><span class="p">)</span><span class="si">}{</span><span class="n">messages</span><span class="p">[</span><span class="mi">11</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}{</span><span class="n">helpers</span><span class="o">.</span><span class="n">_truncate</span><span class="p">(</span><span class="n">statistic</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">,</span> <span class="n">decs</span><span class="o">=</span><span class="n">n_digits</span><span class="p">)</span><span class="si">}{</span><span class="n">messages</span><span class="p">[</span><span class="mi">11</span><span class="p">][</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alfa</span><span class="p">)</span><span class="si">}{</span><span class="n">messages</span><span class="p">[</span><span class="mi">11</span><span class="p">][</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+                        <span class="c1"># general._display_one_line_attention(msg)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">8</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alfa</span><span class="p">)</span><span class="si">}{</span><span class="n">messages</span><span class="p">[</span><span class="mi">8</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+                        <span class="c1"># general._display_one_line_attention(msg)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">details</span> <span class="o">==</span> <span class="s1">&#39;full&#39;</span><span class="p">:</span>
+                        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">12</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}{</span><span class="n">helpers</span><span class="o">.</span><span class="n">_truncate</span><span class="p">(</span><span class="n">tabulated</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">,</span> <span class="n">decs</span><span class="o">=</span><span class="n">n_digits</span><span class="p">)</span><span class="si">}{</span><span class="n">messages</span><span class="p">[</span><span class="mi">12</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}{</span><span class="n">helpers</span><span class="o">.</span><span class="n">_truncate</span><span class="p">(</span><span class="n">statistic</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">,</span> <span class="n">decs</span><span class="o">=</span><span class="n">n_digits</span><span class="p">)</span><span class="si">}{</span><span class="n">messages</span><span class="p">[</span><span class="mi">12</span><span class="p">][</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alfa</span><span class="p">)</span><span class="si">}{</span><span class="n">messages</span><span class="p">[</span><span class="mi">12</span><span class="p">][</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+                        <span class="c1"># general._display_one_line_attention(msg)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alfa</span><span class="p">)</span><span class="si">}{</span><span class="n">messages</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+                        <span class="c1"># general._display_one_line_attention(msg)</span>
+        <span class="k">else</span><span class="p">:</span> <span class="c1"># se é pra utilizar o p-valor mesmo</span>
+            <span class="k">if</span> <span class="n">p_value</span> <span class="o">&gt;=</span> <span class="n">alfa</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">details</span> <span class="o">==</span> <span class="s1">&#39;full&#39;</span><span class="p">:</span>
+                    <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">7</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}{</span><span class="n">helpers</span><span class="o">.</span><span class="n">_truncate</span><span class="p">(</span><span class="n">p_value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">,</span> <span class="n">decs</span><span class="o">=</span><span class="n">n_digits</span><span class="p">)</span><span class="si">}{</span><span class="n">messages</span><span class="p">[</span><span class="mi">7</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}{</span><span class="n">alfa</span><span class="si">}{</span><span class="n">messages</span><span class="p">[</span><span class="mi">7</span><span class="p">][</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alfa</span><span class="p">)</span><span class="si">}{</span><span class="n">messages</span><span class="p">[</span><span class="mi">7</span><span class="p">][</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="c1"># general._display_one_line_attention(msg)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">8</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alfa</span><span class="p">)</span><span class="si">}{</span><span class="n">messages</span><span class="p">[</span><span class="mi">8</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="c1"># general._display_one_line_attention(msg)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">details</span> <span class="o">==</span> <span class="s1">&#39;full&#39;</span><span class="p">:</span>
+                    <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">9</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}{</span><span class="n">helpers</span><span class="o">.</span><span class="n">_truncate</span><span class="p">(</span><span class="n">p_value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">,</span> <span class="n">decs</span><span class="o">=</span><span class="n">n_digits</span><span class="p">)</span><span class="si">}{</span><span class="n">messages</span><span class="p">[</span><span class="mi">9</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}{</span><span class="n">alfa</span><span class="si">}{</span><span class="n">messages</span><span class="p">[</span><span class="mi">9</span><span class="p">][</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alfa</span><span class="p">)</span><span class="si">}{</span><span class="n">messages</span><span class="p">[</span><span class="mi">9</span><span class="p">][</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="c1"># general._display_one_line_attention(msg)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alfa</span><span class="p">)</span><span class="si">}{</span><span class="n">messages</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="c1"># general._display_one_line_attention(msg)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="n">messages</span><span class="p">[</span><span class="mi">13</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="p">(</span><span class="n">messages</span><span class="p">[</span><span class="mi">14</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">messages</span><span class="p">[</span><span class="mi">15</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">messages</span><span class="p">[</span><span class="mi">16</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">messages</span><span class="p">[</span><span class="mi">17</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">statistic</span> <span class="o">=</span> <span class="n">statistic</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tabulated</span> <span class="o">=</span> <span class="n">tabulated</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p_value</span> <span class="o">=</span> <span class="n">p_value</span>
+        <span class="k">return</span> <span class="n">result</span><span class="p">(</span><span class="n">helpers</span><span class="o">.</span><span class="n">_truncate</span><span class="p">(</span><span class="n">statistic</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">,</span> <span class="n">decs</span><span class="o">=</span><span class="n">n_digits</span><span class="p">),</span> <span class="n">helpers</span><span class="o">.</span><span class="n">_truncate</span><span class="p">(</span><span class="n">tabulated</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">,</span> <span class="n">decs</span><span class="o">=</span><span class="n">n_digits</span><span class="p">),</span> <span class="n">helpers</span><span class="o">.</span><span class="n">_truncate</span><span class="p">(</span><span class="n">p_value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">,</span> <span class="n">decs</span><span class="o">=</span><span class="n">n_digits</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">alfa</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">msg</span></div>
+
+    <span class="c1"># with some test, with text, with database, wtih docstring</span>
+<div class="viewcode-block" id="ShapiroWilkNormalityTest.shapiro_wilk_to_xlsx"><a class="viewcode-back" href="../../../source/api/functions/distributions/shapiro_wilk.html#cup_of_coffee.functions.distributions.ShapiroWilkNormalityTest.shapiro_wilk_to_xlsx">[docs]</a>    <span class="k">def</span> <span class="nf">shapiro_wilk_to_xlsx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sheet_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This method exports the data to excel type files.</span>
+<span class="sd">        This function is just a wraper around :doc:`pd.DataFrame.to_excel &lt;pandas:reference/api/pandas.DataFrame.to_excel&gt;` [1]_ to export ``.xlsx`` files.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        file_name : str, optional</span>
+<span class="sd">            The name of the file to be exported, without its extension (default is ``None`` which results in a file name ``&#39;shapiro_wilk.xlsx&#39;``).</span>
+<span class="sd">        sheet_names : list of two strings, optional</span>
+<span class="sd">            A list containing the name of the worksheets where the data will be saved:</span>
+
+<span class="sd">                * The first element corresponds to the name of the worksheet where the calculated data will be saved (default is ``None`` which means ``&#39;shapiro_wilk&#39;``).</span>
+
+<span class="sd">                * The second element corresponds to the name of the worksheet where the supplied data will be saved (default is ``None`` which means ``&#39;data&#39;``).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        df_list : A list of two pandas DataFrame</span>
+<span class="sd">            The first element is a ``pd.DataFrame`` with the Shapiro Wilk calculated data.</span>
+<span class="sd">            The second element is a ``pd.DataFrame`` with the supplied data.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The ``shapiro_wilk()`` method needs to be applied beforehand.</span>
+
+<span class="sd">        If a spreadsheet with the same name already exists in the current directory and this files contains tabs with conflicting names, the new tabs will be inserted into the file with different names, preserving the original data.</span>
+
+<span class="sd">        References</span>
+<span class="sd">        ----------</span>
+<span class="sd">        .. [1] https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_excel.html</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+
+<span class="sd">        &gt;&gt;&gt; from easy_stat.functions.distributions import ShapiroWilkNormalityTest</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; my_data = np.array([5.1, 4.9, 4.7, 4.6, 5.0, 5.4, 4.6, 5.0, 4.4, 4.9])</span>
+<span class="sd">        &gt;&gt;&gt; normality_shapiro_wilk = ShapiroWilkNormalityTest()</span>
+<span class="sd">        &gt;&gt;&gt; normality_shapiro_wilk.shapiro_wilk(my_data)</span>
+<span class="sd">        &gt;&gt;&gt; normality_shapiro_wilk.shapiro_wilk_to_xlsx()</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+<span class="sd">            The data has been exported to file shapiro_wilk.xlsx</span>
+<span class="sd">            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+
+
+<span class="sd">        Download the exported file by :download:`clicking here &lt;assets/shapiro_wilk.xlsx&gt;`.</span>
+
+<span class="sd">        &gt;&gt;&gt; from easy_stat.functions.distributions import ShapiroWilkNormalityTest</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; my_data = np.array([5.1, 4.9, 4.7, 4.6, 5.0, 5.4, 4.6, 5.0, 4.4, 4.9])</span>
+<span class="sd">        &gt;&gt;&gt; normality_shapiro_wilk = ShapiroWilkNormalityTest(language=&#39;pt-br&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; normality_shapiro_wilk.shapiro_wilk(my_data)</span>
+<span class="sd">        &gt;&gt;&gt; normality_shapiro_wilk.shapiro_wilk_to_xlsx(file_name=&quot;my_data&quot;)</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+<span class="sd">            Os dados foram exportados para o arquivo my_data.xlsx</span>
+<span class="sd">            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+
+
+<span class="sd">        Download the exported file by :download:`clicking here &lt;assets/my_data.xlsx&gt;`.</span>
+
+
+<span class="sd">        &gt;&gt;&gt; from easy_stat.functions.distributions import ShapiroWilkNormalityTest</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; my_data = np.array([5.1, 4.9, 4.7, 4.6, 5.0, 5.4, 4.6, 5.0, 4.4, 4.9])</span>
+<span class="sd">        &gt;&gt;&gt; normality_shapiro_wilk = ShapiroWilkNormalityTest()</span>
+<span class="sd">        &gt;&gt;&gt; normality_shapiro_wilk.shapiro_wilk(my_data)</span>
+<span class="sd">        &gt;&gt;&gt; normality_shapiro_wilk.shapiro_wilk_to_xlsx(file_name=&quot;my_new_data&quot;, sheet_names=[&quot;my_test&quot;, &quot;my_data&quot;])</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+<span class="sd">            The data has been exported to file my_new_data.xlsx</span>
+<span class="sd">            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+
+<span class="sd">        Download the exported file by :download:`clicking here &lt;assets/my_new_data.xlsx&gt;`.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">msg</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">fk_id_function</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_query_func_id</span><span class="p">(</span><span class="s2">&quot;ShapiroWilkNormalityTest&quot;</span><span class="p">)</span>
+            <span class="n">messages</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_get_messages</span><span class="p">(</span><span class="n">fk_id_function</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+            <span class="n">general</span><span class="o">.</span><span class="n">_display_one_line_attention</span><span class="p">(</span><span class="n">messages</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># quering</span>
+            <span class="n">fk_id_function</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_query_func_id</span><span class="p">(</span><span class="s2">&quot;shapiro_wilk_to_xlsx&quot;</span><span class="p">)</span>
+            <span class="n">messages</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_get_messages</span><span class="p">(</span><span class="n">fk_id_function</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+
+            <span class="c1"># batizando o nome do arquivo</span>
+            <span class="k">if</span> <span class="n">file_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;shapiro_wilk&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_str</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;file_name&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+                <span class="n">helpers</span><span class="o">.</span><span class="n">_check_forbidden_character</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s2">&quot;file_name&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+            <span class="c1">## verificando o sheet_names</span>
+            <span class="k">if</span> <span class="n">sheet_names</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">sheet_names</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="s2">&quot;shapiro_wilk&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;data&quot;</span>
+                <span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># verificando se é uma lista</span>
+                <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_list</span><span class="p">(</span><span class="n">sheet_names</span><span class="p">,</span> <span class="s2">&quot;sheet_names&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+                <span class="c1"># verificando se a lista tem 2 elementos</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sheet_names</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">messages</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                        <span class="c1"># &quot;query&quot;</span>
+                        <span class="n">sheet_names</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;  ---&gt;  </span><span class="si">{</span><span class="n">sheet</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">sheet</span> <span class="ow">in</span> <span class="n">sheet_names</span><span class="p">]</span>
+                        <span class="n">msg</span> <span class="o">=</span> <span class="p">[</span>
+                            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> &#39;sheet_names&#39; </span><span class="si">{</span><span class="n">messages</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sheet_names</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                            <span class="n">sheet_names</span>
+                            <span class="p">]</span>
+                        <span class="n">msg</span> <span class="o">=</span> <span class="n">general</span><span class="o">.</span><span class="n">_flatten_list_of_list_string</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                        <span class="n">msg</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                        <span class="n">general</span><span class="o">.</span><span class="n">_display_n_line_attention</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                        <span class="k">raise</span>
+                <span class="c1"># verficanado se cada elemento da lista é uma string valida</span>
+                <span class="k">for</span> <span class="n">sheet_name</span> <span class="ow">in</span> <span class="n">sheet_names</span><span class="p">:</span>
+                    <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_str</span><span class="p">(</span><span class="n">sheet_name</span><span class="p">,</span> <span class="s2">&quot;sheet_names&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+                    <span class="n">helpers</span><span class="o">.</span><span class="n">_check_forbidden_character</span><span class="p">(</span><span class="n">sheet_name</span><span class="p">,</span> <span class="s2">&quot;sheet_names&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+
+            <span class="c1">### pegando o df_summary e o df_data</span>
+            <span class="c1">## datafram com os dados</span>
+            <span class="n">df_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">x_exp</span><span class="p">)</span>
+
+            <span class="n">df_shapiro_wilk</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">messages</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">messages</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]])</span>
+            <span class="n">df_shapiro_wilk</span><span class="p">[</span><span class="n">messages</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span>
+                        <span class="n">messages</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="n">messages</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="n">messages</span><span class="p">[</span><span class="mi">7</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="n">messages</span><span class="p">[</span><span class="mi">8</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="n">messages</span><span class="p">[</span><span class="mi">9</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="p">]</span>
+
+            <span class="n">df_shapiro_wilk</span><span class="p">[</span><span class="n">messages</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">statistic</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">tabulated</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">p_value</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">alfa</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">msg</span><span class="p">,</span>
+                        <span class="p">]</span>
+
+            <span class="n">df_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">df_shapiro_wilk</span><span class="p">,</span> <span class="n">df_data</span><span class="p">]</span>
+            <span class="c1">#</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">_export_to_xlsx</span><span class="p">(</span><span class="n">df_list</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="n">file_name</span><span class="p">,</span> <span class="n">sheet_names</span><span class="o">=</span><span class="n">sheet_names</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">df_list</span></div>
+
+    <span class="c1"># with some test, with text, with database, wtih docstring</span>
+<div class="viewcode-block" id="ShapiroWilkNormalityTest.shapiro_wilk_to_csv"><a class="viewcode-back" href="../../../source/api/functions/distributions/shapiro_wilk.html#cup_of_coffee.functions.distributions.ShapiroWilkNormalityTest.shapiro_wilk_to_csv">[docs]</a>    <span class="k">def</span> <span class="nf">shapiro_wilk_to_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Export the data to csv file</span>
+<span class="sd">        This function is just a wraper around :doc:`pd.DataFrame.to_csv &lt;pandas:reference/api/pandas.DataFrame.to_csv&gt;` [1]_ to export ``.csv`` files.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        file_name : str, optional</span>
+<span class="sd">            The name of the file to be exported, without its extension (default is ``None``, which results in a file named ``&#39;shapiro_wilk.csv&#39;``)</span>
+<span class="sd">        sep : str of length 1, optional</span>
+<span class="sd">            Field delimiter for the output file (default is ``None``, which uses the comma (``&#39;,&#39;``)). This is the ``sep`` parameter of the ``pd.DataFrame.to_csv()`` pandas method.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        df : ``pd.DataFrame``</span>
+<span class="sd">            A DataFrame containing the data used to export the ``csv`` file.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The ``shapiro_wilk()`` method needs to be applied beforehand.</span>
+
+<span class="sd">        If there is a file with the same name passed through the ``file_name`` parameter in the current directory, the file will be exported with a different name.</span>
+
+<span class="sd">        References</span>
+<span class="sd">        ----------</span>
+<span class="sd">        .. [1] https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html</span>
+
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+
+<span class="sd">        &gt;&gt;&gt; from easy_stat.functions.distributions import ShapiroWilkNormalityTest</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; my_data = np.array([5.1, 4.9, 4.7, 4.6, 5.0, 5.4, 4.6, 5.0, 4.4, 4.9])</span>
+<span class="sd">        &gt;&gt;&gt; normality_shapiro_wilk = ShapiroWilkNormalityTest()</span>
+<span class="sd">        &gt;&gt;&gt; normality_shapiro_wilk.shapiro_wilk(my_data)</span>
+<span class="sd">        &gt;&gt;&gt; normality_shapiro_wilk.shapiro_wilk_to_csv()</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+<span class="sd">            The &#39;shapiro_wilk.csv&#39; was exported!</span>
+<span class="sd">            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+
+
+<span class="sd">        Download the exported file by :download:`clicking here &lt;assets/shapiro_wilk.csv&gt;`.</span>
+
+
+<span class="sd">        &gt;&gt;&gt; from easy_stat.functions.distributions import ShapiroWilkNormalityTest</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; my_data = np.array([5.1, 4.9, 4.7, 4.6, 5.0, 5.4, 4.6, 5.0, 4.4, 4.9])</span>
+<span class="sd">        &gt;&gt;&gt; normality_shapiro_wilk = ShapiroWilkNormalityTest(language=&#39;pt-br&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; normality_shapiro_wilk.shapiro_wilk(my_data)</span>
+<span class="sd">        &gt;&gt;&gt; normality_shapiro_wilk.shapiro_wilk_to_csv(file_name=&quot;my_data&quot;, sep=&#39;;&#39;)</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+<span class="sd">            O arquivo &#39;my_data.csv&#39; foi exportado!</span>
+<span class="sd">            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+
+<span class="sd">        Download the exported file by :download:`clicking here &lt;assets/my_data.csv&gt;`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">msg</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">fk_id_function</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_query_func_id</span><span class="p">(</span><span class="s2">&quot;ShapiroWilkNormalityTest&quot;</span><span class="p">)</span>
+            <span class="n">messages</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_get_messages</span><span class="p">(</span><span class="n">fk_id_function</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+            <span class="n">general</span><span class="o">.</span><span class="n">_display_one_line_attention</span><span class="p">(</span><span class="n">messages</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># batizando o nome do arquivo</span>
+            <span class="k">if</span> <span class="n">file_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;shapiro_wilk&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># checking the fle_name</span>
+                <span class="n">checkers</span><span class="o">.</span><span class="n">_check_is_str</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;file_name&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+                <span class="n">helpers</span><span class="o">.</span><span class="n">_check_forbidden_character</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s2">&quot;file_name&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+
+            <span class="c1"># quering</span>
+            <span class="n">fk_id_function</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_query_func_id</span><span class="p">(</span><span class="s2">&quot;shapiro_wilk_to_csv&quot;</span><span class="p">)</span>
+            <span class="n">messages</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_get_messages</span><span class="p">(</span><span class="n">fk_id_function</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">,</span> <span class="s2">&quot;shapiro_wilk_to_csv&quot;</span><span class="p">)</span>
+
+            <span class="c1"># criando o data frame para exportar via csv</span>
+            <span class="n">data_index</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_exp</span><span class="o">.</span><span class="n">size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+            <span class="n">x_exp</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x_exp</span><span class="p">)</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">messages</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">messages</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]])</span>
+            <span class="n">df</span><span class="p">[</span><span class="n">messages</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span>
+                        <span class="n">messages</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="n">messages</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="n">messages</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="n">messages</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="n">messages</span><span class="p">[</span><span class="mi">7</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="s1">&#39;-&#39;</span><span class="p">,</span>
+                        <span class="n">messages</span><span class="p">[</span><span class="mi">8</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="p">]</span> <span class="o">+</span> <span class="n">data_index</span>
+
+            <span class="n">df</span><span class="p">[</span><span class="n">messages</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">statistic</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">tabulated</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">p_value</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">alfa</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">msg</span><span class="p">,</span>
+                        <span class="s1">&#39;-&#39;</span><span class="p">,</span>
+                        <span class="n">messages</span><span class="p">[</span><span class="mi">9</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="p">]</span> <span class="o">+</span> <span class="n">x_exp</span>
+
+            <span class="c1"># exporting</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">_export_to_csv</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="n">file_name</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="n">sep</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">df</span></div>
+
+
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">msg</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">fk_id_function</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_query_func_id</span><span class="p">(</span><span class="s2">&quot;ShapiroWilkNormalityTest&quot;</span><span class="p">)</span>
+            <span class="n">messages</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_get_messages</span><span class="p">(</span><span class="n">fk_id_function</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">messages</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">msg</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">fk_id_function</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_query_func_id</span><span class="p">(</span><span class="s2">&quot;ShapiroWilkNormalityTest&quot;</span><span class="p">)</span>
+        <span class="n">messages</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">_get_messages</span><span class="p">(</span><span class="n">fk_id_function</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">messages</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span></div>
+
+
+
+
+
+<span class="c1"># Ooh, I see you, see you, see you every time https://youtu.be/rl9FFZZnWWo?t=35</span>
+</pre></div>
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022, Anderson Canteli.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>
